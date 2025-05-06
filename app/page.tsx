@@ -2,6 +2,7 @@
 'use client'; // Mark as Client Component
 
 import { useState, useEffect } from 'react';
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,15 +21,23 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { Loader2, Trash2, FileText, FileDown, MessageSquarePlus, Sparkles, LogIn, LogOut, Info, Send } from 'lucide-react'; // Icons
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import RichTextEditor from '@/components/RichTextEditor'; // <-- Import the new component
-import LoginForm from "@/components/LoginForm";
-import PatternDescriptionEditor from "@/components/PatternDescriptionEditor";
+//import PatternDescriptionEditor from "@/components/PatternDescriptionEditor";
 import ExampleList from "@/components/ExampleList";
 import PatternOptions from "@/components/PatternOptions";
 import PatternResults from "@/components/PatternResults";
 import AppHeader from "@/components/AppHeader";
 import RefinementChat from "@/components/RefinementChat";
 import TestTabs from "@/components/TestTabs";
+import dynamic from 'next/dynamic'; // <-- Import dynamic
 
+// --- Dynamically import the component using Tiptap ---
+const PatternDescriptionEditor = dynamic(
+  () => import('@/components/PatternDescriptionEditor'),
+  {
+    ssr: false, // <-- Disable SSR for this component
+    loading: () => <div className="h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 animate-pulse"></div> // Optional loading skeleton
+  }
+);
 
 // Example Component for dynamic inputs
 type ExampleTuple = [string, string];
@@ -80,11 +89,11 @@ function ExampleInput({ id, value, onChange, onRemove, labelPrefix, icon, isFirs
 // Main Page Component
 export default function Home() {
   // --- State Variables ---
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+/*   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
-  const [isLoginLoading, setIsLoginLoading] = useState(false);
+  const [isLoginLoading, setIsLoginLoading] = useState(false); */
 
   const [description, setDescription] = useState(''); // State now holds PLAIN TEXT
   const [patternExamples, setPatternExamples] = useState<ExampleTuple[]>([['', '']]);
@@ -141,52 +150,7 @@ export default function Home() {
     setDescription(plainText);
   };
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoginLoading(true);
-    setLoginError('');
-    try {
-      // In a real app, use POST to /api/login
-      // For this simple conversion, mimic the Streamlit logic directly (less secure)
-      
-      const expectedUser = process.env.NEXT_PUBLIC_APP_USERNAME || 'admin'; // Use NEXT_PUBLIC_ prefix if reading client-side
-      const expectedPass = process.env.NEXT_PUBLIC_APP_PASSWORD || 'password'; // Or better, check via a proper API route
-
-      // **Using a simple client-side check (Less Secure - for direct demo)**
-      // Replace with API call for better security
-      if (username === expectedUser && password === expectedPass) {
-        setIsLoggedIn(true);
-      } else {
-        setLoginError('Invalid credentials');
-      }
-
-      /* // Example using API route (Recommended)
-     const response = await fetch('/api/login', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({ username, password }),
-     });
-     if (response.ok) {
-         setIsLoggedIn(true);
-     } else {
-         const data = await response.json();
-         setLoginError(data.error || 'Login failed');
-     }
-     */
-    } catch (error) {
-      console.error("Login error:", error);
-      setLoginError('An error occurred during login.');
-    } finally {
-      setIsLoginLoading(false);
-    }
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUsername('');
-    setPassword('');
-    // Optionally clear all app state
-  };
+  
 
 
   const addExample = (type: 'pattern' | 'not_pattern') => {
@@ -494,32 +458,12 @@ export default function Home() {
   const handleRefinementSend = () => handleRefinement();
   const handleClearChat = () => clearChatHistory();
 
-  // --- Render Logic ---
-
-  // Login Form
-  if (!isLoggedIn) {
-    return (
-      <>
-        <LoginForm
-          username={username}
-          password={password}
-          onUsernameChange={(e) => setUsername(e.target.value)}
-          onPasswordChange={(e) => setPassword(e.target.value)}
-          onSubmit={handleLogin}
-          isLoading={isLoginLoading}
-          error={loginError}
-        />
-        <Toaster />
-      </>
-    );
-  }
-
   // Main Application UI
   return (
     <TooltipProvider>
       <div className="flex flex-col h-screen">
         {/* Header */}
-        <AppHeader onLogout={handleLogout} />
+        <AppHeader />
         {/* Main Content */}
         <main className="flex-1 overflow-hidden p-4 md:p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
