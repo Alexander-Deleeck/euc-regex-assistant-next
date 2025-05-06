@@ -19,8 +19,8 @@ const generateRequestSchema = z.object({
   prefix: z.string().optional(),
   suffix: z.string().optional(),
   caseSensitive: z.boolean(),
-  startPara: z.boolean(),
-  endPara: z.boolean(),
+  startPara: z.boolean().optional(), // Optional for now (UI hidden)
+  endPara: z.boolean().optional(),   // Optional for now (UI hidden)
 });
 
 // Type inference for the validated data
@@ -39,18 +39,25 @@ function generateBasePrompt(data: GenerateRequestData): string {
             .join('\n') + '\n\n';
     }
 
+    // Build options lines only if present
+    const optionsLines = [
+      `- Prefix: ${data.prefix || 'None'}`,
+      `- Suffix: ${data.suffix || 'None'}`,
+      `- Case-sensitive: ${data.caseSensitive}`,
+    ];
+    if (typeof data.startPara === 'boolean') {
+      optionsLines.push(`- Start of paragraph: ${data.startPara}`);
+    }
+    if (typeof data.endPara === 'boolean') {
+      optionsLines.push(`- End of paragraph: ${data.endPara}`);
+    }
+
     return `
 DESCRIPTION:
 ${data.description}
 
-${unpack(data.examples, 'MATCH')}
-${unpack(data.notExamples, 'DO NOT MATCH')}
-OPTIONS:
-- Prefix: ${data.prefix || 'None'}
-- Suffix: ${data.suffix || 'None'}
-- Case-sensitive: ${data.caseSensitive}
-- Start of paragraph: ${data.startPara}
-- End of paragraph: ${data.endPara}
+${unpack(data.examples, 'MATCH')}${unpack(data.notExamples, 'DO NOT MATCH')}OPTIONS:
+${optionsLines.join('\n')}
 
 `.replace(/\n\n\n+/g, '\n\n').trim(); // Clean up extra newlines
 }

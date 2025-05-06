@@ -130,6 +130,22 @@ const Toolbar: React.FC<ToolbarProps> = ({ editor }) => {
                 <SubscriptIcon className="h-4 w-4" />
             </Toggle>
 
+            {/* Non-breaking Space Button */}
+            <div className="relative group">
+                <Button
+                    variant="outline"
+                    size="sm"
+                    aria-label="Insert non-breaking space"
+                    type="button"
+                    onClick={() => insertSpecialCharacter('\u00A0')}
+                >
+                    nbsp
+                </Button>
+                <span className="absolute left-1/2 -translate-x-1/2 -translate-y-6 mt-1 w-max px-2 py-1 rounded bg-black text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                    Insert non-breaking space
+                </span>
+            </div>
+
             {/* Special Characters Dropdown */}
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
