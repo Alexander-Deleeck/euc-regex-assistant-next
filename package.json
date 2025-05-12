@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "translate-regex": "node node_modules/regex-translator/source/main.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -59,7 +60,9 @@
     "react-hook-form": "^7.56.2",
     "react-markdown": "^10.1.0",
     "react-resizable-panels": "^3.0.1",
+    "react-syntax-highlighter": "^15.6.1",
     "recharts": "^2.15.3",
+    "regex-translator": "^0.2.8",
     "remark-gfm": "^4.0.1",
     "sonner": "^2.0.3",
     "tailwind-merge": "^3.2.0",

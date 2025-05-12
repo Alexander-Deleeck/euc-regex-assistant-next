@@ -21,6 +21,7 @@ const generateRequestSchema = z.object({
   caseSensitive: z.boolean(),
   startPara: z.boolean().optional(), // Optional for now (UI hidden)
   endPara: z.boolean().optional(),   // Optional for now (UI hidden)
+  partOfWord: z.boolean().optional(), // New option for part/entire word
 });
 
 // Type inference for the validated data
@@ -41,16 +42,17 @@ function generateBasePrompt(data: GenerateRequestData): string {
 
     // Build options lines only if present
     const optionsLines = [
-      `- Prefix: ${data.prefix || 'None'}`,
-      `- Suffix: ${data.suffix || 'None'}`,
+      //`- Prefix: ${data.prefix || 'None'}`,
+      //`- Suffix: ${data.suffix || 'None'}`,
       `- Case-sensitive: ${data.caseSensitive}`,
+      `- Match ${data.partOfWord === false ? 'ENTIRE WORDS ONLY (use \\b word boundaries)' : 'part of words allowed (no word boundaries needed)'}`,
     ];
-    if (typeof data.startPara === 'boolean') {
+    /* if (typeof data.startPara === 'boolean') {
       optionsLines.push(`- Start of paragraph: ${data.startPara}`);
     }
     if (typeof data.endPara === 'boolean') {
       optionsLines.push(`- End of paragraph: ${data.endPara}`);
-    }
+    } */
 
     return `
 DESCRIPTION:

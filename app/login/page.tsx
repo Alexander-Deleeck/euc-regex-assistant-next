@@ -53,13 +53,18 @@ export default function LoginPage() {
             // the action threw NEXT_REDIRECT which was handled by Next.js
 
         } catch (err: any) {
-            // This catch block now primarily handles UNEXPECTED errors
-            // (e.g., network failure, server action crashing BEFORE returning)
-            // It should NOT catch the NEXT_REDIRECT error if the action re-throws it correctly.
+            // Check if this is a NEXT_REDIRECT error
+            if (err.message?.includes('NEXT_REDIRECT')) {
+                // Don't show error toast for redirects - this is expected behavior
+                console.log("Redirecting after successful login...");
+                return; // Exit early, let Next.js handle the redirect
+            }
+
+            // Handle actual errors
             console.error("Unexpected error during login attempt:", err);
             const errorMessage = "An unexpected error occurred on the client. Please try again.";
             setError(errorMessage);
-            toast.error("Login ", { description: errorMessage });
+            toast.error("Login Failed", { description: errorMessage });
         } finally {
             setIsLoading(false);
         }

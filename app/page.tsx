@@ -101,6 +101,7 @@ export default function Home() {
   const [prefix, setPrefix] = useState('');
   const [suffix, setSuffix] = useState('');
   const [caseSensitive, setCaseSensitive] = useState(false);
+  const [partOfWord, setPartOfWord] = useState(true); // Default to true for part-of-word matching
 
   const [isLoading, setIsLoading] = useState(false);
   const [findPattern, setFindPattern] = useState('');
@@ -182,64 +183,38 @@ export default function Home() {
   };
 
   const handleGenerate = async () => {
+    if (!description) return;
     setIsLoading(true);
     setFindPattern('');
     setReplacePattern('');
     setExplanation('');
-    setTestResults([]);
-    setSubstitutedText('');
-    setChatHistory([]); // Reset chat on new generation
     setBasePrompt('');
-    setTestTextError('');
-    setFileError('');
-    
-    console.log("Sending description to API:", description); // For debugging
-    
     try {
       const response = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          description: description, // Send the plain text description
-          examples: patternExamples.filter(ex => ex[0].trim() !== ''), // Send only non-empty examples
-          notExamples: patternNotExamples.filter(ex => ex[0].trim() !== ''),
+          description,
+          examples: patternExamples,
+          notExamples: patternNotExamples,
           prefix,
           suffix,
-          caseSensitive
+          caseSensitive,
+          partOfWord,
         }),
       });
-
       const data = await response.json();
-
       if (!response.ok) {
-        // Attempt to parse potential Zod error details
-        let errorDetails = data.details || data.error || 'Generation failed';
-        if (typeof errorDetails === 'object') {
-          try {
-            // Try to format Zod errors nicely if they are passed in 'details'
-            errorDetails = Object.entries(errorDetails._errors || {})
-              .map(([field, messages]) => `${field}: ${Array.isArray(messages) ? messages.join(', ') : messages}`)
-              .join('; ');
-            if (!errorDetails) errorDetails = JSON.stringify(data.details); // Fallback
-          } catch {
-            errorDetails = JSON.stringify(data.details); // Fallback
-          }
-        }
-        throw new Error(String(errorDetails)); // Ensure error message is a string
+        throw new Error(data.details || data.error || 'Failed to generate regex');
       }
-
       setFindPattern(data.findPattern);
       setReplacePattern(data.replacePattern);
       setExplanation(data.explanation);
-      setBasePrompt(data.basePrompt); // Store for refinement
-
-      toast.success("Regular expression generated.");
-
+      setBasePrompt(data.basePrompt);
+      setEditedFindPattern(data.findPattern);
+      setEditedReplacePattern(data.replacePattern);
     } catch (error: any) {
-      console.error("Generation Error:", error);
-      toast.error("Generation Failed", {
-        description: error.message,
-      });
+      toast.error('Generation Error', { description: error.message });
     } finally {
       setIsLoading(false);
     }
@@ -506,9 +481,11 @@ export default function Home() {
                       prefix={prefix}
                       suffix={suffix}
                       caseSensitive={caseSensitive}
+                      partOfWord={partOfWord}
                       onPrefixChange={(e) => setPrefix(e.target.value)}
                       onSuffixChange={(e) => setSuffix(e.target.value)}
                       onCaseSensitiveChange={setCaseSensitive}
+                      onPartOfWordChange={setPartOfWord}
                     />
                     <Button onClick={handleGenerate} disabled={isLoading || !description} className="w-full">
                       {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}

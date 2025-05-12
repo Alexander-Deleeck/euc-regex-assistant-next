@@ -10,26 +10,32 @@ import { Info } from "lucide-react";
  * @param {string} prefix - Regex prefix.
  * @param {string} suffix - Regex suffix.
  * @param {boolean} caseSensitive - Case sensitivity flag.
+ * @param {boolean} partOfWord - Part of word flag.
  * @param {(e: React.ChangeEvent<HTMLInputElement>) => void} onPrefixChange
  * @param {(e: React.ChangeEvent<HTMLInputElement>) => void} onSuffixChange
  * @param {(checked: boolean) => void} onCaseSensitiveChange
+ * @param {(checked: boolean) => void} onPartOfWordChange
  */
 export interface PatternOptionsProps {
   prefix: string;
   suffix: string;
   caseSensitive: boolean;
+  partOfWord: boolean;
   onPrefixChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSuffixChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onCaseSensitiveChange: (checked: boolean) => void;
+  onPartOfWordChange: (checked: boolean) => void;
 }
 
 const PatternOptions: React.FC<PatternOptionsProps> = ({
   prefix,
   suffix,
   caseSensitive,
+  partOfWord,
   onPrefixChange,
   onSuffixChange,
   onCaseSensitiveChange,
+  onPartOfWordChange,
 }) => (
   <div>
     <Label className="font-medium">Options</Label>
@@ -37,16 +43,24 @@ const PatternOptions: React.FC<PatternOptionsProps> = ({
       <Input placeholder="Prefix (regex)" value={prefix} onChange={onPrefixChange} />
       <Input placeholder="Suffix (regex)" value={suffix} onChange={onSuffixChange} />
     </div>
-    <div className="flex items-center space-x-2 mt-2">
-      <Switch id="case-sensitive" checked={caseSensitive} onCheckedChange={onCaseSensitiveChange} />
-      <Label htmlFor="case-sensitive">Case-sensitive</Label>
+    <div className="flex items-center space-x-4 mt-2">
+      <div className="flex items-center space-x-2">
+        <Switch id="case-sensitive" checked={caseSensitive} onCheckedChange={onCaseSensitiveChange} />
+        <Label htmlFor="case-sensitive">Case-sensitive</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <Switch id="part-of-word" checked={partOfWord} onCheckedChange={onPartOfWordChange} />
+        <Label htmlFor="part-of-word">{partOfWord ? 'Part of Word' : 'Entire Word'}</Label>
+      </div>
     </div>
     <Alert variant="default" className="bg-blue-50 border-blue-200 text-blue-800 mt-4">
       <Info className="h-4 w-4 !text-blue-700" />
       <AlertTitle className="text-sm">Note on Flags</AlertTitle>
       <AlertDescription className="text-xs">
         Generated patterns use JavaScript RegExp. The global 'g' flag is used by default for testing/replacement. The case-insensitive 'i' flag is controlled by the 'Case-sensitive' switch. {/* Start/end of paragraph options influence the pattern directly. */}<br />
-        <span className="block mt-1">JavaScript's <code>^</code> and <code>$</code> typically match start/end of <em>string</em> by default, unless the multiline <code>m</code> flag is used (which isn't automatically added here currently).</span>
+        <span className="block mt-1">JavaScript's <code>^</code> and <code>$</code> typically match start/end of <em>string</em> by default, unless the multiline <code>m</code> flag is used (which isn't automatically added here currently).</span><br />
+        <span className="block mt-1 font-semibold">Word Matching:</span>
+        <span className="block">Toggle "Part of Word" to allow matches inside words. Toggle off for entire word matches only (using <code>\b</code> word boundaries in regex).</span>
       </AlertDescription>
     </Alert>
   </div>
