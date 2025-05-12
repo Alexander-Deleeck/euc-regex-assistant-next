@@ -37,16 +37,20 @@ const PatternOptions: React.FC<PatternOptionsProps> = ({
         <Label htmlFor="part-of-word">{partOfWord ? 'Part of Word' : 'Entire Word'}</Label>
       </div>
     </div>
-    <Alert variant="default" className="bg-blue-50 border-blue-200 text-blue-800 mt-4">
+   {/*  <Alert variant="default" className="bg-blue-50 border-blue-200 text-blue-800 mt-4">
       <Info className="h-4 w-4 !text-blue-700" />
       <AlertTitle className="text-sm">Note on Generated Regex Patterns</AlertTitle>
-      <AlertDescription className="text-xs">
-        Generated patterns use JavaScript RegExp. The global 'g' flag is used by default for testing/replacement. The case-insensitive 'i' flag is controlled by the 'Case-sensitive' switch. {/* Start/end of paragraph options influence the pattern directly. */}<br />
+      <AlertDescription className="mt-1 text-sm">
+        The generated regex patterns use the JavaScript RegEx Syntax, while OJ-formatter and other EUC tools work with .NET RegEx Syntax.
+        <br />
+        <br />
+        Therefore, if you want to use the generated regex pattern with OJ-formatter or other EUC tools, you will need to convert the pattern to .NET RegEx Syntax by pressing the "Convert to .NET RegEx" button.
+        The global 'g' flag is used by default for testing/replacement. The case-insensitive 'i' flag is controlled by the 'Case-sensitive' switch. 
         <span className="block mt-1">JavaScript's <code>^</code> and <code>$</code> typically match start/end of <em>string</em> by default, unless the multiline <code>m</code> flag is used (which isn't automatically added here currently).</span><br />
         <span className="block mt-1 font-semibold">Word Matching:</span>
         <span className="block">Toggle "Part of Word" to allow matches inside words. Toggle off for entire word matches only (using <code>\b</code> word boundaries in regex).</span>
       </AlertDescription>
-    </Alert>
+    </Alert> */}
   </div>
 );
 

@@ -67,7 +67,6 @@ const TestTabs: React.FC<TestTabsProps> = (props) => {
 
   return (
     <>
-      <h2 className="text-xl font-semibold mb-4 text-violet-700">Test</h2>
       <Tabs defaultValue="text" className="flex-shrink-0">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="text">Text Test</TabsTrigger>

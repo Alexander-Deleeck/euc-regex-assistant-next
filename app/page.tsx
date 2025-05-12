@@ -29,6 +29,8 @@ import AppHeader from "@/components/AppHeader";
 import RefinementChat from "@/components/RefinementChat";
 import TestTabs from "@/components/TestTabs";
 import dynamic from 'next/dynamic'; // <-- Import dynamic
+import ConvertSyntaxButton from '@/components/ConvertSyntaxButton';
+import ConvertSyntaxResults from '@/components/ConvertSyntaxResults';
 
 // --- Dynamically import the component using Tiptap ---
 const PatternDescriptionEditor = dynamic(
@@ -128,6 +130,10 @@ export default function Home() {
   const [refinementInput, setRefinementInput] = useState('');
   const [chatHistory, setChatHistory] = useState<{ role: 'user' | 'assistant'; content: string }[]>([]);
   const [isRefining, setIsRefining] = useState(false);
+
+  // .NET regex conversion state
+  const [dotnetFind, setDotnetFind] = useState('');
+  const [dotnetReplace, setDotnetReplace] = useState('');
 
   //const { toast } = useToast();
 
@@ -429,19 +435,24 @@ export default function Home() {
   const handleRefinementSend = () => handleRefinement();
   const handleClearChat = () => clearChatHistory();
 
+  // Handler for conversion result
+  const handleConvertResult = (result: { dotnetFind: string; dotnetReplace: string }) => {
+    setDotnetFind(result.dotnetFind);
+    setDotnetReplace(result.dotnetReplace);
+  };
+
   // Main Application UI
   return (
     <TooltipProvider>
-      <div className="flex flex-col h-screen">
-        {/* Header */}
-        <AppHeader />
-        {/* Main Content */}
-        <main className="flex-1 overflow-hidden p-4 md:p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
-            {/* Left Column: Inputs & Refinement */}
-            <ScrollArea className="max-h-[48vw] pr-3">
+      <div className="flex flex-col h-screen"> {/* Parent takes full screen height */}
+        <AppHeader /> {/* Fixed height */}
+        <main className="flex-1 overflow-hidden p-4 md:p-6"> {/* flex-1 allows main to grow, overflow-hidden is important */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full"> {/* Grid takes full height of main */}
+
+            {/* Left Column */}
+            <ScrollArea className="h-full pr-3"> {/* h-full makes it take full grid cell height */}
               <div className="space-y-6">
-                {/* Input Section */}
+                {/* Input Section Card */}
                 <Card>
                   <CardHeader>
                     <CardTitle>1. Describe Your Pattern</CardTitle>
@@ -452,25 +463,19 @@ export default function Home() {
                       onChange={handleDescriptionChange}
                       placeholder="Eg. Replace 'one' with '1' followed by a non-breaking space..."
                     />
-                    {/* Match Examples */}
                     <ExampleList
                       examples={patternExamples}
                       onChange={handlePatternExampleChange}
                       onRemove={handlePatternExampleRemove}
                       onAdd={handlePatternExampleAdd}
-                      labelPrefix="Match"
-                      icon="✔️"
-                      addButtonLabel="Add Match Example"
+                      labelPrefix="Match" icon="✔️" addButtonLabel="Add Match Example"
                     />
-                    {/* No Match Examples */}
                     <ExampleList
                       examples={patternNotExamples}
                       onChange={handlePatternNotExampleChange}
                       onRemove={handlePatternNotExampleRemove}
                       onAdd={handlePatternNotExampleAdd}
-                      labelPrefix="No Match"
-                      icon="❌"
-                      addButtonLabel="Add No Match Example"
+                      labelPrefix="No Match" icon="❌" addButtonLabel="Add No Match Example"
                     />
                     <Separator />
                     <PatternOptions
@@ -485,68 +490,108 @@ export default function Home() {
                     </Button>
                   </CardContent>
                 </Card>
-                {/* Refinement Section */}
+                {/* Refinement Section Accordion */}
                 <RefinementChat
-                  chatHistory={chatHistory}
-                  isRefining={isRefining}
-                  refinementInput={refinementInput}
-                  onInputChange={handleRefinementInputChange}
-                  onRefine={handleRefinementSend}
-                  onClear={handleClearChat}
+                  chatHistory={chatHistory} isRefining={isRefining} refinementInput={refinementInput}
+                  onInputChange={handleRefinementInputChange} onRefine={handleRefinementSend} onClear={handleClearChat}
                   disabled={!findPattern && !isLoading}
                 />
               </div>
             </ScrollArea>
-            {/* Right Column: Results & Testing */}
-            <div className="max-h-[48vw] overflow-y-scroll bg-gray-50/50 border rounded-lg p-4 md:p-6 flex flex-col">
-              <h2 className="text-xl font-semibold mb-4 text-red-600">Results</h2>
-              <ScrollArea className="flex-1 pr-3 -mr-3 mb-6">
-                {isLoading && (
-                  <div className="flex items-center justify-center h-40">
-                    <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-                  </div>
+
+            {/* Right Column: Structured with a single ScrollArea and Cards within a flex column */}
+            <div className="h-full flex flex-col gap-6 overflow-hidden"> {/* Outer container for right column, also h-full */}
+              <ScrollArea className="flex-1 min-h-0"> {/* This ScrollArea takes remaining space and scrolls its content */}
+                <div className="space-y-4 p-1"> {/* Inner container for spacing cards */}
+
+                  {/* Section 1: Generated Results */}
+                  <Card className="flex-shrink-0"> {/* Prevent this card from shrinking too much if content is small */}
+                    <CardHeader>
+                      <CardTitle className="text-xl text-red-600">Generated JavaScript Regex</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                    {isLoading && (
+                      <div className="flex items-center justify-center h-40">
+                        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+                      </div>
+                    )}
+                    {!isLoading && findPattern && (
+                      <PatternResults
+                        findPattern={findPattern}
+                        replacePattern={replacePattern}
+                        explanation={explanation}
+                        editedFindPattern={editedFindPattern}
+                        editedReplacePattern={editedReplacePattern}
+                        onFindChange={(e) => setEditedFindPattern(e.target.value)}
+                        onReplaceChange={(e) => setEditedReplacePattern(e.target.value)}
+                        caseSensitive={caseSensitive}
+                      />
+                    )}
+                    {!isLoading && !findPattern && (
+                      <p className="text-muted-foreground text-center py-10">
+                        Generate a pattern to see results here.
+                      </p>
+                    )}
+                  </CardContent>
+                </Card>
+
+                {/* Section 2: Test Utilities */}
+                {(!isLoading && findPattern) && ( // Only show if a pattern has been generated
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-xl text-violet-700">Test Pattern</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <TestTabs
+                        testText={testText}
+                        onTestTextChange={(e) => setTestText(e.target.value)}
+                        onTestText={handleTestText}
+                        isTestingText={isTestingText}
+                        testResults={testResults}
+                        substitutedText={substitutedText}
+                        testTextError={testTextError}
+                        editedFindPattern={editedFindPattern} // Pass the editable one
+                        editedReplacePattern={editedReplacePattern} // Pass the editable one
+                        uploadedFile={uploadedFile}
+                        onFileChange={handleFileChange}
+                        onProcessFile={handleProcessFile}
+                        isFileProcessing={isFileProcessing}
+                        fileMatches={fileMatches}
+                        fileSubstitutedText={fileSubstitutedText}
+                        fileError={fileError}
+                        onDownloadSubstitutedFile={handleDownloadSubstitutedFile}
+                      />
+                    </CardContent>
+                  </Card>
                 )}
-                {!isLoading && findPattern && (
-                  <PatternResults
-                    findPattern={findPattern}
-                    replacePattern={replacePattern}
-                    explanation={explanation}
-                    editedFindPattern={editedFindPattern}
-                    editedReplacePattern={editedReplacePattern}
-                    onFindChange={(e) => setEditedFindPattern(e.target.value)}
-                    onReplaceChange={(e) => setEditedReplacePattern(e.target.value)}
-                    caseSensitive={caseSensitive}
-                  />
+
+                {/* Section 3: .NET Conversion Utilities */}
+                {(!isLoading && findPattern) && ( // Only show if a pattern has been generated
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-xl text-blue-700">Convert Syntax</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ConvertSyntaxButton
+                        findPattern={editedFindPattern} // Use the potentially edited JS pattern
+                        replacePattern={editedReplacePattern}
+                        description={description} // Or send basePrompt if more relevant
+                        onResult={handleConvertResult}
+                        disabled={!editedFindPattern} // Disable if no JS pattern
+                      />
+                      <ConvertSyntaxResults
+                        dotnetFind={dotnetFind}
+                        dotnetReplace={dotnetReplace}
+                      />
+                    </CardContent>
+                  </Card>
                 )}
-                {!isLoading && !findPattern && (
-                  <p className="text-muted-foreground text-center py-10">Generate a pattern to see results here.</p>
-                )}
-              </ScrollArea>
-              {/* Test Section */}
-              <TestTabs
-                testText={testText}
-                onTestTextChange={(e) => setTestText(e.target.value)}
-                onTestText={handleTestText}
-                isTestingText={isTestingText}
-                testResults={testResults}
-                substitutedText={substitutedText}
-                testTextError={testTextError}
-                editedFindPattern={editedFindPattern}
-                editedReplacePattern={editedReplacePattern}
-                uploadedFile={uploadedFile}
-                onFileChange={handleFileChange}
-                onProcessFile={handleProcessFile}
-                isFileProcessing={isFileProcessing}
-                fileMatches={fileMatches}
-                fileSubstitutedText={fileSubstitutedText}
-                fileError={fileError}
-                onDownloadSubstitutedFile={handleDownloadSubstitutedFile}
-              />
-              {/* TODO: Further modularize TextTest, FileTest, DownloadButton as subcomponents of TestTabs */}
-            </div>
+              </div>
+            </ScrollArea>
+          </div>
           </div>
         </main>
-        {/* <Toaster /> */}
+        <Toaster richColors position="top-right" />
       </div>
     </TooltipProvider>
   );

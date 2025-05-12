@@ -62,10 +62,10 @@ const PatternResults: React.FC<PatternResultsProps> = ({
       />
     </div>
     {/* Explanation */}
-    <div className="max-h-[400px] overflow-y-scroll">
+    <div className="max-h-[400px] overflow-y-scroll"> {/* Or adjust max-h / remove if handled by outer scroll */}
       <Label className="font-medium">Explanation</Label>
       <Card className="mt-1">
-        <CardContent className="p-3 text-sm prose whitespace-pre-line prose-sm max-w-none">
+        <CardContent className="p-3 text-sm max-w-none whitespace-normal"> {/* Ensure whitespace-normal */}
           <MarkdownRenderer content={explanation || "Explanation will appear here."} />
         </CardContent>
       </Card>

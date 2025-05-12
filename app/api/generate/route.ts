@@ -119,11 +119,15 @@ export async function POST(request: NextRequest) {
              messages: [
                 {
                     "role": "system",
-                    "content": `You are an expert in JavaScript Regular Expressions. Here is my situation,\n${basePrompt}. The solution I got from you was:\nFind: ${findPattern}\nReplace: ${replacePattern}.`,
+                    "content": `You are an expert in explaining JavaScript Regular Expressions. \n
+                    You will be asked to explain the regex patterns. Write an explanation in markdown format wherein you explain both the find and replace patterns by breaking them down into their components and explaining each component. Only write the explanation in your response, and do not include any other text such as an introduction, conclusion or greeting.
+                    Note: write your response in github flavored markdown.`,
                 },
                 {
                     "role": "user",
-                    "content": "Showcase the JavaScript regex solution (using /pattern/flags format for find pattern if applicable, and showing the replace string) and briefly explain the solution to me. Enclose any formulas or code snippets in ```.",
+                    "content": `Can you please explain these regex patterns for me? Here is the description I used to generate the regex patterns:\n${data.description}. The generated find and replace patterns are:\nFind: ${findPattern}\nReplace: ${replacePattern}.`
+                    
+                    /* "Showcase the JavaScript regex solution (using /pattern/flags format for find pattern if applicable, and showing the replace string) and briefly explain the solution to me. Enclose any formulas or code snippets in ```.", */
                 },
             ],
       temperature: 0.3,
@@ -132,7 +136,7 @@ export async function POST(request: NextRequest) {
     console.log("Azure OpenAI Explanation Response received.");
 
     const explanation = explanationResponse.choices[0]?.message?.content?.trim() ?? 'Could not generate explanation.';
-    console.log("Generated Explanation (truncated):", explanation.substring(0, 100) + "...");
+    console.log("Generated Explanation (truncated):", explanation);
 
     // Return the successful response
     return NextResponse.json({
