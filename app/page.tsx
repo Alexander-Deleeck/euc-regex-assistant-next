@@ -31,6 +31,8 @@ import TestTabs from "@/components/TestTabs";
 import dynamic from 'next/dynamic'; // <-- Import dynamic
 import ConvertSyntaxButton from '@/components/ConvertSyntaxButton';
 import ConvertSyntaxResults from '@/components/ConvertSyntaxResults';
+import { PanelLeftOpen, PanelLeftClose } from 'lucide-react'; // Added sidebar icons
+import Sidebar from '@/components/Sidebar'; // NEW
 
 // --- Dynamically import the component using Tiptap ---
 const PatternDescriptionEditor = dynamic(
@@ -97,6 +99,7 @@ export default function Home() {
   const [loginError, setLoginError] = useState('');
   const [isLoginLoading, setIsLoginLoading] = useState(false); */
 
+  const [sidebarOpen, setSidebarOpen] = useState(true); // State for sidebar visibility
   const [description, setDescription] = useState(''); // State now holds PLAIN TEXT
   const [patternExamples, setPatternExamples] = useState<ExampleTuple[]>([['', '']]);
   const [patternNotExamples, setPatternNotExamples] = useState<ExampleTuple[]>([['', '']]);
@@ -441,154 +444,118 @@ export default function Home() {
     setDotnetReplace(result.dotnetReplace);
   };
 
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   // Main Application UI
   return (
     <TooltipProvider>
       <div className="flex flex-col h-screen"> {/* Parent takes full screen height */}
-        <AppHeader /> {/* Fixed height */}
-        <main className="flex-1 overflow-hidden p-4 md:p-6"> {/* flex-1 allows main to grow, overflow-hidden is important */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full"> {/* Grid takes full height of main */}
+        <AppHeader isSidebarOpen={sidebarOpen} onToggleSidebar={toggleSidebar} /> {/* Fixed height */}
+        <main className="flex flex-1 overflow-hidden"> {/* Main content area is flex now */}
+          <Sidebar
+            isOpen={sidebarOpen}
+            toggle={toggleSidebar}
+            description={description}
+            onDescriptionChange={handleDescriptionChange}
+            patternExamples={patternExamples}
+            onPatternExampleChange={handlePatternExampleChange}
+            onPatternExampleRemove={handlePatternExampleRemove}
+            onPatternExampleAdd={handlePatternExampleAdd}
+            patternNotExamples={patternNotExamples}
+            onPatternNotExampleChange={handlePatternNotExampleChange}
+            onPatternNotExampleRemove={handlePatternNotExampleRemove}
+            onPatternNotExampleAdd={handlePatternNotExampleAdd}
+            caseSensitive={caseSensitive}
+            partOfWord={partOfWord}
+            onCaseSensitiveChange={setCaseSensitive}
+            onPartOfWordChange={setPartOfWord}
+            onGenerate={handleGenerate}
+            isLoadingGenerate={isLoading}
+            chatHistory={chatHistory}
+            isRefining={isRefining}
+            refinementInput={refinementInput}
+            onRefinementInputChange={handleRefinementInputChange}
+            onRefine={handleRefinementSend}
+            onClearChat={clearChatHistory}
+            isPatternGenerated={!!findPattern}
+          />
 
-            {/* Left Column */}
-            <ScrollArea className="h-full pr-3"> {/* h-full makes it take full grid cell height */}
-              <div className="space-y-6">
-                {/* Input Section Card */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>1. Describe Your Pattern</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <PatternDescriptionEditor
-                      initialContent={description}
-                      onChange={handleDescriptionChange}
-                      placeholder="Eg. Replace 'one' with '1' followed by a non-breaking space..."
-                    />
-                    <ExampleList
-                      examples={patternExamples}
-                      onChange={handlePatternExampleChange}
-                      onRemove={handlePatternExampleRemove}
-                      onAdd={handlePatternExampleAdd}
-                      labelPrefix="Match" icon="✔️" addButtonLabel="Add Match Example"
-                    />
-                    <ExampleList
-                      examples={patternNotExamples}
-                      onChange={handlePatternNotExampleChange}
-                      onRemove={handlePatternNotExampleRemove}
-                      onAdd={handlePatternNotExampleAdd}
-                      labelPrefix="No Match" icon="❌" addButtonLabel="Add No Match Example"
-                    />
-                    <Separator />
-                    <PatternOptions
-                      caseSensitive={caseSensitive}
-                      partOfWord={partOfWord}
-                      onCaseSensitiveChange={setCaseSensitive}
-                      onPartOfWordChange={setPartOfWord}
-                    />
-                    <Button onClick={handleGenerate} disabled={isLoading || !description} className="w-full">
-                      {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-                      Generate Regular Expression
-                    </Button>
-                  </CardContent>
-                </Card>
-                {/* Refinement Section Accordion */}
-                <RefinementChat
-                  chatHistory={chatHistory} isRefining={isRefining} refinementInput={refinementInput}
-                  onInputChange={handleRefinementInputChange} onRefine={handleRefinementSend} onClear={handleClearChat}
-                  disabled={!findPattern && !isLoading}
-                />
-              </div>
-            </ScrollArea>
+          {/* Main Content Area (Right side of sidebar) */}
+          <div className="flex-1 flex flex-col overflow-hidden p-4 md:p-6">
+            {/* Button to toggle sidebar (visible on md screens and up) */}
+            <div className="mb-2 md:hidden"> {/* Only show on mobile if sidebar is closed, or always show toggle */}
+              <Button variant="outline" size="icon" onClick={toggleSidebar} className="mb-2">
+                {sidebarOpen ? <PanelLeftClose className="h-5 w-5" /> : <PanelLeftOpen className="h-5 w-5" />}
+              </Button>
+            </div>
+            {/* If you want a persistent toggle button on desktop in the header,
+                 pass toggleSidebar to AppHeader and implement it there.
+                 Or place a toggle button here for desktop if sidebar is not static */}
 
-            {/* Right Column: Structured with a single ScrollArea and Cards within a flex column */}
-            <div className="h-full flex flex-col gap-6 overflow-hidden"> {/* Outer container for right column, also h-full */}
-              <ScrollArea className="flex-1 min-h-0"> {/* This ScrollArea takes remaining space and scrolls its content */}
-                <div className="space-y-4 p-1"> {/* Inner container for spacing cards */}
-
-                  {/* Section 1: Generated Results */}
-                  <Card className="flex-shrink-0"> {/* Prevent this card from shrinking too much if content is small */}
+            <div className="grid md:grid-cols-2 gap-6 flex-1 overflow-hidden">
+              {/* Left part of the main content (Results) */}
+              <ScrollArea className="h-full">
+                <div className="space-y-4 p-1">
+                  <Card>
                     <CardHeader>
                       <CardTitle className="text-xl text-red-600">Generated JavaScript Regex</CardTitle>
                     </CardHeader>
                     <CardContent>
-                    {isLoading && (
-                      <div className="flex items-center justify-center h-40">
-                        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-                      </div>
-                    )}
-                    {!isLoading && findPattern && (
-                      <PatternResults
-                        findPattern={findPattern}
-                        replacePattern={replacePattern}
-                        explanation={explanation}
-                        editedFindPattern={editedFindPattern}
-                        editedReplacePattern={editedReplacePattern}
-                        onFindChange={(e) => setEditedFindPattern(e.target.value)}
-                        onReplaceChange={(e) => setEditedReplacePattern(e.target.value)}
-                        caseSensitive={caseSensitive}
-                      />
-                    )}
-                    {!isLoading && !findPattern && (
-                      <p className="text-muted-foreground text-center py-10">
-                        Generate a pattern to see results here.
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Section 2: Test Utilities */}
-                {(!isLoading && findPattern) && ( // Only show if a pattern has been generated
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-xl text-violet-700">Test Pattern</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <TestTabs
-                        testText={testText}
-                        onTestTextChange={(e) => setTestText(e.target.value)}
-                        onTestText={handleTestText}
-                        isTestingText={isTestingText}
-                        testResults={testResults}
-                        substitutedText={substitutedText}
-                        testTextError={testTextError}
-                        editedFindPattern={editedFindPattern} // Pass the editable one
-                        editedReplacePattern={editedReplacePattern} // Pass the editable one
-                        uploadedFile={uploadedFile}
-                        onFileChange={handleFileChange}
-                        onProcessFile={handleProcessFile}
-                        isFileProcessing={isFileProcessing}
-                        fileMatches={fileMatches}
-                        fileSubstitutedText={fileSubstitutedText}
-                        fileError={fileError}
-                        onDownloadSubstitutedFile={handleDownloadSubstitutedFile}
-                      />
+                      {isLoading && <div className="flex items-center justify-center h-40"><Loader2 className="h-8 w-8 animate-spin text-muted-foreground" /></div>}
+                      {!isLoading && findPattern && (
+                        <PatternResults
+                          findPattern={findPattern} replacePattern={replacePattern} explanation={explanation}
+                          editedFindPattern={editedFindPattern} editedReplacePattern={editedReplacePattern}
+                          onFindChange={(e) => setEditedFindPattern(e.target.value)}
+                          onReplaceChange={(e) => setEditedReplacePattern(e.target.value)}
+                          caseSensitive={caseSensitive}
+                        />
+                      )}
+                      {!isLoading && !findPattern && <p className="text-muted-foreground text-center py-10">Configure and generate a pattern.</p>}
                     </CardContent>
                   </Card>
-                )}
+                </div>
+              </ScrollArea>
 
-                {/* Section 3: .NET Conversion Utilities */}
-                {(!isLoading && findPattern) && ( // Only show if a pattern has been generated
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-xl text-blue-700">Convert Syntax</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ConvertSyntaxButton
-                        findPattern={editedFindPattern} // Use the potentially edited JS pattern
-                        replacePattern={editedReplacePattern}
-                        description={description} // Or send basePrompt if more relevant
-                        onResult={handleConvertResult}
-                        disabled={!editedFindPattern} // Disable if no JS pattern
-                      />
-                      <ConvertSyntaxResults
-                        dotnetFind={dotnetFind}
-                        dotnetReplace={dotnetReplace}
-                      />
-                    </CardContent>
-                  </Card>
-                )}
-              </div>
-            </ScrollArea>
-          </div>
+              {/* Right part of the main content (Test and Convert) */}
+              <ScrollArea className="h-full">
+                <div className="space-y-6 p-1">
+                  {(!isLoading && findPattern) && (
+                    <>
+                      <Card>
+                        <CardHeader><CardTitle className="text-xl text-violet-700">Test Pattern</CardTitle></CardHeader>
+                        <CardContent>
+                          <TestTabs
+                            testText={testText} onTestTextChange={(e) => setTestText(e.target.value)} onTestText={handleTestText}
+                            isTestingText={isTestingText} testResults={testResults} substitutedText={substitutedText} testTextError={testTextError}
+                            editedFindPattern={editedFindPattern} editedReplacePattern={editedReplacePattern}
+                            uploadedFile={uploadedFile} onFileChange={handleFileChange} onProcessFile={handleProcessFile}
+                            isFileProcessing={isFileProcessing} fileMatches={fileMatches} fileSubstitutedText={fileSubstitutedText} fileError={fileError}
+                            onDownloadSubstitutedFile={handleDownloadSubstitutedFile}
+                          />
+                        </CardContent>
+                      </Card>
+                      <Card>
+                        <CardHeader><CardTitle className="text-xl text-blue-700">Convert Syntax</CardTitle></CardHeader>
+                        <CardContent>
+                          <ConvertSyntaxButton
+                            findPattern={editedFindPattern} replacePattern={editedReplacePattern} description={description}
+                            onResult={handleConvertResult} disabled={!editedFindPattern}
+                          />
+                          <ConvertSyntaxResults dotnetFind={dotnetFind} dotnetReplace={dotnetReplace} />
+                        </CardContent>
+                      </Card>
+                    </>
+                  )}
+                  {(!isLoading && !findPattern) && (
+                    <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
+                      <Sparkles className="h-16 w-16 mb-4 opacity-50" />
+                      <p>Generate a pattern to enable testing and conversion tools.</p>
+                    </div>
+                  )}
+                </div>
+              </ScrollArea>
+            </div>
           </div>
         </main>
         <Toaster richColors position="top-right" />
