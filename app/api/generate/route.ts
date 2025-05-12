@@ -16,8 +16,6 @@ const generateRequestSchema = z.object({
   description: z.string().min(1, "Description cannot be empty"),
   examples: z.array(z.tuple([z.string(), z.string()])).optional(),
   notExamples: z.array(z.tuple([z.string(), z.string()])).optional(),
-  prefix: z.string().optional(),
-  suffix: z.string().optional(),
   caseSensitive: z.boolean(),
   startPara: z.boolean().optional(), // Optional for now (UI hidden)
   endPara: z.boolean().optional(),   // Optional for now (UI hidden)
@@ -42,8 +40,6 @@ function generateBasePrompt(data: GenerateRequestData): string {
 
     // Build options lines only if present
     const optionsLines = [
-      //`- Prefix: ${data.prefix || 'None'}`,
-      //`- Suffix: ${data.suffix || 'None'}`,
       `- Case-sensitive: ${data.caseSensitive}`,
       `- Match ${data.partOfWord === false ? 'ENTIRE WORDS ONLY (use \\b word boundaries)' : 'part of words allowed (no word boundaries needed)'}`,
     ];

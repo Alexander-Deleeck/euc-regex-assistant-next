@@ -98,8 +98,6 @@ export default function Home() {
   const [description, setDescription] = useState(''); // State now holds PLAIN TEXT
   const [patternExamples, setPatternExamples] = useState<ExampleTuple[]>([['', '']]);
   const [patternNotExamples, setPatternNotExamples] = useState<ExampleTuple[]>([['', '']]);
-  const [prefix, setPrefix] = useState('');
-  const [suffix, setSuffix] = useState('');
   const [caseSensitive, setCaseSensitive] = useState(false);
   const [partOfWord, setPartOfWord] = useState(true); // Default to true for part-of-word matching
 
@@ -197,8 +195,6 @@ export default function Home() {
           description,
           examples: patternExamples,
           notExamples: patternNotExamples,
-          prefix,
-          suffix,
           caseSensitive,
           partOfWord,
         }),
@@ -478,12 +474,8 @@ export default function Home() {
                     />
                     <Separator />
                     <PatternOptions
-                      prefix={prefix}
-                      suffix={suffix}
                       caseSensitive={caseSensitive}
                       partOfWord={partOfWord}
-                      onPrefixChange={(e) => setPrefix(e.target.value)}
-                      onSuffixChange={(e) => setSuffix(e.target.value)}
                       onCaseSensitiveChange={setCaseSensitive}
                       onPartOfWordChange={setPartOfWord}
                     />
