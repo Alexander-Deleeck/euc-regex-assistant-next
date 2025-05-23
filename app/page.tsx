@@ -481,7 +481,7 @@ export default function Home() {
           />
 
           {/* Main Content Area (Right side of sidebar) */}
-          <div className="flex-1 flex flex-col overflow-hidden p-4 md:p-6">
+          <div className="flex-1 flex flex-col overflow-hidden p-4 md:p-3">
             {/* Button to toggle sidebar (visible on md screens and up) */}
             <div className="mb-2 md:hidden"> {/* Only show on mobile if sidebar is closed, or always show toggle */}
               <Button variant="outline" size="icon" onClick={toggleSidebar} className="mb-2">
@@ -498,7 +498,7 @@ export default function Home() {
                 <div className="space-y-4 p-1">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-xl text-red-600">Generated JavaScript Regex</CardTitle>
+                      <CardTitle className="text-xl text-red-600">Generated JavaScript RegEx</CardTitle>
                     </CardHeader>
                     <CardContent>
                       {isLoading && <div className="flex items-center justify-center h-40"><Loader2 className="h-8 w-8 animate-spin text-muted-foreground" /></div>}
@@ -518,7 +518,7 @@ export default function Home() {
               </ScrollArea>
 
               {/* Right part of the main content (Test and Convert) */}
-              <ScrollArea className="h-full">
+              <div className="h-full overflow-y-auto">
                 <div className="space-y-6 p-1">
                   {(!isLoading && findPattern) && (
                     <>
@@ -549,12 +549,12 @@ export default function Home() {
                   )}
                   {(!isLoading && !findPattern) && (
                     <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
-                      <Sparkles className="h-16 w-16 mb-4 opacity-50" />
+                      <Sparkles className="h-16 w-16 mt-10 mb-4 opacity-50" />
                       <p>Generate a pattern to enable testing and conversion tools.</p>
                     </div>
                   )}
                 </div>
-              </ScrollArea>
+              </div>
             </div>
           </div>
         </main>
