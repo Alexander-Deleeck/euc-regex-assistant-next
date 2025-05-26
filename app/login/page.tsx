@@ -1,7 +1,7 @@
 // app/login/page.tsx
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from 'next/navigation';
 import LoginForm from "@/components/LoginForm";
 import { handleCredentialsLogin } from "@/app/actions/auth.actions";
@@ -71,28 +71,27 @@ export default function LoginPage() {
     };
 
     return (
-        <>
-            {/* Display error state which might be set by initial load or submit handler */}
-            {/* {error && !isLoading && ( // Avoid showing stale error during loading
-                <div className="flex justify-center pt-4 px-4">
-                    <Alert variant="destructive" className="max-w-sm">
-                        <AlertTitle>Login Failed</AlertTitle>
-                        <AlertDescription>{error}</AlertDescription>
-                    </Alert>
-                </div>
-            )} */}
-            <LoginForm
-                username={username}
-                password={password}
-                onUsernameChange={(e) => setUsername(e.target.value)}
-                onPasswordChange={(e) => setPassword(e.target.value)}
-                onSubmit={handleSubmit}
-                isLoading={isLoading}
-            // Don't pass the error prop directly to LoginForm if it displays its own based on state
-            // error={error || undefined} // This might cause double display
-            />
-            {/* Ensure Toaster is rendered */}
-            <Toaster richColors position="top-right" />
-        </>
+        <Suspense fallback={<div className="flex justify-center items-center h-32">Loading...</div>}>
+            <>
+                {/* Display error state which might be set by initial load or submit handler */}
+                {/* {error && !isLoading && ( // Avoid showing stale error during loading
+                    <div className="flex justify-center pt-4 px-4">
+                        <Alert variant="destructive" className="max-w-sm">
+                            <AlertTitle>Login Failed</AlertTitle>
+                            <AlertDescription>{error}</AlertDescription>
+                        </Alert>
+                    </div>
+                )} */}
+                <LoginForm
+                    username={username}
+                    password={password}
+                    onUsernameChange={(e) => setUsername(e.target.value)}
+                    onPasswordChange={(e) => setPassword(e.target.value)}
+                    onSubmit={handleSubmit}
+                    isLoading={isLoading}
+                />
+                <Toaster richColors position="top-right" />
+            </>
+        </Suspense>
     );
 }
