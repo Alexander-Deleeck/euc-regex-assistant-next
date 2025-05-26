@@ -8,7 +8,8 @@ import { handleCredentialsLogin } from "@/app/actions/auth.actions";
 import { Toaster, toast } from "sonner";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-export default function LoginPage() {
+
+function LoginFunction() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -71,6 +72,21 @@ export default function LoginPage() {
     };
 
     return (
+        <LoginForm
+            username={username}
+            password={password}
+            onUsernameChange={(e) => setUsername(e.target.value)}
+            onPasswordChange={(e) => setPassword(e.target.value)}
+            onSubmit={handleSubmit}
+            isLoading={isLoading}
+        />
+    )
+}
+
+export default function LoginPage() {
+    
+
+    return (
         <Suspense fallback={<div className="flex justify-center items-center h-32">Loading...</div>}>
             <>
                 {/* Display error state which might be set by initial load or submit handler */}
@@ -82,14 +98,7 @@ export default function LoginPage() {
                         </Alert>
                     </div>
                 )} */}
-                <LoginForm
-                    username={username}
-                    password={password}
-                    onUsernameChange={(e) => setUsername(e.target.value)}
-                    onPasswordChange={(e) => setPassword(e.target.value)}
-                    onSubmit={handleSubmit}
-                    isLoading={isLoading}
-                />
+                <LoginFunction />
                 <Toaster richColors position="top-right" />
             </>
         </Suspense>
