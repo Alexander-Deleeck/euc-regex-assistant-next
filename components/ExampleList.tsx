@@ -24,23 +24,32 @@ export interface ExampleListProps {
 }
 
 const ExampleList: React.FC<ExampleListProps> = ({ examples, onChange, onRemove, onAdd, labelPrefix, icon, addButtonLabel }) => (
-  <div>
-    <Label className="font-medium flex items-center gap-1 mb-2">{icon} {labelPrefix} Examples</Label>
-    {examples.map((ex, i) => (
-      <ExampleInput
-        key={`${labelPrefix.toLowerCase()}-${i}`}
-        id={i}
-        value={ex}
-        onChange={onChange}
-        onRemove={onRemove}
-        labelPrefix={labelPrefix}
-        icon={icon}
-        isFirst={i === 0}
-      />
-    ))}
-    <Button variant="outline" size="sm" onClick={onAdd}>
-      + {addButtonLabel || `Add ${labelPrefix} Example`}
-    </Button>
+  <div className="flex flex-col gap-2 w-full">
+    <Label className="font-medium flex items-center gap-1 ">{icon} {labelPrefix} Examples</Label>
+    <div className="flex w-full">
+      
+      <div className="w-full">
+        {examples.map((ex, i) => (
+          
+            <ExampleInput
+              key={`${labelPrefix.toLowerCase()}-${i}`}
+              id={i}
+              value={ex}
+              onChange={onChange}
+              onRemove={onRemove}
+              labelPrefix={labelPrefix}
+              icon={icon}
+              isFirst={i === 0}
+            />
+        ))}
+      </div>
+    
+    <div className="flex ">
+      <Button variant="outline"  onClick={onAdd}>
+        + 
+      </Button>
+    </div>
+    </div>
   </div>
 );
 

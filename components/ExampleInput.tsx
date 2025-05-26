@@ -26,22 +26,24 @@ export interface ExampleInputProps {
 
 const ExampleInput: React.FC<ExampleInputProps> = ({ id, value, onChange, onRemove, labelPrefix, icon, isFirst }) => {
   return (
-    <div className="flex items-center space-x-2 mb-2">
-      <div className="flex-1">
+    <div className="flex items-center space-x-1 mb-2 w-full">
+      <div className="flex flex-1 min-w-[6rem] max-w-[6rem]">
         <Label htmlFor={`example-${id}`} className="sr-only">{`${labelPrefix} Example ${id + 1}`}</Label>
         <Input
           id={`example-${id}`}
-          placeholder="Example text"
+          className="placeholder:text-[0.6rem] placeholder:text-muted-foreground placeholder:opacity-80"
+          placeholder="It was 8 °c today."
           value={value[0]}
           onChange={(e) => onChange(id, [e.target.value, value[1]])}
           aria-label={`${labelPrefix} Example ${id + 1}`}
         />
       </div>
-      <div className="flex-1">
+      <div className="flex-1 min-w-0">
         <Label htmlFor={`desc-${id}`} className="sr-only">{`${labelPrefix} Description ${id + 1}`}</Label>
         <Input
           id={`desc-${id}`}
-          placeholder="Description (optional)"
+          className="placeholder:text-[0.6rem] placeholder:text-muted-foreground w-full placeholder:opacity-80"
+          placeholder="The phrase contains '8 °c' which should be replaced with '8 ℃'"
           value={value[1]}
           onChange={(e) => onChange(id, [value[0], e.target.value])}
           aria-label={`${labelPrefix} Description ${id + 1}`}

@@ -49,8 +49,7 @@ function generateBasePrompt(data: GenerateRequestData): string {
     if (typeof data.endPara === 'boolean') {
       optionsLines.push(`- End of paragraph: ${data.endPara}`);
     } */
-
-    return `
+    const basePrompt = `
 DESCRIPTION:
 ${data.description}
 
@@ -58,6 +57,8 @@ ${unpack(data.examples, 'MATCH')}${unpack(data.notExamples, 'DO NOT MATCH')}OPTI
 ${optionsLines.join('\n')}
 
 `.replace(/\n\n\n+/g, '\n\n').trim(); // Clean up extra newlines
+
+    return basePrompt;
 }
 
 // The single POST handler for the /api/generate route
@@ -67,16 +68,16 @@ export async function POST(request: NextRequest) {
     let body;
     try {
          body = await request.json();
-         console.log("Request Body:", body);
+         console.log("(./api/generate/route.ts) Request Body:", body);
     } catch (parseError) {
-        console.error("Failed to parse request JSON:", parseError);
+        console.error("(./api/generate/route.ts) Failed to parse request JSON:", parseError);
         return NextResponse.json({ error: 'Invalid JSON in request body' }, { status: 400 });
     }
 
     const validation = generateRequestSchema.safeParse(body);
 
     if (!validation.success) {
-      console.error("Request validation failed:", validation.error.errors);
+      console.error("(./api/generate/route.ts) Request validation failed:", validation.error.errors);
       // Provide more specific Zod error details
       return NextResponse.json({ error: 'Invalid input', details: validation.error.format() }, { status: 400 });
     }
@@ -84,7 +85,7 @@ export async function POST(request: NextRequest) {
     // Validation successful, data is guaranteed to exist here
     const data = validation.data;
     const basePrompt = generateBasePrompt(data);
-    console.log("Generated Base Prompt:", basePrompt);
+    console.log("(./api/generate/route.ts) Generated Base Prompt:", basePrompt);
 
     // --- Call Azure OpenAI to generate Find/Replace patterns ---
     console.log("Calling Azure OpenAI for pattern generation...");

@@ -5,6 +5,12 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Sparkles, LogOut, PanelLeftOpen, PanelLeftClose } from "lucide-react"; // Added sidebar icons
 import { handleLogout } from "@/app/actions/auth.actions";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 interface AppHeaderProps {
   isSidebarOpen: boolean;
@@ -16,9 +22,18 @@ const AppHeader: React.FC<AppHeaderProps> = ({ isSidebarOpen, onToggleSidebar })
     <header className="flex items-center justify-between p-4 border-b bg-background sticky top-0 z-10">
       <div className="flex items-center gap-2">
         {onToggleSidebar && (
-          <Button variant="ghost" size="icon" onClick={onToggleSidebar} className="mr-2 hidden md:flex">
-            {isSidebarOpen ? <PanelLeftClose className="h-5 w-5" /> : <PanelLeftOpen className="h-5 w-5" />}
-          </Button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger  onClick={onToggleSidebar} className="mr-2 hidden md:flex">
+                  {isSidebarOpen ? <PanelLeftClose className="h-5 w-5" /> : <PanelLeftOpen className="h-5 w-5" />}
+                
+              </TooltipTrigger>
+                <TooltipContent>
+                  <p>Open/Close the Sidebar</p>
+                </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          
         )}
         
         <Sparkles className="h-8 w-8 text-orange-500" />

@@ -1,11 +1,13 @@
 // components/RichTextEditor.tsx
 'use client';
 
+
 import React from 'react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Superscript from '@tiptap/extension-superscript';
 import Subscript from '@tiptap/extension-subscript';
+import Placeholder from '@tiptap/extension-placeholder';
 import { Superscript as SuperscriptIcon, Subscript as SubscriptIcon, Sigma } from 'lucide-react'; // Or another icon for special chars
 
 import { Button } from '@/components/ui/button';
@@ -225,7 +227,7 @@ interface RichTextEditorProps {
     placeholder?: string;
 }
 
-const RichTextEditor: React.FC<RichTextEditorProps> = ({ initialContent = '', onChange, placeholder }) => {
+const RichTextEditor: React.FC<RichTextEditorProps> = ({ initialContent, onChange, placeholder }) => {
     const editor = useEditor({
         extensions: [
             StarterKit.configure({
@@ -239,9 +241,14 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ initialContent = '', on
             Superscript,
             Subscript,
             // Placeholder extension (optional, if using tiptap's placeholder)
-            // Placeholder.configure({ placeholder: placeholder || 'Enter description...' })
+            Placeholder.configure({
+                placeholder: placeholder || 'Describe the pattern you want to generate...',
+                showOnlyWhenEditable: false,
+                showOnlyCurrent: false,
+            }), 
+            
         ],
-        content: initialContent, // Initialize with plain text
+        //content: initialContent, // Initialize with plain text
         editorProps: {
             attributes: {
                 // Apply Tailwind classes for styling the editor area

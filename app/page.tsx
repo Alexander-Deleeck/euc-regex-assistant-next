@@ -375,10 +375,11 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           basePrompt,
-          currentFind: editedFindPattern,
-          currentReplace: editedReplacePattern,
-          feedback: currentUserInput,
-          caseSensitive, // Pass current options if refinement should respect them
+          currentFindPattern: editedFindPattern,
+          currentReplacePattern: editedReplacePattern,
+          userMessage: currentUserInput,
+          caseSensitive,
+          partOfWord,
         }),
       });
       const data = await response.json();
@@ -389,8 +390,9 @@ export default function Home() {
 
       setFindPattern(data.findPattern); // Update main patterns
       setReplacePattern(data.replacePattern);
+      setExplanation(data.explanation);
       // Re-generate explanation for the refined pattern
-      const explanationResponse = await fetch('/api/explain', { // Assuming an /api/explain route exists
+      /* const explanationResponse = await fetch('/api/explain', { // Assuming an /api/explain route exists
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ basePrompt, findPattern: data.findPattern, replacePattern: data.replacePattern }),
@@ -400,14 +402,14 @@ export default function Home() {
         setExplanation(explanationData.explanation);
       } else {
         setExplanation('Could not generate explanation for the refined pattern.');
-      }
+      } */
 
       // Add assistant response (just indicating success, actual pattern is updated)
-      setChatHistory(prev => [...prev, { role: 'assistant', content: "Pattern updated based on your feedback." }]);
+      setChatHistory(prev => [...prev, { role: 'assistant', content: "Pattern updated based on your feedback. See the 'Generated JavaScript RegEx' tab for an explanation of the new regex patterns." }]);
 
 
       toast.success("Refinement Successful", {
-        description: "Pattern updated.",
+        description: "Pattern refined and updated!",
       });
 
     } catch (error: any) {

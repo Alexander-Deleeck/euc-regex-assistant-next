@@ -39,10 +39,14 @@ interface SidebarContentProps {
     onRefine: () => void;
     onClearChat: () => void;
     isPatternGenerated: boolean;
+    descriptionPlaceholder?: string;
 }
 
-const SidebarContent: React.FC<SidebarContentProps> = (props) => (
-    <div className="space-y-6 p-4"> {/* Padding for content inside scroll area */}
+const defaultDescriptionPlaceholder = `Pattern to replace "a digit followed by either regular space or a nonbreaking space or no space, and then the ° character followed by either a lowercase or capital C" with "the digit from the match followed by a non breaking space and the degree Celsius character ℃".`;
+
+
+const SidebarContent: React.FC<SidebarContentProps> = ({ descriptionPlaceholder = defaultDescriptionPlaceholder, ...props }) => (
+    <div className="space-y-6 p-2"> {/* Padding for content inside scroll area */}
         <Card>
             <CardHeader>
                 <CardTitle>1. Describe Your Pattern</CardTitle>
@@ -51,7 +55,7 @@ const SidebarContent: React.FC<SidebarContentProps> = (props) => (
                 <PatternDescriptionEditor
                     initialContent={props.description}
                     onChange={props.onDescriptionChange}
-                    placeholder="Eg. Replace 'one' with '1' followed by a non-breaking space..."
+                    placeholder={descriptionPlaceholder}
                 />
                 <ExampleList
                     examples={props.patternExamples}
