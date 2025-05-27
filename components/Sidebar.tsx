@@ -46,8 +46,8 @@ const defaultDescriptionPlaceholder = `Pattern to replace "a digit followed by e
 
 
 const SidebarContent: React.FC<SidebarContentProps> = ({ descriptionPlaceholder = defaultDescriptionPlaceholder, ...props }) => (
-    <div className="space-y-6 p-2"> {/* Padding for content inside scroll area */}
-        <Card>
+    <div className="space-y-6 p-2">
+        <Card className="joyride-description-section">
             <CardHeader>
                 <CardTitle>1. Describe Your Pattern</CardTitle>
             </CardHeader>
@@ -72,16 +72,22 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ descriptionPlaceholder 
                     labelPrefix="No Match" icon="❌" addButtonLabel="Add No Match Example"
                 />
                 <Separator />
-                <PatternOptions
-                    caseSensitive={props.caseSensitive}
-                    partOfWord={props.partOfWord}
-                    onCaseSensitiveChange={props.onCaseSensitiveChange}
-                    onPartOfWordChange={props.onPartOfWordChange}
-                />
-                <Button onClick={props.onGenerate} disabled={props.isLoadingGenerate || !props.description} className="w-full">
-                    {props.isLoadingGenerate ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-                    Generate Regular Expression
-                </Button>
+                <div className="joyride-options-generate">
+                  <PatternOptions
+                      caseSensitive={props.caseSensitive}
+                      partOfWord={props.partOfWord}
+                      onCaseSensitiveChange={props.onCaseSensitiveChange}
+                      onPartOfWordChange={props.onPartOfWordChange}
+                  />
+                  <div className="mt-4 ">
+                        <Button onClick={props.onGenerate} disabled={props.isLoadingGenerate || !props.description} className="w-full">
+                            {props.isLoadingGenerate ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
+                            Generate Regular Expression
+                        </Button>
+
+                  </div>
+                  
+                </div>
             </CardContent>
         </Card>
         <RefinementChat
@@ -99,9 +105,10 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ descriptionPlaceholder 
 interface SidebarProps extends SidebarContentProps {
     isOpen: boolean;
     toggle: () => void;
+    className?: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggle, ...contentProps }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggle, className, ...contentProps }) => {
     return (
         <>
             {/* Overlay for mobile (optional, shown when sidebar is open) */}
@@ -114,12 +121,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggle, ...contentProps }) =>
 
             {/* Sidebar Container */}
             <aside
-                className={`
-          fixed inset-y-0 left-0 z-40 flex flex-col bg-background border-r
+                className={`joyride-sidebar fixed inset-y-0 left-0 z-40 flex flex-col bg-background border-r
           transition-transform duration-300 ease-in-out 
           md:static md:translate-x-0 
-          ${isOpen ? 'translate-x-0 w-full max-w-xs sm:max-w-sm md:w-80 lg:w-96' : '-translate-x-full md:w-0'}
-        `}
+          ${isOpen ? 'translate-x-0 w-full max-w-xs sm:max-w-sm md:w-80 lg:w-96' : '-translate-x-full md:w-0'}`}
             >
                 <div className="flex items-center justify-between p-2 border-b md:hidden">
                     <span className="font-semibold">Configure Pattern</span>

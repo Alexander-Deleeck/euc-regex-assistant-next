@@ -1,6 +1,7 @@
 // app/page.tsx
 'use client'; // Mark as Client Component
 
+import Joyride from '@/components/ClientJoyride';
 import { useState, useEffect } from 'react';
 import React from "react";
 import { Button } from "@/components/ui/button";
@@ -33,6 +34,7 @@ import ConvertSyntaxButton from '@/components/ConvertSyntaxButton';
 import ConvertSyntaxResults from '@/components/ConvertSyntaxResults';
 import { PanelLeftOpen, PanelLeftClose } from 'lucide-react'; // Added sidebar icons
 import Sidebar from '@/components/Sidebar'; // NEW
+import { Step } from 'react-joyride';
 
 // --- Dynamically import the component using Tiptap ---
 const PatternDescriptionEditor = dynamic(
@@ -88,6 +90,7 @@ function ExampleInput({ id, value, onChange, onRemove, labelPrefix, icon, isFirs
     </div>
   );
 }
+
 
 
 // Main Page Component
@@ -448,11 +451,54 @@ export default function Home() {
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
+  const [joyrideRun, setJoyrideRun] = useState(false);
+  const [joyrideStepIndex, setJoyrideStepIndex] = useState(0);
+  const joyrideSteps: Step[] = [
+    {
+      target: '.joyride-sidebar',
+      content: 'This is the sidebar where you configure your pattern.',
+      placement: 'right',
+      disableBeacon: true,
+    },
+    {
+      target: '.joyride-description-section',
+      content: 'Describe your pattern here using plain text or rich text.',
+      placement: 'right',
+      disableBeacon: true,
+    },
+    {
+      target: '.joyride-options-generate',
+      content: 'Set your pattern options and click Generate Regular Expression.',
+      placement: 'right',
+      disableBeacon: true,
+    },
+  ];
+
   // Main Application UI
   return (
     <TooltipProvider>
+      <Joyride
+        steps={joyrideSteps}
+        run={joyrideRun}
+        stepIndex={joyrideStepIndex}
+        continuous
+        showSkipButton
+        showProgress
+        styles={{ options: { zIndex: 10000 } }}
+        callback={(data) => {
+          const { action, index, status, type } = data;
+          if (status === 'finished' || status === 'skipped') {
+            setJoyrideRun(false);
+            setJoyrideStepIndex(0);
+          } else if (type === 'step:after' || type === 'error:target_not_found') {
+            // User clicked next/prev, so update stepIndex
+            if (action === 'next') setJoyrideStepIndex((prev) => prev + 1);
+            if (action === 'prev') setJoyrideStepIndex((prev) => prev - 1);
+          }
+        }}
+      />
       <div className="flex flex-col h-screen"> {/* Parent takes full screen height */}
-        <AppHeader isSidebarOpen={sidebarOpen} onToggleSidebar={toggleSidebar} /> {/* Fixed height */}
+        <AppHeader isSidebarOpen={sidebarOpen} onToggleSidebar={toggleSidebar} onHelpClick={() => setJoyrideRun(true)} /> {/* Fixed height */}
         <main className="flex flex-1 overflow-hidden"> {/* Main content area is flex now */}
           <Sidebar
             isOpen={sidebarOpen}
@@ -480,6 +526,7 @@ export default function Home() {
             onRefine={handleRefinementSend}
             onClearChat={clearChatHistory}
             isPatternGenerated={!!findPattern}
+            className="joyride-sidebar"
           />
 
           {/* Main Content Area (Right side of sidebar) */}

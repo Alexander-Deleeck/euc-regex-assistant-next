@@ -15,9 +15,10 @@ import {
 interface AppHeaderProps {
   isSidebarOpen: boolean;
   onToggleSidebar: () => void;
+  onHelpClick: () => void;
 }
 
-const AppHeader: React.FC<AppHeaderProps> = ({ isSidebarOpen, onToggleSidebar }) => {
+const AppHeader: React.FC<AppHeaderProps> = ({ isSidebarOpen, onToggleSidebar, onHelpClick }) => {
   return (
     <header className="flex items-center justify-between p-4 border-b bg-background sticky top-0 z-10">
       <div className="flex items-center gap-2">
@@ -38,6 +39,10 @@ const AppHeader: React.FC<AppHeaderProps> = ({ isSidebarOpen, onToggleSidebar })
         
         <Sparkles className="h-8 w-8 text-orange-500" />
         <h1 className="text-xl font-semibold text-blue-700">REGEX GENERATOR</h1>
+
+        <Button type="button" variant="outline" size="sm" className="ml-4 bg-emerald-800/80 text-white hover:bg-emerald-600/80" onClick={onHelpClick}>
+          Help
+        </Button>
       </div>
       <form action={handleLogout}>
         <Button type="submit" variant="outline" size="sm">
