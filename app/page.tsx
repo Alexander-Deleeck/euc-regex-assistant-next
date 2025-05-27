@@ -462,14 +462,52 @@ export default function Home() {
     },
     {
       target: '.joyride-description-section',
-      content: 'Describe your pattern here using plain text or rich text.',
+      title: (
+        <div className="text-cyan-800">
+          <h2><strong>Describe your pattern here</strong></h2>
+        </div>
+      ),
+      content: (
+        <div className="text-left space-y-2">
+            <p>
+              Describe your pattern here using plain text or rich text. Try to be as specific as possible.
+            
+          </p>
+          <p>
+            For example, if you want to replace short dates (<code>D/M/YY</code>) with long dates (<code>DD/MM/YYYY</code>), but want to ensure that unrelated things in a similar format are matched, you might state your descriptions as follows:
+          </p>
+          <ul className="pt-2 list-disc pl-5">
+            <li>
+              <i>"I want a regex pattern that matches short dates in the format <code>D/M/YY</code> or <code>DD/M/YY</code> with long dates <code>DD/MM/YYYY</code>, but ensure that if a similar thing is used with a similar format, but a period <code>'.'</code> as separator, it will not be matched."</i>
+            </li>
+            <li>
+              <i>The pattern should also match short dates with a dash <code>'-'</code> as a separator.</i>
+            </li>
+            <li>
+              <i>The replacement pattern should always use the <code>'/'</code> as a separator.</i>
+            </li>
+          </ul>
+        </div>
+      ),
       placement: 'right',
       disableBeacon: true,
     },
     {
       target: '.joyride-options-generate',
-      content: 'Set your pattern options and click Generate Regular Expression.',
+      content: 'Select your options and click the button to generate the RegEx patterns.',
       placement: 'right',
+      disableBeacon: true,
+    },
+    {
+      target: '.joyride-pattern-results',
+      content: 'In this section, the generated RegEx patterns will appear, and below you will find a detailed explanation of how the patterns work.',
+      placement: 'left',
+      disableBeacon: true,
+    },
+    {
+      target: '.joyride-test-tabs',
+      content: 'Here you can test the newly generated RegEx patterns on a sample text or on a file you upload.',
+      placement: 'left',
       disableBeacon: true,
     },
   ];
@@ -544,7 +582,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-6 flex-1 overflow-hidden">
               {/* Left part of the main content (Results) */}
               <ScrollArea className="h-full">
-                <div className="space-y-4 p-1">
+                <div className="space-y-4 p-1 joyride-pattern-results">
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-xl text-red-600">Generated JavaScript RegEx</CardTitle>
@@ -560,14 +598,27 @@ export default function Home() {
                           caseSensitive={caseSensitive}
                         />
                       )}
-                      {!isLoading && !findPattern && <p className="text-muted-foreground text-center py-10">Configure and generate a pattern.</p>}
+                      {/* Show placeholder if Joyride is running and no pattern yet */}
+                      {!isLoading && !findPattern && joyrideRun && (
+                        <PatternResults
+                          findPattern="\\d+"
+                          replacePattern="$1"
+                          explanation="This is a placeholder regex and explanation for the walkthrough."
+                          editedFindPattern="\\d+"
+                          editedReplacePattern="$1"
+                          onFindChange={() => {}}
+                          onReplaceChange={() => {}}
+                          caseSensitive={false}
+                        />
+                      )}
+                      {!isLoading && !findPattern && !joyrideRun && <p className="text-muted-foreground text-center py-10">Configure and generate a pattern.</p>}
                     </CardContent>
                   </Card>
                 </div>
               </ScrollArea>
 
               {/* Right part of the main content (Test and Convert) */}
-              <div className="h-full overflow-y-auto">
+              <div className="h-full overflow-y-auto joyride-test-tabs">
                 <div className="space-y-6 p-1">
                   {(!isLoading && findPattern) && (
                     <>
@@ -605,7 +656,34 @@ export default function Home() {
                       </Card> */}
                     </>
                   )}
-                  {(!isLoading && !findPattern) && (
+                  {/* Show placeholder if Joyride is running and no pattern yet */}
+                  {(!isLoading && !findPattern && joyrideRun) && (
+                    <Card>
+                      <CardHeader><CardTitle className="text-xl text-violet-700">Test Pattern</CardTitle></CardHeader>
+                      <CardContent>
+                        <TestTabs
+                          testText="Sample text"
+                          onTestTextChange={() => {}}
+                          onTestText={() => {}}
+                          isTestingText={false}
+                          testResults={[]}
+                          substitutedText=""
+                          testTextError=""
+                          editedFindPattern="\\d+"
+                          editedReplacePattern="$1"
+                          uploadedFile={null}
+                          onFileChange={() => {}}
+                          onProcessFile={() => {}}
+                          isFileProcessing={false}
+                          fileMatches={[]}
+                          fileSubstitutedText={null}
+                          fileError=""
+                          onDownloadSubstitutedFile={() => {}}
+                        />
+                      </CardContent>
+                    </Card>
+                  )}
+                  {(!isLoading && !findPattern && !joyrideRun) && (
                     <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
                       <Sparkles className="h-16 w-16 mt-10 mb-4 opacity-50" />
                       <p>Generate a pattern to enable testing and conversion tools.</p>
