@@ -20,9 +20,9 @@ const copyToClipboard = async (text: string, label: string) => {
 const ConvertSyntaxResults: React.FC<ConvertSyntaxResultsProps> = ({ dotnetFind, dotnetReplace }) => {
   if (!dotnetFind && !dotnetReplace) return null;
   return (
-    <div className="mt-6 space-y-4">
-      <div>
-        <div className="flex items-center gap-2 mb-1">
+    <div className="flex flex-col p-4 space-y-4 min-w-full">
+      <div className="flex flex-col ">
+        
           <span className="font-medium">.NET Find Pattern</span>
           <Button
             size="icon"
@@ -33,8 +33,8 @@ const ConvertSyntaxResults: React.FC<ConvertSyntaxResultsProps> = ({ dotnetFind,
           >
             <Copy className="h-4 w-4" />
           </Button>
-        </div>
-        <div className="font-mono bg-gray-100 rounded p-2 text-sm break-all border">
+        
+        <div className="font-mono  bg-gray-100 rounded p-2 text-sm break-all border">
           {dotnetFind || <span className="text-muted-foreground">No .NET find pattern.</span>}
         </div>
       </div>

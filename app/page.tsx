@@ -537,7 +537,16 @@ export default function Home() {
                           />
                         </CardContent>
                       </Card>
-                      <Card>
+                      <div className="flex flex-col gap-2">
+                          <ConvertSyntaxButton
+                            findPattern={editedFindPattern} replacePattern={editedReplacePattern} description={description}
+                            onResult={handleConvertResult} disabled={!editedFindPattern}
+                          />
+                          <div className="flex rounded-lg border border-gray-200 p-2">
+                            <ConvertSyntaxResults dotnetFind={dotnetFind} dotnetReplace={dotnetReplace} />
+                          </div>
+                      </div>
+                      {/* <Card>
                         <CardHeader><CardTitle className="text-xl text-blue-700">Convert Syntax</CardTitle></CardHeader>
                         <CardContent>
                           <ConvertSyntaxButton
@@ -546,7 +555,7 @@ export default function Home() {
                           />
                           <ConvertSyntaxResults dotnetFind={dotnetFind} dotnetReplace={dotnetReplace} />
                         </CardContent>
-                      </Card>
+                      </Card> */}
                     </>
                   )}
                   {(!isLoading && !findPattern) && (
