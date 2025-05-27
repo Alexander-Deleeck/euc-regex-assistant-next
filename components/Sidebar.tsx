@@ -127,9 +127,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggle, ...contentProps }) =>
                         <PanelLeftClose className="h-5 w-5" />
                     </Button>
                 </div>
-                <ScrollArea className="flex-1"> {/* Scroll area for the content */}
-                    {isOpen && <SidebarContent {...contentProps} />}
-                </ScrollArea>
+                <div className="flex-1 h-full overflow-y-auto">
+                    <ScrollArea className="flex-1"> {/* Scroll area for the content */}
+                        {isOpen && <SidebarContent {...contentProps} />}
+                    </ScrollArea>
+                </div>
             </aside>
         </>
     );
