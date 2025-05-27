@@ -51,11 +51,11 @@ const ConvertSyntaxButton: React.FC<ConvertSyntaxButtonProps> = ({
             <div className="flex items-center mb-2">
                 <Info className="text-blue-500 mr-2" size={20} />
                 <span className="font-semibold text-blue-800 text-base">
-                    Convert to .NET RegEx
+                    OJ-Format Conversion
                 </span>
             </div>
-            <p className="text-blue-900 text-sm mb-4">
-                The generated regex patterns use JavaScript RegEx Syntax. If you want to use them with OJ-formatter or other EUC tools, convert them to .NET RegEx Syntax.
+            <p className="text-blue-900 text-sm mb-4 leading-loose">
+                In order to use the the generated regex patterns in OJ-Format/Concordance-Navigator/Rule-Editor, they need to be converted to a format (.NET format) that the EUC tools use.
             </p>
             <Button
                 onClick={handleConvert}
@@ -76,7 +76,7 @@ const ConvertSyntaxButton: React.FC<ConvertSyntaxButtonProps> = ({
                 ) : (
                     <ArrowRightLeft className="mr-2 h-5 w-5" />
                 )}
-                Convert to .NET Regex
+                Convert
             </Button>
         </div>
     );
