@@ -35,7 +35,7 @@ interface SidebarContentProps {
     chatHistory: { role: 'user' | 'assistant'; content: string }[];
     isRefining: boolean;
     refinementInput: string;
-    onRefinementInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onRefinementInputChange: (plainText: string) => void;
     onRefine: () => void;
     onClearChat: () => void;
     isPatternGenerated: boolean;

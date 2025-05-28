@@ -66,7 +66,7 @@ const PatternResults: React.FC<PatternResultsProps> = ({
       <Label className="font-medium">Explanation</Label>
       <Card className="mt-1">
         <CardContent className="p-3 text-sm max-w-none whitespace-normal"> {/* Ensure whitespace-normal */}
-          <MarkdownRenderer content={explanation || "Explanation will appear here."} />
+          <MarkdownRenderer content={explanation || "Explanation will appear here."} explanationTableMode />
         </CardContent>
       </Card>
     </div>

@@ -2,7 +2,7 @@
 'use client';
 
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Superscript from '@tiptap/extension-superscript';
@@ -23,6 +23,7 @@ import { cn } from '@/lib/utils'; // For conditional classes
 // --- Toolbar Component ---
 interface ToolbarProps {
     editor: Editor | null;
+    disabled?: boolean;
 }
 
 const specialCharacterGroups = [
@@ -35,7 +36,7 @@ const specialCharacterGroups = [
     {
         label: "Math & Science",
         chars: [
-            '±', '×', '÷', '≠', '≈', '≡', '≤', '≥', '∞', '∑', '∏', '∫', '√', '∇', '∂', '∈', '∉', '∋', '∅', '∩', '∪', '⊂', '⊃', '⊆', '⊇', '⊕', '⊗', '∃', '∀', '∴', '∵', '∝', '∠', '∟', '∥', '∦', '∧', '∨'
+            '±', '×', '÷', '≠', '≈', '≡', '≤', '≥', '∞', '∑', '∏', '∫', '√', '∇', '∂', '∈', '∉', '∋', '∅', '∩', '∪', '⊂', '⊃', '⊆', '⊇', '⊕', '⊗', '∃', '∀', '∴', '∵', '∝', '∠', '∟', '∥', '∦', '∧', '∨', '℃', '℉', 
         ],
     },
     {
@@ -101,7 +102,7 @@ const accentedCharacterGroups = [
     },
 ];
 
-const Toolbar: React.FC<ToolbarProps> = ({ editor }) => {
+const Toolbar: React.FC<ToolbarProps> = ({ editor, disabled }) => {
     if (!editor) {
         return null;
     }
@@ -118,6 +119,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ editor }) => {
                 pressed={editor.isActive('superscript')}
                 onPressedChange={() => editor.chain().focus().toggleSuperscript().run()}
                 aria-label="Toggle superscript"
+                disabled={disabled}
             >
                 <SuperscriptIcon className="h-4 w-4" />
             </Toggle>
@@ -128,6 +130,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ editor }) => {
                 pressed={editor.isActive('subscript')}
                 onPressedChange={() => editor.chain().focus().toggleSubscript().run()}
                 aria-label="Toggle subscript"
+                disabled={disabled}
             >
                 <SubscriptIcon className="h-4 w-4" />
             </Toggle>
@@ -140,6 +143,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ editor }) => {
                     aria-label="Insert non-breaking space"
                     type="button"
                     onClick={() => insertSpecialCharacter('\u00A0')}
+                    disabled={disabled}
                 >
                     nbsp
                 </Button>
@@ -151,7 +155,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ editor }) => {
             {/* Special Characters Dropdown */}
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="sm" aria-label="Insert special character">
+                    <Button variant="outline" size="sm" aria-label="Insert special character" disabled={disabled}>
                         <Sigma className="h-4 w-4" />
                     </Button>
                 </DropdownMenuTrigger>
@@ -168,6 +172,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ editor }) => {
                                             e.preventDefault();
                                             insertSpecialCharacter(char);
                                         }}
+                                        disabled={disabled}
                                     >
                                         {char}
                                     </DropdownMenuItem>
@@ -180,7 +185,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ editor }) => {
 
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="sm" aria-label="Insert accented character">
+                    <Button variant="outline" size="sm" aria-label="Insert accented character" disabled={disabled}>
                         <span className="font-bold">Á</span>
                     </Button>
                 </DropdownMenuTrigger>
@@ -197,6 +202,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ editor }) => {
                                             e.preventDefault();
                                             insertSpecialCharacter(char);
                                         }}
+                                        disabled={disabled}
                                     >
                                         {char}
                                     </DropdownMenuItem>
@@ -225,9 +231,20 @@ interface RichTextEditorProps {
     initialContent?: string; // Expecting plain text initially
     onChange: (plainText: string) => void; // Callback with plain text
     placeholder?: string;
+    disabled?: boolean;
 }
 
-const RichTextEditor: React.FC<RichTextEditorProps> = ({ initialContent, onChange, placeholder }) => {
+function useDebouncedCallback<T extends (...args: any[]) => void>(callback: T, delay: number) {
+    const timeout = useRef<NodeJS.Timeout | null>(null);
+    return (...args: Parameters<T>) => {
+        if (timeout.current) clearTimeout(timeout.current);
+        timeout.current = setTimeout(() => callback(...args), delay);
+    };
+}
+
+const RichTextEditor: React.FC<RichTextEditorProps> = ({ initialContent, onChange, placeholder, disabled }) => {
+    const debouncedOnChange = useDebouncedCallback(onChange, 200);
+
     const editor = useEditor({
         extensions: [
             StarterKit.configure({
@@ -262,15 +279,22 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ initialContent, onChang
             },
         },
         onUpdate: ({ editor }) => {
-            // Convert editor content (HTML) to plain text for the parent state
             const plainText = editor.getText();
-            onChange(plainText);
+            debouncedOnChange(plainText);
         },
+        editable: !disabled,
     });
+
+    // Update editable state if 'disabled' changes
+    useEffect(() => {
+        if (editor) {
+            editor.setEditable(!disabled);
+        }
+    }, [editor, disabled]);
 
     return (
         <div className="flex flex-col">
-            <Toolbar editor={editor} />
+            <Toolbar editor={editor} disabled={disabled} />
             <EditorContent editor={editor} />
         </div>
     );

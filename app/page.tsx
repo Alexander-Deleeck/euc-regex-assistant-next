@@ -161,6 +161,10 @@ export default function Home() {
     setDescription(plainText);
   };
 
+  const handleTestTextChange = (plainText: string) => {
+    setTestText(plainText);
+  };
+
   
 
 
@@ -439,7 +443,7 @@ export default function Home() {
   const handlePatternNotExampleChange = (id: number, value: ExampleTuple) => updateExample('not_pattern', id, value);
   const handlePatternNotExampleRemove = (id: number) => removeExample('not_pattern', id);
   const handlePatternNotExampleAdd = () => addExample('not_pattern');
-  const handleRefinementInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setRefinementInput(e.target.value);
+  const handleRefinementInputChange = (plainText: string) => setRefinementInput(plainText);
   const handleRefinementSend = () => handleRefinement();
   const handleClearChat = () => clearChatHistory();
 
@@ -626,7 +630,9 @@ export default function Home() {
                         <CardHeader><CardTitle className="text-xl text-violet-700">Test Pattern</CardTitle></CardHeader>
                         <CardContent>
                           <TestTabs
-                            testText={testText} onTestTextChange={(e) => setTestText(e.target.value)} onTestText={handleTestText}
+                            testText={testText} 
+                            onTestTextChange={handleTestTextChange} 
+                            onTestText={handleTestText}
                             isTestingText={isTestingText} testResults={testResults} substitutedText={substitutedText} testTextError={testTextError}
                             editedFindPattern={editedFindPattern} editedReplacePattern={editedReplacePattern}
                             uploadedFile={uploadedFile} onFileChange={handleFileChange} onProcessFile={handleProcessFile}

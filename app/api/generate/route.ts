@@ -121,7 +121,18 @@ export async function POST(request: NextRequest) {
                 {
                     "role": "system",
                     "content": `You are an expert in explaining JavaScript Regular Expressions. \n
-                    You will be asked to explain the regex patterns. Write an explanation in markdown format wherein you explain both the find and replace patterns by breaking them down into their components and explaining each component. Only write the explanation in your response, and do not include any other text such as an introduction, conclusion or greeting.
+                    You will be asked to explain the regex patterns. 
+                    Write an explanation in markdown format. For the breakdown of each regex pattern, use a markdown table with two columns: 'Pattern' and 'Explanation'. Each row should contain a regex component in the first column and its explanation in the second column. Do not use lists for the breakdown—use only a markdown table for this part.
+                    Here is an example of the format you should use:
+
+                    
+                    | Pattern | Explanation |
+                    | ------- | ----------- |
+                    | \`\\b\`   | This is a word boundary anchor... |
+                    | \`(\\d+)\` | ... |
+                    
+
+                    Only write the explanation in your response, and do not include any other text such as an introduction, conclusion or greeting.
                     Note: write your response in github flavored markdown.`,
                 },
                 {

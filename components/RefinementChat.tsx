@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Loader2, Trash2, Send, MessageSquarePlus } from "lucide-react";
+import RichTextEditor from "@/components/RichTextEditor";
 
 /**
  * RefinementChat - Handles regex refinement chat UI.
@@ -25,7 +26,7 @@ export interface RefinementChatProps {
   chatHistory: { role: 'user' | 'assistant'; content: string }[];
   isRefining: boolean;
   refinementInput: string;
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onInputChange: (plainText: string) => void;
   onRefine: () => void;
   onClear: () => void;
   disabled?: boolean;
@@ -71,7 +72,13 @@ const RefinementChat: React.FC<RefinementChatProps> = ({
         </ScrollArea>
         {/* Refinement Input */}
         <div className="flex gap-2 items-center">
-          <Input
+          <RichTextEditor
+            initialContent={refinementInput}
+            onChange={onInputChange}
+            placeholder="Eg. It should also match numbers with commas..."
+            disabled={isRefining || disabled}
+          />
+          {/* <Input
             placeholder="Eg. It should also match numbers with commas..."
             value={refinementInput}
             onChange={onInputChange}
@@ -79,7 +86,7 @@ const RefinementChat: React.FC<RefinementChatProps> = ({
               if (e.key === 'Enter' && !isRefining) onRefine();
             }}
             disabled={isRefining || disabled}
-          />
+          /> */}
           <Button onClick={onRefine} disabled={isRefining || !refinementInput.trim()} size="icon">
             <Send className="h-4 w-4" />
           </Button>

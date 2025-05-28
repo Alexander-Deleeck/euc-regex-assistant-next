@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
+import RichTextEditor from "@/components/RichTextEditor";
 
 // Import subcomponents (to be created)
 // import TextTest from "./TextTest";
@@ -24,7 +25,7 @@ import { Input } from "@/components/ui/input";
 export interface TestTabsProps {
   // Text test props
   testText: string;
-  onTestTextChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onTestTextChange: (plainText: string) => void;
   onTestText: () => void;
   isTestingText: boolean;
   testResults: any[];
@@ -75,13 +76,19 @@ const TestTabs: React.FC<TestTabsProps> = (props) => {
         {/* TextTest and FileTest will be extracted next */}
         <TabsContent value="text" className="mt-4 space-y-4">
           {/* TextTest UI here (to be extracted) */}
-          <Textarea
+          <RichTextEditor
+            initialContent={testText}
+            onChange={onTestTextChange}
+            placeholder="Enter text to test the pattern against..."
+            //disabled={!editedFindPattern}
+          />
+          {/* <Textarea
             placeholder="Enter text to test the pattern against..."
             value={testText}
             onChange={onTestTextChange}
             rows={5}
             disabled={!editedFindPattern}
-          />
+          /> */}
           <Button onClick={onTestText} disabled={isTestingText || !editedFindPattern || !testText}>
             {isTestingText ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
             Test on Text
