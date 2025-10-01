@@ -43,3 +43,14 @@ next-env.d.ts
 README.md
 tests.txt
 .archive/
+*.xml
+*.lingua
+*.db
+*.old
+*.xsl
+AllRules/CreateTickets/CoDe.ico
+AllRules/CaseLaw_CleanUp/PlugInSampleCode/AttacheNormalTemplate.vbproj
+AllRules/CaseLaw_CleanUp/PlugInSampleCode/AssemblyInfo.vb
+AllRules/CheckConcordance/vssver2.scc
+AllRules/*
+public/AllRules/*

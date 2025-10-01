@@ -244,8 +244,10 @@ export default function Home() {
     setSubstitutedText('');
     setTestTextError('');
 
+    console.log('(handletesttext) json testtext: ', JSON.stringify(testText))
     try {
       // Test Matches
+      console.log('(handletesttext) json testtext: ', JSON.stringify(testText))
       const testResponse = await fetch('/api/test-text', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -256,6 +258,7 @@ export default function Home() {
       setTestResults(testData.matches || []);
 
       // Substitute Text
+      console.log('(handletesttext substitute) json testtext: ', JSON.stringify(testText))
       const subResponse = await fetch('/api/substitute-text', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
