@@ -80,7 +80,11 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ descriptionPlaceholder 
                       onPartOfWordChange={props.onPartOfWordChange}
                   />
                   <div className="mt-4 ">
-                        <Button onClick={props.onGenerate} disabled={props.isLoadingGenerate || !props.description} className="w-full">
+                        <Button 
+                            onClick={props.onGenerate} 
+                            disabled={props.isLoadingGenerate || !props.description} 
+                            className="w-full rounded-lg bg-gradient-to-r from-emerald-50 to-teal-50 backdrop-blur-md border border-emerald-500/50 shadow-sm text-emerald-900 hover:from-emerald-100 hover:to-teal-100 hover:text-emerald-700 hover:border-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 cursor-pointer group hover:shadow-lg hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-1 focus-visible:ring-offset-white/30"
+                        >
                             {props.isLoadingGenerate ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
                             Generate Regular Expression
                         </Button>

@@ -89,7 +89,11 @@ const TestTabs: React.FC<TestTabsProps> = (props) => {
             rows={5}
             disabled={!editedFindPattern}
           /> */}
-          <Button onClick={onTestText} disabled={isTestingText || !editedFindPattern || !testText}>
+          <Button 
+            onClick={onTestText} 
+            disabled={isTestingText || !editedFindPattern || !testText}
+            className="rounded-lg bg-blue-50 backdrop-blur-md border border-blue-500/50 shadow-sm text-blue-900 hover:bg-blue-100 hover:text-blue-700 hover:border-blue-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 cursor-pointer group hover:shadow-lg hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-1 focus-visible:ring-offset-white/30"
+          >
             {isTestingText ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
             Test on Text
           </Button>
@@ -149,11 +153,19 @@ const TestTabs: React.FC<TestTabsProps> = (props) => {
             <p className="text-sm text-muted-foreground">Selected: {uploadedFile.name}</p>
           )}
           <div className="flex gap-2">
-            <Button onClick={() => onProcessFile('test')} disabled={isFileProcessing || !uploadedFile || !editedFindPattern}>
+            <Button 
+              onClick={() => onProcessFile('test')} 
+              disabled={isFileProcessing || !uploadedFile || !editedFindPattern}
+              className="rounded-lg bg-indigo-50 backdrop-blur-md border border-indigo-500/50 shadow-sm text-indigo-900 hover:bg-indigo-100 hover:text-indigo-700 hover:border-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 cursor-pointer group hover:shadow-lg hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/40 focus-visible:ring-offset-1 focus-visible:ring-offset-white/30"
+            >
               {isFileProcessing ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <FileText className="mr-2 h-4 w-4" />}
               Test on File
             </Button>
-            <Button onClick={() => onProcessFile('substitute')} disabled={isFileProcessing || !uploadedFile || !editedFindPattern || editedReplacePattern === null}>
+            <Button 
+              onClick={() => onProcessFile('substitute')} 
+              disabled={isFileProcessing || !uploadedFile || !editedFindPattern || editedReplacePattern === null}
+              className="rounded-lg bg-violet-50 backdrop-blur-md border border-violet-500/50 shadow-sm text-violet-900 hover:bg-violet-100 hover:text-violet-700 hover:border-violet-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 cursor-pointer group hover:shadow-lg hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/40 focus-visible:ring-offset-1 focus-visible:ring-offset-white/30"
+            >
               {isFileProcessing ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <FileText className="mr-2 h-4 w-4" />}
               Substitute in File
             </Button>
@@ -183,7 +195,10 @@ const TestTabs: React.FC<TestTabsProps> = (props) => {
           )}
           {/* Download Button */}
           {!isFileProcessing && fileSubstitutedText !== null && (
-            <Button onClick={onDownloadSubstitutedFile} variant="secondary">
+            <Button 
+              onClick={onDownloadSubstitutedFile} 
+              className="rounded-lg bg-gradient-to-r from-green-50 to-emerald-50 backdrop-blur-md border border-green-500/50 shadow-sm text-green-900 hover:from-green-100 hover:to-emerald-100 hover:text-green-700 hover:border-green-600 transition-all duration-300 cursor-pointer group hover:shadow-lg hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500/40 focus-visible:ring-offset-1 focus-visible:ring-offset-white/30"
+            >
               <FileDown className="mr-2 h-4 w-4" />
               Download Substituted File
             </Button>
