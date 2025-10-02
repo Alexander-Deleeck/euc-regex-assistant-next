@@ -173,7 +173,8 @@ export default function CreatePatternPage() {
     setBasePrompt('');
     
     try {
-      const response = await fetch('/api/generate', {
+      console.log("Generating regex...");
+      const response = await fetch('/api/py/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -184,13 +185,13 @@ export default function CreatePatternPage() {
           partOfWord,
         }),
       });
-      
+      console.log("Response:", response);
       const data = await response.json();
-      
+      console.log("Data:", data);
       if (!response.ok) {
         throw new Error(data.details || data.error || 'Failed to generate regex');
       }
-      
+      console.log("Data:", data);
       setFindPattern(data.findPattern);
       setReplacePattern(data.replacePattern);
       setExplanation(data.explanation);
@@ -198,7 +199,9 @@ export default function CreatePatternPage() {
       setEditedFindPattern(data.findPattern);
       setEditedReplacePattern(data.replacePattern);
     } catch (error: any) {
+      console.error("Generation Error:", error);
       toast.error('Generation Error', { description: error.message });
+      
     } finally {
       setIsLoading(false);
     }
@@ -222,7 +225,7 @@ export default function CreatePatternPage() {
 
     try {
       // Test Matches
-      const testResponse = await fetch('/api/test-text', {
+      const testResponse = await fetch('/api/py/test-text', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ findPattern: editedFindPattern, testText, caseSensitive }),
@@ -235,7 +238,7 @@ export default function CreatePatternPage() {
       setTestResults(testData.matches || []);
 
       // Substitute Text
-      const subResponse = await fetch('/api/substitute-text', {
+      const subResponse = await fetch('/api/py/substitute-text', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -307,7 +310,7 @@ export default function CreatePatternPage() {
     formData.append('action', action);
 
     try {
-      const response = await fetch('/api/process-file', {
+      const response = await fetch('/api/py/process-file', {
         method: 'POST',
         body: formData,
       });
@@ -374,7 +377,7 @@ export default function CreatePatternPage() {
     setRefinementInput('');
 
     try {
-      const response = await fetch('/api/refine', {
+      const response = await fetch('/api/py/refine', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

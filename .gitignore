@@ -58,3 +58,8 @@ public/AllRules/*
 DOCUMENTATION/*
 .venv/
 .vercel
+api/__pycache__/*
+vercel.json
+
+DEPLOYMENT_GUIDE.md
+vercel.json

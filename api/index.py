@@ -3,13 +3,14 @@ import os
 import re
 import io
 from typing import List, Optional, Tuple
-
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from openai import AzureOpenAI
 import mammoth
+from dotenv import load_dotenv
 
+load_dotenv()
 app = FastAPI(title="EUC Regex Assistant API (Python)")
 
 # ---------- Azure OpenAI client ----------
@@ -78,9 +79,12 @@ def _unpack_examples(examples: Optional[List[Tuple[str, str]]], heading: str) ->
 
 
 def _build_base_prompt(data: GenerateRequest) -> str:
+    # Define the word boundary message outside the f-string
+    word_match_msg = 'ENTIRE WORDS ONLY (use \\b)' if data.partOfWord is False else 'part of words allowed'
+    
     options_lines = [
         f"- Case-sensitive: {data.caseSensitive}",
-        f"- Match {'ENTIRE WORDS ONLY (use \\b)' if data.partOfWord is False else 'part of words allowed'}",
+        f"- Match {word_match_msg}",
     ]
     base = f"""
 DESCRIPTION:
@@ -93,6 +97,9 @@ DESCRIPTION:
 
 
 def _call_chat(messages, temperature: float = 0.3) -> str:
+    print("Python API: Calling chat...")
+    print("Python API: Messages:", messages)
+    print("Python API: Temperature:", temperature)
     resp = client.chat.completions.create(
         model=AZURE_DEPLOYMENT,
         messages=messages,
@@ -119,8 +126,10 @@ def js_replace_to_python(repl: str) -> str:
 
 
 # ---------- Routes ----------
-@app.post("/generate", response_model=GenerateResponse)
+@app.post("/api/py/generate", response_model=GenerateResponse)
 def generate_regex(data: GenerateRequest):
+    print("Python API: Generating regex...")
+    print("Python API: Data:", data)
     base_prompt = _build_base_prompt(data)
 
     find_replace = _call_chat([
@@ -137,6 +146,7 @@ def generate_regex(data: GenerateRequest):
             "content": f"{base_prompt}\n\nReturn: find|||replace",
         },
     ])
+    print("Python API: Find replace:", find_replace)
     parts = [p.strip() for p in find_replace.split("|||")]
     find_pattern = parts[0] if parts else ""
     replace_pattern = parts[1] if len(parts) > 1 else ""
@@ -171,7 +181,7 @@ def generate_regex(data: GenerateRequest):
     )
 
 
-@app.post("/convert-syntax", response_model=ConvertSyntaxResponse)
+@app.post("/api/py/convert-syntax", response_model=ConvertSyntaxResponse)
 def convert_syntax(data: ConvertSyntaxRequest):
     prompt = (
         "Convert the following JavaScript regex to .NET regex.\n\n"
@@ -197,7 +207,7 @@ def convert_syntax(data: ConvertSyntaxRequest):
     )
 
 
-@app.post("/refine", response_model=RefineResponse)
+@app.post("/api/py/refine", response_model=RefineResponse)
 def refine_regex(data: RefineRequest):
     result = _call_chat([
         {
@@ -240,7 +250,7 @@ def refine_regex(data: RefineRequest):
     )
 
 
-@app.post("/process-file")
+@app.post("/api/py/process-file")
 async def process_file(
     file: UploadFile = File(...),
     findPattern: str = Form(...),
