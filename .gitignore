@@ -55,3 +55,6 @@ AllRules/CheckConcordance/vssver2.scc
 AllRules/*
 public/AllRules/*
 .DOCUMENTATION/*
+DOCUMENTATION/*
+.venv/
+.vercel

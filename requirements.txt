@@ -1,0 +1,5 @@
+fastapi>=0.117.1
+openai>=1.30.0
+mammoth>=1.6.0
+python-multipart>=0.0.9
+
