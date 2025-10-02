@@ -53,5 +53,6 @@ AllRules/CaseLaw_CleanUp/PlugInSampleCode/AttacheNormalTemplate.vbproj
 AllRules/CaseLaw_CleanUp/PlugInSampleCode/AssemblyInfo.vb
 AllRules/CheckConcordance/vssver2.scc
 AllRules/*
+.venv/
 public/AllRules/*
-.DOCUMENTATION/*
+DOCUMENTATION/*
