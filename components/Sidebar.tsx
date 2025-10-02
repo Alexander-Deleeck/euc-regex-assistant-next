@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Loader2, Sparkles, PanelLeftOpen, PanelLeftClose } from 'lucide-react';
+import { Loader2, SquareChevronRight, PanelLeftClose } from 'lucide-react';
 
 // Import your input components (or define them here if they are small)
 import PatternDescriptionEditor from './PatternDescriptionEditor'; // Assuming path
@@ -85,7 +85,7 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ descriptionPlaceholder 
                             disabled={props.isLoadingGenerate || !props.description} 
                             className="w-full rounded-lg bg-gradient-to-r from-emerald-50 to-teal-50 backdrop-blur-md border border-emerald-500/50 shadow-sm text-emerald-900 hover:from-emerald-100 hover:to-teal-100 hover:text-emerald-700 hover:border-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 cursor-pointer group hover:shadow-lg hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-1 focus-visible:ring-offset-white/30"
                         >
-                            {props.isLoadingGenerate ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
+                            {props.isLoadingGenerate ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <SquareChevronRight className="mr-1 h-4 w-4" />}
                             Generate Regular Expression
                         </Button>
 

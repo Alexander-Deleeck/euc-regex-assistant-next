@@ -5,7 +5,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Sparkles, HelpCircleIcon, LogOutIcon, PanelLeftOpen, PanelLeftClose, Home } from "lucide-react";
+import { Sparkles, HelpCircleIcon , LogOutIcon, PanelLeftOpen, PanelLeftClose, Home } from "lucide-react";
 import { handleLogout } from "@/app/actions/auth.actions";
 import {
   Tooltip,
