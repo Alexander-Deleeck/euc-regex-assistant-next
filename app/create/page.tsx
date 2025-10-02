@@ -225,8 +225,8 @@ export default function CreatePatternPage() {
 
     try {
       // Test Matches
-      const testResponse = await fetch('/api/py/test-text', {
-        method: 'POST',
+      const testResponse = await fetch('/api/test-text', {
+        method: 'POST', 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ findPattern: editedFindPattern, testText, caseSensitive }),
       });
@@ -238,7 +238,7 @@ export default function CreatePatternPage() {
       setTestResults(testData.matches || []);
 
       // Substitute Text
-      const subResponse = await fetch('/api/py/substitute-text', {
+      const subResponse = await fetch('/api/substitute-text', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

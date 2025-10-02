@@ -5,6 +5,7 @@ import SelectRuleDropdown from '@/components/SelectRuleDropdown';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Rule } from '@/lib/rules';
+import AppHeader from '@/components/AppHeader';
 
 interface SelectedRuleInfo extends Rule {
     purpose: string;
@@ -24,7 +25,10 @@ export default function RegexTester() {
     };
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="flex-1 flex flex-col h-full w-full">
+            <AppHeader isSidebarOpen={false} />
+            <div className="flex-1 flex flex-col content-center w-full p-4 md:p-3">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-16">
             {/* Left Column: Rule Selector */}
             <Card>
                 <CardHeader>
@@ -73,6 +77,8 @@ export default function RegexTester() {
                     </div>
                 </CardContent>
             </Card>
+        </div>
+            </div>
         </div>
     );
 }

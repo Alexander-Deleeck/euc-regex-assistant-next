@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { Rule } from '@/lib/rules';
+import { X } from 'lucide-react';
 
 interface SelectRuleDropdownProps {
   onRuleSelect?: (rule: Rule & { purpose: string; language: string; dictionaryFile: string; dictionaryName: string }) => void;
@@ -167,11 +168,21 @@ export default function SelectRuleDropdown({ onRuleSelect }: SelectRuleDropdownP
             <SelectValue placeholder={isLoading ? "Loading..." : "Select purpose"} />
           </SelectTrigger>
           <SelectContent>
-            {purposes.map((p) => (
-              <SelectItem key={p} value={p}>
-                {p}
-              </SelectItem>
-            ))}
+            {purposes.map((p) => {
+              const allowedPurposes = ['TextReplacement', 'CaseLaw_TextReplacement'];
+              const isDisabled = !allowedPurposes.includes(p);
+              
+              return (
+                <SelectItem key={p} value={p} disabled={isDisabled}>
+                  <div className="flex items-center gap-2">
+                    {isDisabled && <X className="h-4 w-4 text-red-500" />}
+                    <span className={isDisabled ? "text-muted-foreground line-through" : ""}>
+                      {p}
+                    </span>
+                  </div>
+                </SelectItem>
+              );
+            })}
           </SelectContent>
         </Select>
       </div>
