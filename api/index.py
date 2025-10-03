@@ -62,19 +62,14 @@ def _call_structured_response(messages, response_format):
         response_format=response_format,
     )
     
-    # Debug: Check what we actually got
-    content = resp.choices[0].message.content
-    print(f"[debug] Raw content type: {type(content)}")
-    print(f"[debug] Raw content: {content}")
-    
     # Check if we got a parsed object or a string
+    content = resp.choices[0].message.content
+    
     if isinstance(content, str):
         # If it's a string, parse it as JSON using the response format
-        print(f"[debug] Parsing string as JSON using {response_format.__name__}")
         return response_format.model_validate_json(content)
     else:
         # If it's already parsed, return it directly
-        print(f"[debug] Content is already parsed object")
         return content
 
 
@@ -106,8 +101,8 @@ def generate_regex(data: GenerateRequest):
     Returns:
         GenerateResult
     """
-    print("Python API: Generating regex...")
-    print("Python API: Data:", data)
+    # print("Python API: Generating regex...")
+    # print("Python API: Data:", data)
     base_prompt = _build_base_prompt(data)
 
     try:
@@ -135,12 +130,11 @@ def generate_regex(data: GenerateRequest):
         ], response_format=GenerateResponseFormat)
         
         # Verify the structured response was correctly obtained
-        print(f"[python api](generate): LLM Response received successfully!")
-        print(f"[python api](generate): Response type: {type(response_generate)}")
-        print(f"[python api](generate): FindPattern: '{response_generate.findPattern}'")
-        print(f"[python api](generate): ReplacePattern: '{response_generate.replacePattern}'")
-        print(f"[python api](generate): Explanation length: {len(response_generate.explanation)} chars")
-        print(f"[python api](generate): All fields present: {hasattr(response_generate, 'findPattern') and hasattr(response_generate, 'replacePattern') and hasattr(response_generate, 'explanation')}")
+        # print("[python api](generate): LLM Response received successfully!")
+        # print(f"[python api](generate): Response type: {type(response_generate).__name__}")
+        # print(f"[python api](generate): FindPattern length: {len(response_generate.findPattern)} chars")
+        # print(f"[python api](generate): ReplacePattern length: {len(response_generate.replacePattern)} chars")
+        # print(f"[python api](generate): Explanation length: {len(response_generate.explanation)} chars")
         
     except ValidationError as e:
         print("/api/py/generate: ValidationError:", e)
@@ -166,11 +160,11 @@ def generate_regex(data: GenerateRequest):
         basePrompt=base_prompt,
     )
     
-    print(f"[python api](generate): GenerateResult created successfully!")
-    print(f"[python api](generate): Final result type: {type(result)}")
-    print(f"[python api](generate): Final FindPattern: '{result.findPattern}'")
-    print(f"[python api](generate): Final ReplacePattern: '{result.replacePattern}'")
-    print(f"[python api](generate): Final Explanation length: {len(result.explanation)} chars")
+    # print("[python api](generate): GenerateResult created successfully!")
+    # print(f"[python api](generate): Final result type: {type(result).__name__}")
+    # print(f"[python api](generate): Final FindPattern length: {len(result.findPattern)} chars")
+    # print(f"[python api](generate): Final ReplacePattern length: {len(result.replacePattern)} chars")
+    # print(f"[python api](generate): Final Explanation length: {len(result.explanation)} chars")
     
     # Verify result can be serialized to JSON before returning
     try:
@@ -251,12 +245,11 @@ def refine_regex(data: RefineRequest):
         ], response_format=RefineResponseFormat)
         
         # Verify the structured response was correctly obtained
-        print(f"[python api](refine): LLM Response received successfully!")
-        print(f"[python api](refine): Response type: {type(response_refine)}")
-        print(f"[python api](refine): FindPattern: '{response_refine.findPattern}'")
-        print(f"[python api](refine): ReplacePattern: '{response_refine.replacePattern}'")
+        print("[python api](refine): LLM Response received successfully!")
+        print(f"[python api](refine): Response type: {type(response_refine).__name__}")
+        print(f"[python api](refine): FindPattern length: {len(response_refine.findPattern)} chars")
+        print(f"[python api](refine): ReplacePattern length: {len(response_refine.replacePattern)} chars")
         print(f"[python api](refine): Explanation length: {len(response_refine.explanation)} chars")
-        print(f"[python api](refine): All fields present: {hasattr(response_refine, 'findPattern') and hasattr(response_refine, 'replacePattern') and hasattr(response_refine, 'explanation')}")
         
     except ValidationError as e:
         print("/api/py/refine: ValidationError:", e)
@@ -275,10 +268,10 @@ def refine_regex(data: RefineRequest):
         userMessage=data.userMessage,
     )
     
-    print(f"[python api](refine): RefineResult created successfully!")
-    print(f"[python api](refine): Final result type: {type(result)}")
-    print(f"[python api](refine): Final FindPattern: '{result.findPattern}'")
-    print(f"[python api](refine): Final ReplacePattern: '{result.replacePattern}'")
+    print("[python api](refine): RefineResult created successfully!")
+    print(f"[python api](refine): Final result type: {type(result).__name__}")
+    print(f"[python api](refine): Final FindPattern length: {len(result.findPattern)} chars")
+    print(f"[python api](refine): Final ReplacePattern length: {len(result.replacePattern)} chars")
     print(f"[python api](refine): Final Explanation length: {len(result.explanation)} chars")
     
     return result
