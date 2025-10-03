@@ -5,8 +5,10 @@ import io
 from typing import List, Optional, Tuple
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, Field
+from fastapi.encoders import jsonable_encoder
+from pydantic import BaseModel, Field, ValidationError
 from openai import AzureOpenAI
+from api.types import GenerateResponseFormat, GenerateResult, ConvertSyntaxResponseFormat, ConvertSyntaxResult, RefineResponseFormat, RefineResult, GenerateRequest, ConvertSyntaxRequest, RefineRequest
 import mammoth
 from dotenv import load_dotenv
 
@@ -20,49 +22,6 @@ client = AzureOpenAI(
     azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
 )
 AZURE_DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
-
-
-# ---------- Models ----------
-class GenerateRequest(BaseModel):
-    description: str = Field(min_length=1)
-    examples: Optional[List[Tuple[str, str]]] = None
-    notExamples: Optional[List[Tuple[str, str]]] = None
-    caseSensitive: bool
-    partOfWord: Optional[bool] = True
-
-
-class GenerateResponse(BaseModel):
-    findPattern: str
-    replacePattern: str
-    explanation: str
-    basePrompt: str
-
-
-class ConvertSyntaxRequest(BaseModel):
-    findPattern: str = Field(min_length=1)
-    replacePattern: Optional[str] = None
-    description: Optional[str] = None
-
-
-class ConvertSyntaxResponse(BaseModel):
-    dotnetFind: str
-    dotnetReplace: str
-
-
-class RefineRequest(BaseModel):
-    basePrompt: str = Field(min_length=1)
-    currentFindPattern: str = Field(min_length=1)
-    currentReplacePattern: str = Field(min_length=1)
-    userMessage: str = Field(min_length=1)
-    caseSensitive: Optional[bool] = None
-    partOfWord: Optional[bool] = None
-
-
-class RefineResponse(BaseModel):
-    findPattern: str
-    replacePattern: str
-    explanation: str
-    userMessage: str
 
 
 # ---------- Helpers ----------
@@ -96,19 +55,27 @@ DESCRIPTION:
     return base
 
 
-def _call_chat(messages, temperature: float = 0.3) -> str:
-    print("Python API: Calling chat...")
-    print("Python API: Messages:", messages)
-    print("Python API: Temperature:", temperature)
-    resp = client.chat.completions.create(
+def _call_structured_response(messages, response_format):
+    resp = client.chat.completions.parse(
         model=AZURE_DEPLOYMENT,
         messages=messages,
-        temperature=temperature,
+        response_format=response_format,
     )
-    content = (resp.choices[0].message.content or "").strip()
-    if not content:
-        raise RuntimeError("Empty response from Azure OpenAI.")
-    return content
+    
+    # Debug: Check what we actually got
+    content = resp.choices[0].message.content
+    print(f"[debug] Raw content type: {type(content)}")
+    print(f"[debug] Raw content: {content}")
+    
+    # Check if we got a parsed object or a string
+    if isinstance(content, str):
+        # If it's a string, parse it as JSON using the response format
+        print(f"[debug] Parsing string as JSON using {response_format.__name__}")
+        return response_format.model_validate_json(content)
+    else:
+        # If it's already parsed, return it directly
+        print(f"[debug] Content is already parsed object")
+        return content
 
 
 _js_group_num = re.compile(r"\$(\d+)")
@@ -126,62 +93,102 @@ def js_replace_to_python(repl: str) -> str:
 
 
 # ---------- Routes ----------
-@app.post("/api/py/generate", response_model=GenerateResponse)
+@app.post("/api/py/generate", response_model=GenerateResult)
 def generate_regex(data: GenerateRequest):
+    # TODO:
+    # - Update prompt to use structured response WITH explanation
+    # - Remove second call to LLM for explanation
+    # - Parse structured response
+    """
+    Generate a new regex find_pattern and replace_pattern based on the given description and examples.
+    Args:
+        data: GenerateRequest
+    Returns:
+        GenerateResult
+    """
     print("Python API: Generating regex...")
     print("Python API: Data:", data)
     base_prompt = _build_base_prompt(data)
 
-    find_replace = _call_chat([
-        {
-            "role": "system",
-            "content": (
-                "You are a regex expert. Return EXACTLY the find_pattern and replace_pattern in "
-                "JavaScript regex format separated by '|||'. No extra text, backticks or quotes. "
-                "The find pattern must be just the body (no /.../flags). Use $1, $2... in replace."
-            ),
-        },
-        {
-            "role": "user",
-            "content": f"{base_prompt}\n\nReturn: find|||replace",
-        },
-    ])
-    print("Python API: Find replace:", find_replace)
-    parts = [p.strip() for p in find_replace.split("|||")]
-    find_pattern = parts[0] if parts else ""
-    replace_pattern = parts[1] if len(parts) > 1 else ""
+    try:
+        # Combined LLM call that generates both regex patterns and explanation in structured format
+        response_generate = _call_structured_response(messages=[
+            {
+                "role": "system",
+                "content": (
+                    "You are a regex expert and technical documentation specialist. "
+                    "Generate JavaScript regex patterns and provide clear explanations. "
+                    "Return your response in the structured format with:\n"
+                    "- findPattern: JavaScript regex pattern (just the body, no /.../flags)\n"
+                    "- replacePattern: JavaScript replacement pattern using $1, $2... for groups\n"
+                    "- explanation: GitHub-flavored markdown with a table breaking down regex components "
+                    "(columns: 'Pattern' and 'Explanation'). No intro/outro text."
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    f"{base_prompt}\n\n"
+                    f"Generate both the regex patterns and a detailed explanation of how they work."
+                ),
+            },
+        ], response_format=GenerateResponseFormat)
+        
+        # Verify the structured response was correctly obtained
+        print(f"[python api](generate): LLM Response received successfully!")
+        print(f"[python api](generate): Response type: {type(response_generate)}")
+        print(f"[python api](generate): FindPattern: '{response_generate.findPattern}'")
+        print(f"[python api](generate): ReplacePattern: '{response_generate.replacePattern}'")
+        print(f"[python api](generate): Explanation length: {len(response_generate.explanation)} chars")
+        print(f"[python api](generate): All fields present: {hasattr(response_generate, 'findPattern') and hasattr(response_generate, 'replacePattern') and hasattr(response_generate, 'explanation')}")
+        
+    except ValidationError as e:
+        print("/api/py/generate: ValidationError:", e)
+        raise HTTPException(
+            500, "ValidationError Error while generating regex in /api/py/generate."
+        )
+    except Exception as e:
+        print(f"/api/py/generate: Unexpected error: {type(e).__name__}: {e}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(
+            500, f"Unexpected error while generating regex: {e}"
+        )
 
-    if not find_pattern:
+    if not response_generate.findPattern:
         raise HTTPException(500, "Model did not return a find pattern.")
 
-    explanation = _call_chat([
-        {
-            "role": "system",
-            "content": (
-                "You are an expert in explaining JavaScript Regular Expressions. "
-                "Write GitHub-flavored markdown. Use a single markdown table with columns "
-                "'Pattern' and 'Explanation' to break down the regex components. "
-                "Do not include intro/outro text."
-            ),
-        },
-        {
-            "role": "user",
-            "content": (
-                f"Explain these regex patterns.\nFind: {find_pattern}\nReplace: {replace_pattern}\n"
-                f"Original description:\n{data.description}"
-            ),
-        },
-    ], temperature=0.3)
-
-    return GenerateResponse(
-        findPattern=find_pattern,
-        replacePattern=replace_pattern,
-        explanation=explanation,
+    # Create and verify the final result object
+    result = GenerateResult(
+        findPattern=response_generate.findPattern,
+        replacePattern=response_generate.replacePattern,
+        explanation=response_generate.explanation,
         basePrompt=base_prompt,
     )
+    
+    print(f"[python api](generate): GenerateResult created successfully!")
+    print(f"[python api](generate): Final result type: {type(result)}")
+    print(f"[python api](generate): Final FindPattern: '{result.findPattern}'")
+    print(f"[python api](generate): Final ReplacePattern: '{result.replacePattern}'")
+    print(f"[python api](generate): Final Explanation length: {len(result.explanation)} chars")
+    
+    # Verify result can be serialized to JSON before returning
+    try:
+        result_dict = result.model_dump()
+        print(f"[python api](generate): Result successfully serialized to dict")
+        # Try to encode as JSON to ensure it's valid
+        json_compatible = jsonable_encoder(result_dict)
+        print(f"[python api](generate): Result successfully JSON encoded")
+        print(f"[python api](generate): Returning response to frontend...")
+        return JSONResponse(content=json_compatible)
+    except Exception as e:
+        print(f"[python api](generate): ERROR - Failed to serialize result: {e}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(500, f"Failed to serialize result: {e}")
 
 
-@app.post("/api/py/convert-syntax", response_model=ConvertSyntaxResponse)
+@app.post("/api/py/convert-syntax", response_model=ConvertSyntaxResult)
 def convert_syntax(data: ConvertSyntaxRequest):
     prompt = (
         "Convert the following JavaScript regex to .NET regex.\n\n"
@@ -190,64 +197,91 @@ def convert_syntax(data: ConvertSyntaxRequest):
         f"JavaScript Replace: {data.replacePattern or '(none)'}\n\n"
         "Return ONLY: dotnet_find|||dotnet_replace"
     )
-    result = _call_chat([
-        {
-            "role": "system",
-            "content": (
-                "You are a regex expert. Convert JavaScript regex to .NET. "
-                "Output ONLY the .NET find and replace patterns separated by '|||'. No extra text."
-            ),
-        },
-        {"role": "user", "content": prompt},
-    ], temperature=0.2)
-    parts = [p.strip() for p in result.split("|||")]
-    return ConvertSyntaxResponse(
-        dotnetFind=parts[0] if parts else "",
-        dotnetReplace=parts[1] if len(parts) > 1 else "",
+    try:
+        response_convert = _call_structured_response([
+            {
+                "role": "system",
+                "content": (
+                    "You are a regex expert. Convert JavaScript regex to .NET. "
+                    "Output ONLY the .NET find and replace patterns separated by '|||'. No extra text."
+                ),
+            },
+            {"role": "user", "content": prompt},
+        ], response_format=ConvertSyntaxResponseFormat)
+        
+    except ValidationError as e:
+        # TODO add logger: logger.warning(f"LLM classification parse failed; attempting simple classification. Error: {e}")
+        print("/api/py/convert-syntax: ValidationError:", e)
+        raise HTTPException(
+            500, "ValidationError Error while converting syntax in /api/py/convert-syntax."
+        )
+    return ConvertSyntaxResult(
+        dotnetFind=response_convert.dotnetFind,
+        dotnetReplace=response_convert.dotnetReplace,
     )
 
 
-@app.post("/api/py/refine", response_model=RefineResponse)
+@app.post("/api/py/refine", response_model=RefineResult)
 def refine_regex(data: RefineRequest):
-    result = _call_chat([
-        {
-            "role": "system",
-            "content": (
-                "You are a regex expert helping refine patterns based on feedback. "
-                "Return EXACTLY find|||replace in JavaScript format; no extra text."
-            ),
-        },
-        {
-            "role": "user",
-            "content": (
-                f"<previous_description>\n{data.basePrompt}\n</previous_description>\n"
-                f"<previous_find>\n{data.currentFindPattern}\n</previous_find>\n"
-                f"<previous_replace>\n{data.currentReplacePattern}\n</previous_replace>\n"
-                f"<feedback>\n{data.userMessage}\n</feedback>\n\nReturn: find|||replace"
-            ),
-        },
-    ], temperature=0.3)
-    parts = [p.strip() for p in result.split("|||")]
-    find_pattern = parts[0] if parts else ""
-    replace_pattern = parts[1] if len(parts) > 1 else ""
+    try:
+        # Combined LLM call that generates both refined regex patterns and explanation in structured format
+        response_refine = _call_structured_response(messages=[
+            {
+                "role": "system",
+                "content": (
+                    "You are a regex expert and technical documentation specialist helping refine patterns based on feedback. "
+                    "Generate improved JavaScript regex patterns and provide clear explanations. "
+                    "Return your response in the structured format with:\n"
+                    "- findPattern: Refined JavaScript regex pattern (just the body, no /.../flags)\n"
+                    "- replacePattern: Refined JavaScript replacement pattern using $1, $2... for groups\n"
+                    "- explanation: GitHub-flavored markdown with a table breaking down the refined regex components "
+                    "(columns: 'Pattern' and 'Explanation'). No intro/outro text."
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    f"<previous_description>\n{data.basePrompt}\n</previous_description>\n"
+                    f"<previous_find>\n{data.currentFindPattern}\n</previous_find>\n"
+                    f"<previous_replace>\n{data.currentReplacePattern}\n</previous_replace>\n"
+                    f"<feedback>\n{data.userMessage}\n</feedback>\n\n"
+                    f"Refine the regex patterns based on the feedback and provide a detailed explanation of the improvements."
+                ),
+            },
+        ], response_format=RefineResponseFormat)
+        
+        # Verify the structured response was correctly obtained
+        print(f"[python api](refine): LLM Response received successfully!")
+        print(f"[python api](refine): Response type: {type(response_refine)}")
+        print(f"[python api](refine): FindPattern: '{response_refine.findPattern}'")
+        print(f"[python api](refine): ReplacePattern: '{response_refine.replacePattern}'")
+        print(f"[python api](refine): Explanation length: {len(response_refine.explanation)} chars")
+        print(f"[python api](refine): All fields present: {hasattr(response_refine, 'findPattern') and hasattr(response_refine, 'replacePattern') and hasattr(response_refine, 'explanation')}")
+        
+    except ValidationError as e:
+        print("/api/py/refine: ValidationError:", e)
+        raise HTTPException(
+            500, "ValidationError Error while refining regex in /api/py/refine."
+        )
 
-    explanation = _call_chat([
-        {
-            "role": "system",
-            "content": (
-                "Explain the (refined) JavaScript regex in GitHub-flavored markdown; "
-                "use a single table with columns 'Pattern' and 'Explanation'. No intro/outro text."
-            ),
-        },
-        {"role": "user", "content": f"Find: {find_pattern}\nReplace: {replace_pattern}"},
-    ], temperature=0.3)
+    if not response_refine.findPattern:
+        raise HTTPException(500, "Model did not return a refined find pattern.")
 
-    return RefineResponse(
-        findPattern=find_pattern,
-        replacePattern=replace_pattern,
-        explanation=explanation,
+    # Create and verify the final result object
+    result = RefineResult(
+        findPattern=response_refine.findPattern,
+        replacePattern=response_refine.replacePattern,
+        explanation=response_refine.explanation,
         userMessage=data.userMessage,
     )
+    
+    print(f"[python api](refine): RefineResult created successfully!")
+    print(f"[python api](refine): Final result type: {type(result)}")
+    print(f"[python api](refine): Final FindPattern: '{result.findPattern}'")
+    print(f"[python api](refine): Final ReplacePattern: '{result.replacePattern}'")
+    print(f"[python api](refine): Final Explanation length: {len(result.explanation)} chars")
+    
+    return result
 
 
 @app.post("/api/py/process-file")
@@ -312,4 +346,3 @@ async def process_file(
     except re.error as e:
         raise HTTPException(400, f"Replacement error: {e}")
     return JSONResponse({"substitutedText": substituted})
-
