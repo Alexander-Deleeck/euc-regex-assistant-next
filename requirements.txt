@@ -4,3 +4,4 @@ openai>=1.30.0
 mammoth>=1.6.0
 python-multipart>=0.0.9
 python-dotenv
+xmltodict

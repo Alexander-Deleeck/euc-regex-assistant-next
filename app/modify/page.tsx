@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Rule } from '@/lib/rules';
 import AppHeader from '@/components/AppHeader';
+import XmlRuleMenu from '@/components/XmlRuleMenu';
 
 interface SelectedRuleInfo extends Rule {
     purpose: string;
@@ -22,6 +23,18 @@ export default function RegexTester() {
         setSelectedRule(rule);
         setFindPattern(rule.find);
         setReplacePattern(rule.replace);
+    };
+
+    const handleRuleChange = (updatedRule: Rule) => {
+        if (!selectedRule) return;
+        
+        const updated: SelectedRuleInfo = {
+            ...selectedRule,
+            ...updatedRule,
+        };
+        setSelectedRule(updated);
+        setFindPattern(updated.find);
+        setReplacePattern(updated.replace);
     };
 
     return (
@@ -78,6 +91,16 @@ export default function RegexTester() {
                 </CardContent>
             </Card>
         </div>
+
+        {/* Rule Details Section - Full Width */}
+        {selectedRule && (
+            <div className="mt-6 px-16">
+                <XmlRuleMenu 
+                    rule={selectedRule} 
+                    onRuleChange={handleRuleChange}
+                />
+            </div>
+        )}
             </div>
         </div>
     );
