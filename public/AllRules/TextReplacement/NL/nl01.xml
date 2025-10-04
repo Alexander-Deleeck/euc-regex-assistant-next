@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>nl01 - ndash-mdash - quotes - ’s</name>
+  <options />
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>–</find>
+    <style>All</style>
+    <description>find ";&amp;ndash;" replace "&amp;mdash;" </description>
+    <comment>;  Conversion Checked failed!!</comment>
+    <id>nl01-001</id>
+    <replace>—</replace>
+    <normalisedFind>–</normalisedFind>
+    <normalisedReplace>—</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>...</find>
+    <style>All</style>
+    <description>find ... / replace by …</description>
+    <id>nl01-002</id>
+    <replace>…</replace>
+    <normalisedFind>\.\.\.</normalisedFind>
+    <normalisedReplace>…</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>»</find>
+    <style>All</style>
+    <description>find » / replace by ” </description>
+    <id>nl01-003</id>
+    <replace>_NF_”_NF_</replace>
+    <normalisedFind>»</normalisedFind>
+    <normalisedReplace>_NF_”_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>(?&lt;OJStylePrefix&gt;\w)["’]([ \u00A0])</find>
+    <style>All</style>
+    <description>find any alphanum. char. [prefix] AND "’ AND space or paragr. / replace by ”</description>
+    <id>nl01-004</id>
+    <replace>_NF_”_NF_$1</replace>
+    <normalisedFind>["’]([ \u00A0])</normalisedFind>
+    <prefix>\w</prefix>
+    <normalisedReplace>_NF_”_NF_$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;([a-zA-Z])) ?\u00A0?['„“"]([sS])\b</find>
+    <style>All</style>
+    <description>end of word: find any letter AND option. space or non-break.space AND one of '„“" AND s or S / replace by ’</description>
+    <id>nl01-004-1</id>
+    <replace>’$2</replace>
+    <normalisedFind> ?\u00A0?['„“"]([sS])\b&gt;</normalisedFind>
+    <prefix>([a-zA-Z])</prefix>
+    <normalisedReplace>’$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasFindFormat="true" hasReplaceFormat="true">
+    <find>(?&lt;OJStylePrefix&gt;([ \u00A0]))[‘"’'„”«](?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>find space or non break. space [prefix] AND one of ‘"’'„”« AND any alphanum. char. [suffix] / replace by “</description>
+    <id>nl01-005</id>
+    <replace>_NF_“_NF_</replace>
+    <normalisedFind>[‘"’'„”«]</normalisedFind>
+    <prefix>([ \u00A0])</prefix>
+    <suffix>\w</suffix>
+    <normalisedReplace>_NF_“_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false" hasFindFormat="true" hasReplaceFormat="true">
+    <find>([ \u00A0])?[‘"’'„”«]([ \u00A0])?(?&lt;OJStyleSuffix&gt;(\d)(\.))</find>
+    <style>All</style>
+    <description>find one of ‘"’'„”« AND option. space/non break. space AND any figure AND . [suffix] / replace by “</description>
+    <id>nl01-005-1</id>
+    <replace>_NF_“_NF_</replace>
+    <normalisedFind>([ \u00A0])?[‘"’'„”«]([ \u00A0])?</normalisedFind>
+    <suffix>(\d)(\.)</suffix>
+    <normalisedReplace>_NF_“_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="true" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>(?&lt;OJStylePrefix&gt;\w)"</find>
+    <style>All</style>
+    <description>end of paragr: find any alphanum. char. [prefix] AND " / replace by ”</description>
+    <id>nl01-006</id>
+    <replace>_NF_”_NF_</replace>
+    <normalisedFind>"</normalisedFind>
+    <prefix>\w</prefix>
+    <normalisedReplace>_NF_”_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>«</find>
+    <style>All</style>
+    <description>find « / replace by “</description>
+    <id>nl01-007</id>
+    <replace>_NF_“_NF_</replace>
+    <normalisedFind>«</normalisedFind>
+    <normalisedReplace>_NF_“_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>([\t ])["‘’'„«]( ?\u00A0?)(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>find tab or space AND one of "‘’'„« AND option. space AND any letter or figure [suffix] / replace by “</description>
+    <id>nl01-008</id>
+    <replace>$1_NF_“_NF_$2</replace>
+    <normalisedFind>([\t ])["‘’'„«]( ?\u00A0?)</normalisedFind>
+    <suffix>\w</suffix>
+    <normalisedReplace>$1_NF_“_NF_$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>([\(\[\{])["‘’'„«”]( ?\u00A0?)(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>find one of .:,;!?([{… AND one of "‘’'„«” AND option. space or non break. space AND any letter or figure [suffix] / replace by “</description>
+    <id>nl01-009</id>
+    <replace>$1_NF_“_NF_$2</replace>
+    <normalisedFind>([\(\[\{])["‘’'„«”]( ?\u00A0?)</normalisedFind>
+    <suffix>\w</suffix>
+    <normalisedReplace>$1_NF_“_NF_$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>([ ?\u00A0?])["‘’'„«”]([\.:,;!\?\(\[\{…])( ?\u00A0?)(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>find option.space AND one of "‘’'„«” AND one of .:,;!?([{… AND option.space AND any letter [suffix] / replace by “</description>
+    <id>nl01-010</id>
+    <replace>$1_NF_“_NF_$2$3</replace>
+    <normalisedFind>([ ?\u00A0?])["‘’'„«”]([\.:,;!\?\(\[\{…])( ?\u00A0?)</normalisedFind>
+    <suffix>\w</suffix>
+    <normalisedReplace>$1_NF_“_NF_$2$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>([\.:,;!\?…])([ ?\u00A0?])["‘’'„«”]([ ?\u00A0?])(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>find one of .:,;!?… AND space or non-break. space AND one of "‘’'„«” AND option. space/non break.space AND any alphanum.char. [suffix] / replace by “</description>
+    <id>nl01-011</id>
+    <replace>$1$2_NF_“_NF_</replace>
+    <normalisedFind>([\.:,;!\?…])([ ?\u00A0?])["‘’'„«”]([ ?\u00A0?])</normalisedFind>
+    <suffix>\w</suffix>
+    <normalisedReplace>$1$2_NF_“_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>(?&lt;OJStylePrefix&gt;.) ?\u00A0?([%‰\.:,;!\?\)\]\}…])(\.?)( ?\u00A0?)["»’]</find>
+    <style>All</style>
+    <description>find any char. [prefix] AND option.space/non break.space AND one of %‰.:,;!?)]}… AND option. . AND option.space/non break.space AND one of "»’ / replace by ”</description>
+    <id>nl01-012</id>
+    <replace>$1$2$3_NF_”_NF_</replace>
+    <normalisedFind> ?\u00A0?([%‰\.:,;!\?\)\]\}…])(\.?)( ?\u00A0?)["»’]</normalisedFind>
+    <prefix>.</prefix>
+    <normalisedReplace>$1$2$3_NF_”_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>(?&lt;OJStylePrefix&gt;\w)( ?\u00A0?)["»’']( ?\u00A0?)([\.:,;!\?\)\]\}…])</find>
+    <style>All</style>
+    <description>find any letter or figure AND option.space AND one of "»’' AND option.space AND one of .:,;!?)]}… / replace by ”</description>
+    <id>nl01-013</id>
+    <replace>_NF_”_NF_$3</replace>
+    <normalisedFind>( ?\u00A0?)["»’']( ?\u00A0?)([\.:,;!\?\)\]\}…])</normalisedFind>
+    <prefix>\w</prefix>
+    <normalisedReplace>_NF_”_NF_$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>(?&lt;OJStylePrefix&gt;\w)([ ?\u00A0?])["»’'](?&lt;OJStyleSuffix&gt;([ ?\u00A0?])\w)</find>
+    <style>All</style>
+    <description>find any alphanum.char. [prefix] AND option. space/non break.space AND one of "»’' AND option. space/non break.space AND any alphanum.char. / replace by ”</description>
+    <id>nl01-014</id>
+    <replace>_NF_”_NF_</replace>
+    <normalisedFind>([ ?\u00A0?])["»’']</normalisedFind>
+    <prefix>\w</prefix>
+    <suffix>([ ?\u00A0?])\w</suffix>
+    <normalisedReplace>_NF_”_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="true" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>(?&lt;OJStylePrefix&gt;\w)([ ?\u00A0?])["»’']</find>
+    <style>All</style>
+    <description>end of §: find any alphanum.char. [prefix] AND option. space/non break.space AND one of "»’' AND option. space/non break.space / remove space + replace by ”</description>
+    <id>nl01-015</id>
+    <replace>_NF_”_NF_</replace>
+    <normalisedFind>([ ?\u00A0?])["»’']</normalisedFind>
+    <prefix>\w</prefix>
+    <normalisedReplace>_NF_”_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>(’s) (morgens)&gt;</find>
+    <style>All</style>
+    <description>find "’s morgens", replace by "’s&amp;nbsp;morgens" </description>
+    <id>nl01-016</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(’s) (morgens)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>(’s) (ochtends)&gt;</find>
+    <style>All</style>
+    <description>find "’s ochtends", replace by "’s&amp;nbsp;ochtends" </description>
+    <id>nl01-017</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(’s) (ochtends)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>(’s) (middags)&gt;</find>
+    <style>All</style>
+    <description>find "’s middags", replace by "’s&amp;nbsp;middags" </description>
+    <id>nl01-018</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(’s) (middags)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>(’s) (avonds)&gt;</find>
+    <style>All</style>
+    <description>find "’s avonds", replace by "’s&amp;nbsp;avonds" </description>
+    <id>nl01-019</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(’s) (avonds)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>(’s) (nachts)&gt;</find>
+    <style>All</style>
+    <description>find "’s nachts" replace by "’s&amp;nbsp;nachts" </description>
+    <id>nl01-020</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(’s) (nachts)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>(’s) (namiddags)&gt;</find>
+    <style>All</style>
+    <description>find "’s namiddags", replace by "’s&amp;nbsp;namiddags" </description>
+    <id>nl01-021</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(’s) (namiddags)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>(’s) (anderendaags)&gt;</find>
+    <style>All</style>
+    <description>find "’s anderendaags", replace by "’s&amp;nbsp;anderendaags" </description>
+    <id>nl01-022</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(’s) (anderendaags)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>(’s) (werelds)&gt;</find>
+    <style>All</style>
+    <description>find "’s werelds" replace by "’s&amp;nbsp;werelds" </description>
+    <id>nl01-023</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(’s) (werelds)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>„(s-Gra)</find>
+    <style>All</style>
+    <description>find "„s-Gra..." replace by "’s-Gra..." </description>
+    <id>nl01-024</id>
+    <replace>’\1</replace>
+    <normalisedFind>„(s-Gra)</normalisedFind>
+    <normalisedReplace>’$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>„(s-Hertogenbosch)&gt;</find>
+    <style>All</style>
+    <description>find "„s-Hertogenbosch" replace by "’s-Hertogenbosch" </description>
+    <id>nl01-025</id>
+    <replace>’\1</replace>
+    <normalisedFind>„(s-Hertogenbosch)\b&gt;</normalisedFind>
+    <normalisedReplace>’$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>„t\b</find>
+    <style>All</style>
+    <description>find „t replace by ’t </description>
+    <id>nl01-026</id>
+    <replace>’t</replace>
+    <normalisedFind>„t\b&gt;</normalisedFind>
+    <normalisedReplace>’t</normalisedReplace>
+  </rule>
+  <rule active="false" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false">
+    <find>([‘«»"”„])?(\d{1,3})([\)\.])(\t)</find>
+    <style>All</style>
+    <description>start of paragraph: find one of option. ‘«»"”„ AND 1, 2 or 3 figures AND ) or . AND tabulation / replace by option. “ AND 1, 2 or 3 figures AND ) or . AND tabulation</description>
+    <id>nl01-027</id>
+    <replace>“?$2$3$4</replace>
+    <normalisedFind>([‘«»"”„])?(\d{1,3})([\)\.])(\t)</normalisedFind>
+    <normalisedReplace>“?$2$3$4</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>“[ \u00A0](?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>find “ AND space or non-break. space AND any letter or figure [suffix] / replace by “ (remove space)</description>
+    <id>nl01-028</id>
+    <replace>_NF_“_NF_</replace>
+    <normalisedFind>“[ \u00A0]</normalisedFind>
+    <suffix>\w</suffix>
+    <normalisedReplace>_NF_“_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>(?&lt;OJStylePrefix&gt;.)[ \u00A0]”</find>
+    <style>All</style>
+    <description>find any char. [prefix] AND space or non-break. space AND ” / replace by ” (remove space)</description>
+    <id>nl01-029</id>
+    <replace>_NF_”_NF_</replace>
+    <normalisedFind>[ \u00A0]”</normalisedFind>
+    <prefix>.</prefix>
+    <normalisedReplace>_NF_”_NF_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" highlightOnly="true">
+    <find>([\.!\?])”</find>
+    <style>All</style>
+    <description>find one of .!? AND ” - highlight only</description>
+    <id>nl01-030</id>
+    <replace></replace>
+    <normalisedFind>([\.!\?])”</normalisedFind>
+    <normalisedReplace></normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;\w)"(?&lt;OJStyleSuffix&gt;-\w)</find>
+    <style>All</style>
+    <description>Find letter or figure AND " AND - AND letter or figure / replace " with ”</description>
+    <id>nl01-031</id>
+    <replace>”</replace>
+    <normalisedFind>"</normalisedFind>
+    <prefix>\w</prefix>
+    <suffix>-\w</suffix>
+    <normalisedReplace>”</normalisedReplace>
+  </rule>
+</dictionary>

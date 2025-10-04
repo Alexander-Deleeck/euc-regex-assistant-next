@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>de02 - abreviations</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>(Liter/Hektar)</find>
+    <style>All</style>
+    <description>find "(Liter/Hektar)", replace by "(l/ha)" </description>
+    <id>de02-001</id>
+    <replace>(l/ha)</replace>
+    <normalisedFind>\(Liter/Hektar\)</normalisedFind>
+    <normalisedReplace>(l/ha)</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>(Tonnen/Kilogrammm)</find>
+    <style>All</style>
+    <description>find "(Tonnen/Kilogrammm)", replace by "(t/kg)" </description>
+    <id>de02-002</id>
+    <replace>(t/kg)</replace>
+    <normalisedFind>\(Tonnen/Kilogrammm\)</normalisedFind>
+    <normalisedReplace>(t/kg)</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bA[bB][lL]\b\.?</find>
+    <style>All</style>
+    <description>find "A[Bb][lL](.)", replace by "ABl." </description>
+    <id>de02-003</id>
+    <replace>ABl.</replace>
+    <normalisedFind>\b&lt;A[bB][lL]\b&gt;\.?</normalisedFind>
+    <normalisedReplace>ABl.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;ABl\. N[Rr]\.</find>
+    <style>All</style>
+    <description>find "ABl. N[Rr].", replace by "ABl." </description>
+    <id>de02-004</id>
+    <replace>ABl.</replace>
+    <normalisedFind>\b&lt;ABl\. N[Rr]\.</normalisedFind>
+    <normalisedReplace>ABl.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\betc\b\.?</find>
+    <style>All</style>
+    <description>find "etc.", replace by "usw." </description>
+    <id>de02-005</id>
+    <replace>usw.</replace>
+    <normalisedFind>\b&lt;etc\b&gt;\.?</normalisedFind>
+    <normalisedReplace>usw.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bFax\b(\.?:?)</find>
+    <style>All</style>
+    <description>find "Fax(.:)", replace by "Fax" </description>
+    <id>de02-006</id>
+    <replace>Fax</replace>
+    <normalisedFind>\b&lt;Fax\b&gt;(\.?:?)</normalisedFind>
+    <normalisedReplace>Fax</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;F[&amp;U]E&gt;</find>
+    <style>All</style>
+    <description>find "F&amp;E" or "FuE", replace by "FuE" </description>
+    <id>de02-007</id>
+    <replace>FuE</replace>
+    <normalisedFind>\b&lt;F[&amp;U]E\b&gt;</normalisedFind>
+    <normalisedReplace>FuE</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bG(-? ?)([78])\b</find>
+    <style>All</style>
+    <description>find "G-[78]" "G [78]", replace by "G[78]" </description>
+    <id>de02-008</id>
+    <replace>G$2</replace>
+    <normalisedFind>\b&lt;G(-? ?)([78])\b&gt;</normalisedFind>
+    <normalisedReplace>G$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bG(-? ?)24\b</find>
+    <style>All</style>
+    <description>find "G-24" or "G 24", replace by "G24" </description>
+    <id>de02-009</id>
+    <replace>G24</replace>
+    <normalisedFind>\b&lt;G(-? ?)24\b&gt;</normalisedFind>
+    <normalisedReplace>G24</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>GMBH</find>
+    <style>All</style>
+    <description>find "GMBH", replace by "GmbH" </description>
+    <id>de02-010</id>
+    <replace>GmbH</replace>
+    <normalisedFind>GMBH</normalisedFind>
+    <normalisedReplace>GmbH</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>KMUs</find>
+    <style>All</style>
+    <description>find "KMUs", replace by "KMU" </description>
+    <id>de02-011</id>
+    <replace>KMU</replace>
+    <normalisedFind>KMUs</normalisedFind>
+    <normalisedReplace>KMU</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bM[wW][sS][tT]\b\.?</find>
+    <style>All</style>
+    <description>find "M[wW][sS][tT]", replace by "MwSt." </description>
+    <id>de02-012</id>
+    <replace>MwSt.</replace>
+    <normalisedFind>\b&lt;M[wW][sS][tT]\b&gt;\.?</normalisedFind>
+    <normalisedReplace>MwSt.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bT[ée]l\b\.?:?[ \u00A0]?(\d)</find>
+    <style>All</style>
+    <description>find "T[ée]l(.:) 1", replace by "Tel.nbsp1" </description>
+    <id>de02-013</id>
+    <replace>Tel. $1</replace>
+    <normalisedFind>\b&lt;T[ée]l\b&gt;\.?:?[ \u00A0]?(\d)</normalisedFind>
+    <normalisedReplace>Tel.\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Telex:</find>
+    <style>All</style>
+    <description>find "Telex:"", replace by "Telex" </description>
+    <id>de02-014</id>
+    <replace>Telex</replace>
+    <normalisedFind>\b&lt;Telex:</normalisedFind>
+    <normalisedReplace>Telex</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>, u\.?s\.?w\.?([^\w])</find>
+    <style>All</style>
+    <description>find ", u(.)s(.)w(.){except letter}", replace by " usw.{except letter}" </description>
+    <id>de02-015</id>
+    <replace> usw.$1</replace>
+    <normalisedFind>, u\.?s\.?w\.?([^\w])</normalisedFind>
+    <normalisedReplace> usw.$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\s)u\.s\.w\.([^\w])</find>
+    <style>All</style>
+    <description>find " u.s.w.{except letter}", replace by " usw.{except letter}" </description>
+    <id>de02-016</id>
+    <replace>$1usw.$2</replace>
+    <normalisedFind>(\s)u\.s\.w\.([^\w])</normalisedFind>
+    <normalisedReplace>$1usw.$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="true" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>([\t \u00A0])u\.s\.w\.</find>
+    <style>All</style>
+    <description>at the end of paragraph, find " u.s.w." and replace by " usw." </description>
+    <id>de02-017</id>
+    <replace>$1usw.</replace>
+    <normalisedFind>([\t \u00A0])u\.s\.w\.</normalisedFind>
+    <normalisedReplace>$1usw.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>u\.( ?)a\.</find>
+    <style>All</style>
+    <description>find "u. a." with no space or white space / replace with "u.&amp;nbsp;a." with a non-breaking space inside</description>
+    <id>de02-018</id>
+    <replace>u. a.</replace>
+    <normalisedFind>u\.( ?)a\.</normalisedFind>
+    <normalisedReplace>u\.\u00A0a\.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>z\.( ?)B\.</find>
+    <style>All</style>
+    <description>find "z. B." with no space or white space / replace with "z.&amp;nbsp;B." with a non-breaking space inside</description>
+    <id>de02-019</id>
+    <replace>z. B.</replace>
+    <normalisedFind>z\.( ?)B\.</normalisedFind>
+    <normalisedReplace>z.\u00A0B.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>d\.( ?)h\.</find>
+    <style>All</style>
+    <description>find "d. h." with no space or white space / replace with "d.&amp;nbsp;h." with a non-breaking space inside</description>
+    <id>de02-020</id>
+    <replace>d. h.</replace>
+    <normalisedFind>d\.( ?)h\.</normalisedFind>
+    <normalisedReplace>d.\u00A0h.</normalisedReplace>
+  </rule>
+</dictionary>

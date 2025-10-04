@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>fr01 - ((-date-sup-nbsp (1)</name>
+  <options />
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>((</find>
+    <style>All</style>
+    <description>find "((", replace by "[(" </description>
+    <id>fr01-001</id>
+    <replace>[(</replace>
+    <normalisedFind>\(\(</normalisedFind>
+    <normalisedReplace>[(</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>))</find>
+    <style>All</style>
+    <description>find "))", replace by ")]" </description>
+    <id>fr01-002</id>
+    <replace>)]</replace>
+    <normalisedFind>\)\)</normalisedFind>
+    <normalisedReplace>)]</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>\b(\d+)[eè](me)?\b</find>
+    <style>All</style>
+    <description>find "1[1111][eè]me", replace by "1[1111]_SUP_e_SUP_" </description>
+    <id>fr01-003</id>
+    <replace>$1_SUP_e_SUP_</replace>
+    <normalisedFind>\b&lt;(\d+)[eè](me)?\b&gt;</normalisedFind>
+    <normalisedReplace>$1_SUP_e_SUP_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>\b([1I])er\b</find>
+    <style>All</style>
+    <description>find "1er" or "Ier", replace by "1_SUP_er_SUP_" or "I_SUP_er_SUP_" </description>
+    <id>fr01-004</id>
+    <replace>$1_SUP_er_SUP_</replace>
+    <normalisedFind>\b&lt;([1I])er\b&gt;</normalisedFind>
+    <normalisedReplace>$1_SUP_er_SUP_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>\b([1I])re\b</find>
+    <style>All</style>
+    <description>find "1re" or "Ire", replace by "1_SUP_re_SUP_" or "I_SUP_re_SUP_" </description>
+    <id>fr01-005</id>
+    <replace>$1_SUP_re_SUP_</replace>
+    <normalisedFind>\b&lt;([1I])re\b&gt;</normalisedFind>
+    <normalisedReplace>$1_SUP_re_SUP_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>\b([IXV]+)e </find>
+    <style>All</style>
+    <description>find "[IVX]e " or "[IVX]_SUP_e_SUP_ ", replace by "[IVX]_SUP_e_SUP_&amp;nbsp; </description>
+    <id>fr01-006</id>
+    <replace>$1_SUP_e_SUP_ </replace>
+    <normalisedFind>\b&lt;([IXV]+)e </normalisedFind>
+    <normalisedReplace>$1_SUP_e_SUP_\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9]) (ha)&gt;</find>
+    <style>All</style>
+    <description>find "1 ha", replace by "1&amp;nbsp;ha" </description>
+    <id>fr01-007</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d) (ha)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?([glmμ])\b</find>
+    <style>All</style>
+    <description>Find 1 figure + white space optional + one of [glmμ] / Replace white space optional by a non-breaking space </description>
+    <id>fr01-008</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?([glmμ])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?(da[Aglm])\b</find>
+    <style>All</style>
+    <description>find "1( )da[Aglm]", replace by "1&amp;nbsp;da[Aglm]" </description>
+    <id>fr01-009</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?(da[Aglm])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?(kA)\b</find>
+    <style>All</style>
+    <description>find "1( )kA", replace by "1&amp;nbsp;kA" </description>
+    <id>fr01-010</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?(kA)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?([khdcmμ]g)\b</find>
+    <style>All</style>
+    <description>find "1( )[khdcmμ]g", replace by "1&amp;nbsp;[khdcmμ]g" </description>
+    <id>fr01-011</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?([khdcmμ]g)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?([hdcm]l)\b</find>
+    <style>All</style>
+    <description>find "1( )[hdcm]l", replace by "1&amp;nbsp;[hdcm]l" </description>
+    <id>fr01-012</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?([hdcm]l)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?([khdcmμ]m)\b</find>
+    <style>All</style>
+    <description>find "1( )[khdcmμ]m", replace by "1&amp;nbsp;[khdcmμ]m" </description>
+    <id>fr01-013</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?([khdcmμ]m)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;(\d)) ?(?&lt;OJStyleSuffix&gt;(da)?m([23])\b)</find>
+    <style>All</style>
+    <description>Find: figure + white space optionnal + (letter d + letter a optional) + letter m + [² or ³] / Replace by: same with a non-breaking space</description>
+    <id>fr01-014</id>
+    <replace> </replace>
+    <normalisedFind> ?</normalisedFind>
+    <prefix>(\d)</prefix>
+    <suffix>(da)?m([23])\b&gt;</suffix>
+    <normalisedReplace>\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>(?&lt;OJStylePrefix&gt;(\d)) ?(?&lt;OJStyleSuffix&gt;([khdcm]m)([23])\b)</find>
+    <style>All</style>
+    <description>Find: figure + white space optional + (letters km or hm or dm or cm or mm) + [² ou ³] / Replace by: same with a non-breaking space</description>
+    <id>fr01-015</id>
+    <replace> </replace>
+    <normalisedFind> ?</normalisedFind>
+    <prefix>(\d)</prefix>
+    <suffix>([khdcm]m)([23])\b&gt;</suffix>
+    <normalisedReplace>\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?([sjhqt])\b</find>
+    <style>All</style>
+    <description>find "1( )[sjhqt]", replace by "1&amp;nbsp;[sjhqt]" </description>
+    <id>fr01-016</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?([sjhqt])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?(min)\b</find>
+    <style>All</style>
+    <description>find "1( )min", replace by "1&amp;nbsp;min" </description>
+    <id>fr01-017</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?(min)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?(Hz)\b</find>
+    <style>All</style>
+    <description>find "1( )Hz", replace by "1&amp;nbsp;Hz" </description>
+    <id>fr01-018</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?(Hz)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?([GMk]Hz)\b</find>
+    <style>All</style>
+    <description>find "1( )[GMk]Hz", replace by "1&amp;nbsp;[GMk]Hz" </description>
+    <id>fr01-019</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?([GMk]Hz)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?([JW])\b</find>
+    <style>All</style>
+    <description>find "1( )[JW]", replace by "1&amp;nbsp;[JW]" </description>
+    <id>fr01-020</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?([JW])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?([Mk][JW])\b</find>
+    <style>All</style>
+    <description>find "1( )[Mk][JW]", replace by "1&amp;nbsp;[Mk][JW]"</description>
+    <id>fr01-021</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?([Mk][JW])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?(kWh)\b</find>
+    <style>All</style>
+    <description>find "1( )kWh", replace by "1&amp;nbsp;kWh"</description>
+    <id>fr01-022</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?(kWh)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?(Pa)\b</find>
+    <style>All</style>
+    <description>find "1( )Pa", replace by "1&amp;nbsp;Pa"</description>
+    <id>fr01-023</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?(Pa)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?(k?cal)\b</find>
+    <style>All</style>
+    <description>find "1( )(k)cal", replace by "1&amp;nbsp;(k)cal" </description>
+    <id>fr01-024</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?(k?cal)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?(bar)\b</find>
+    <style>All</style>
+    <description>find "1( )bar", replace by "1&amp;nbsp;bar" </description>
+    <id>fr01-025</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?(bar)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?([cm]bar)\b</find>
+    <style>All</style>
+    <description>find "1( )[cm]bar", replace by "1&amp;nbsp;[cm]bar" </description>
+    <id>fr01-026</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) ?([cm]bar)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find> ([cdjlmnust])’ ([aeiouyé])</find>
+    <style>All</style>
+    <description>find " [cdjlmnust]’ [aeiouyé]..." replace by " [cdjlmnust]’[aeiouy]..." </description>
+    <id>fr01-027</id>
+    <replace> $1’$2</replace>
+    <normalisedFind> ([cdjlmnust])’ ([aeiouyé])</normalisedFind>
+    <normalisedReplace> $1’$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false">
+    <find>([cdjlnst])’ ([aeiouyé])</find>
+    <style>All</style>
+    <description>at the start of paragraph, find "[cdjlnst]’ [aeiouyé]..." replace by " [cdjlnst]’[aeiouy]..." </description>
+    <id>fr01-028</id>
+    <replace>$1’$2</replace>
+    <normalisedFind>([cdjlnst])’ ([aeiouyé])</normalisedFind>
+    <normalisedReplace>$1’$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;(Bruxelles) (I{1,2})&gt;</find>
+    <style>All</style>
+    <description>find "Bruxelles I[I]", replace by "Bruxelles&amp;nbsp;I[I]" </description>
+    <id>fr01-029</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>\b&lt;(Bruxelles) (I{1,2})\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;(Dublin) (I{1,2})&gt;</find>
+    <style>All</style>
+    <description>find "Dublin I[I]", replace by "Dublin&amp;nbsp;I[I]" </description>
+    <id>fr01-030</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>\b&lt;(Dublin) (I{1,2})\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;(Rome) (I{1,2})&gt;</find>
+    <style>All</style>
+    <description>find "Rome I[I]", replace by "Rome&amp;nbsp;I[I]" </description>
+    <id>fr01-031</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>\b&lt;(Rome) (I{1,2})\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+</dictionary>

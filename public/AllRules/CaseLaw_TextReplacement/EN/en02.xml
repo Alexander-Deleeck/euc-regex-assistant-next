@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>en02 - nbsp 1</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) (°C)&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] °C", replace by "1[,.]1[1111]&amp;nbsp; °C"</description>
+    <id>en02-001</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) (°C)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) ([ghlmstAJNVW])&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] [ghlmstAJNVW]", replace by "1[,.]1[1111]&amp;nbsp;[ghlmstAJNVW]"</description>
+    <id>en02-002</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) ([ghlmstAJNVW])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) (m[glmsA])&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] m[glmsA]", replace by "1[,.]1[1111]&amp;nbsp;m[glmsA]"</description>
+    <id>en02-003</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) (m[glmsA])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) (µ[gmsA])&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] µ[gmsA]", replace by "1[,.]1[1111]&amp;nbsp;µ[gmsA]"</description>
+    <id>en02-004</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) (µ[gmsA])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) (c[cm])&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] cc|cm", replace by "1[,.]1[1111]&amp;nbsp;cc|cm"</description>
+    <id>en02-005</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) (c[cm])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) ([Gk]Wh)&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] GWh|kWh", replace by "1[,.]1[1111]&amp;nbsp;GWh|kWh"</description>
+    <id>en02-006</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) ([Gk]Wh)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) (h[al])&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] ha|hl", replace by "1[,.]1[1111]&amp;nbsp; ha|hl"</description>
+    <id>en02-007</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) (h[al])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d[\.,]\d+) (k?Hz)\b</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] Hz|kHz", replace by "1[,.]1[1111]&amp;nbsp;Hz|kHz"</description>
+    <id>en02-008</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d[\.,]\d+) (k?Hz)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) (k[gmAJVW])&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] kg|km|kA|kJ|kV|kW", replace by  "1[,.]1[1111]&amp;nbsp;kg|km|kA|kJ|kV|kW"</description>
+    <id>en02-009</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) (k[gmAJVW])\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) (MW)&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] MW", replace by "1[,.]1[1111]&amp;nbsp; MW"</description>
+    <id>en02-010</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) (MW)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) (min)&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] min", replace by "1[,.]1[1111]&amp;nbsp;min"</description>
+    <id>en02-011</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) (min)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d[\.,]\d+) (seconds?)\b</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] seconds?", replace by "1[,.]1[1111]&amp;nbsp;seconds?"</description>
+    <id>en02-012</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d[\.,]\d+) (seconds?)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9][\.,][0-9]@) (TJ)&gt;</find>
+    <style>All</style>
+    <description>find "1[,.]1[1111] TJ", replace by "1[,.]1[1111]&amp;nbsp; TJ"</description>
+    <id>en02-013</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>(\d[\.,]\d+) (TJ)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+</dictionary>

@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>nl03 - dag/dagen</name>
+  <options />
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b1 (dag|week|maand|jaar)\b</find>
+    <style>All</style>
+    <description>find "1 (dag|week|maand|jaar)", replace by "één (dag|week|maand|jaar)" </description>
+    <id>nl03-001</id>
+    <replace>één $1</replace>
+    <normalisedFind>\b&lt;1 (dag|week|maand|jaar)\b&gt;</normalisedFind>
+    <normalisedReplace>één $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b2 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "2 dagen|weken|maanden|jaren", replace by "twee dagen|weken|maanden|jaren" </description>
+    <id>nl03-002</id>
+    <replace>twee $1</replace>
+    <normalisedFind>\b&lt;2 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>twee $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b3 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "3 dagen|weken|maanden|jaren", replace by "drie dagen|weken|maanden|jaren" </description>
+    <id>nl03-003</id>
+    <replace>drie $1</replace>
+    <normalisedFind>\b&lt;3 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>drie $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b4 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "4 dagen|weken|maanden|jaren", replace by "vier dagen|weken|maanden|jaren" </description>
+    <id>nl03-004</id>
+    <replace>vier $1</replace>
+    <normalisedFind>\b&lt;4 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>vier $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b5 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "5 dagen|weken|maanden|jaren", replace by "vijf dagen|weken|maanden|jaren" </description>
+    <id>nl03-005</id>
+    <replace>vijf $1</replace>
+    <normalisedFind>\b&lt;5 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>vijf $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b6 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "6 dagen|weken|maanden|jaren", replace by "zes dagen|weken|maanden|jaren" </description>
+    <id>nl03-006</id>
+    <replace>zes $1</replace>
+    <normalisedFind>\b&lt;6 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>zes $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b7 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "7 dagen|weken|maanden|jaren", replace by "zeven dagen|weken|maanden|jaren" </description>
+    <id>nl03-007</id>
+    <replace>zeven $1</replace>
+    <normalisedFind>\b&lt;7 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>zeven $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b8 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "8 dagen|weken|maanden|jaren", replace by "acht dagen|weken|maanden|jaren" </description>
+    <id>nl03-008</id>
+    <replace>acht $1</replace>
+    <normalisedFind>\b&lt;8 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>acht $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b9 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "9 dagen|weken|maanden|jaren", replace by "negen dagen|weken|maanden|jaren" </description>
+    <id>nl03-009</id>
+    <replace>negen $1</replace>
+    <normalisedFind>\b&lt;9 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>negen $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b10 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "10 dagen|weken|maanden|jaren", replace by "tien dagen|weken|maanden|jaren" </description>
+    <id>nl03-010</id>
+    <replace>tien $1</replace>
+    <normalisedFind>\b&lt;10 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>tien $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b11 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "11 dagen|weken|maanden|jaren", replace by "elf dagen|weken|maanden|jaren" </description>
+    <id>nl03-011</id>
+    <replace>elf $1</replace>
+    <normalisedFind>\b&lt;11 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>elf $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b12 (dagen|weken|maanden|jaren)\b</find>
+    <style>All</style>
+    <description>find "12 dagen|weken|maanden|jaren", replace by "twaalf dagen|weken|maanden|jaren" </description>
+    <id>nl03-012</id>
+    <replace>twaalf $1</replace>
+    <normalisedFind>\b&lt;12 (dagen|weken|maanden|jaren)\b&gt;</normalisedFind>
+    <normalisedReplace>twaalf $1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;jaren ’70&gt;</find>
+    <style>All</style>
+    <description>find "jaren ’70", replace by "jaren 70" </description>
+    <id>nl03-013</id>
+    <replace>jaren 70</replace>
+    <normalisedFind>\b&lt;jaren ’70\b&gt;</normalisedFind>
+    <normalisedReplace>jaren 70</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;jaren ’80&gt;</find>
+    <style>All</style>
+    <description>find "jaren ’80", replace by "jaren 80" </description>
+    <id>nl03-014</id>
+    <replace>jaren 80</replace>
+    <normalisedFind>\b&lt;jaren ’80\b&gt;</normalisedFind>
+    <normalisedReplace>jaren 80</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;jaren ’90&gt;</find>
+    <style>All</style>
+    <description>find "jaren ’90", replace by "jaren 90" </description>
+    <id>nl03-015</id>
+    <replace>jaren 90</replace>
+    <normalisedFind>\b&lt;jaren ’90\b&gt;</normalisedFind>
+    <normalisedReplace>jaren 90</normalisedReplace>
+  </rule>
+</dictionary>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>en03 - nbsp 2</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([aA]nnex)(es)? (\d)</find>
+    <style>All</style>
+    <description>find "[aA]nnex(es)? 1", replace by "[aA]nnex(es)?&amp;nbsp;1"</description>
+    <id>en03-001</id>
+    <replace>$1$2 $3</replace>
+    <normalisedFind>\b&lt;([aA]nnex)(es)? (\d)</normalisedFind>
+    <normalisedReplace>$1$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(Art\.|[aA]rticles?) (\d)</find>
+    <style>All</style>
+    <description>find "[Art.|[aA]rticles?] 1", replace by "[Art.|[aA]rticles?]&amp;nbsp;1"</description>
+    <id>en03-002</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;(Art\.|[aA]rticles?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([cC]hapters?) (\d)</find>
+    <style>All</style>
+    <description>find "[cC]hapters? 1", replace by "[cC]hapters?&amp;nbsp;1"</description>
+    <id>en03-003</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([cC]hapters?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;(EUR) ([0-9])</find>
+    <style>All</style>
+    <description>find "EUR 1", replace by "EUR&amp;nbsp;1" </description>
+    <id>en03-004</id>
+    <replace>\1 \2</replace>
+    <normalisedFind>\b&lt;(EUR) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([hH]eadings?) (\d)</find>
+    <style>All</style>
+    <description>find "[hH]eadings? 1", replace by "[hH]eadings?&amp;nbsp;1"</description>
+    <id>en03-005</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([hH]eadings?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(Nos?) (\d)</find>
+    <style>All</style>
+    <description>find "Nos? 1", replace by "Nos?&amp;nbsp;1"</description>
+    <id>en03-006</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;(Nos?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([nN]otes?) (\d)</find>
+    <style>All</style>
+    <description>find "[nN]otes? 1", replace by "[nN]otes?&amp;nbsp;1"</description>
+    <id>en03-007</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([nN]otes?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]aras?) (\d)</find>
+    <style>All</style>
+    <description>find "[pP]aras? 1", replace by "[pP]aras?&amp;nbsp;1"</description>
+    <id>en03-008</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([pP]aras?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]aragraphs?) (\d)</find>
+    <style>All</style>
+    <description>find "[pP]aragraphs? 1", replace by "[pP]aragraphs?&amp;nbsp;1"</description>
+    <id>en03-009</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([pP]aragraphs?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]arts?) (\d)</find>
+    <style>All</style>
+    <description>find "[pP]arts? 1", replace by "[pP]arts?&amp;nbsp;1"</description>
+    <id>en03-010</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([pP]arts?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]oints?) (\d)</find>
+    <style>All</style>
+    <description>find "[pP]oints? 1", replace by "[pP]oints?&amp;nbsp;1"</description>
+    <id>en03-011</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([pP]oints?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(pp?\.) ?(\d)</find>
+    <style>All</style>
+    <description>find "pp?. 1", replace by "pp?.&amp;nbsp;1"</description>
+    <id>en03-012</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;(pp?\.) ?(\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;R &amp; D&gt;</find>
+    <style>All</style>
+    <description>find "R &amp; D", replace by "R&amp;nbsp;&amp;&amp;nbsp;D" </description>
+    <id>en03-013</id>
+    <replace>R &amp; D</replace>
+    <normalisedFind>\b&lt;R &amp; D\b&gt;</normalisedFind>
+    <normalisedReplace>R\u00A0&amp;\u00A0D</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([rR]ecitals?) (\d)</find>
+    <style>All</style>
+    <description>find "[rR]ecitals? 1", replace by "[rR]ecitals?&amp;nbsp;1"</description>
+    <id>en03-014</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([rR]ecitals?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([sS]ections?) (\d)</find>
+    <style>All</style>
+    <description>find "[sS]ections? 1", replace by "[sS]ections?&amp;nbsp;1"</description>
+    <id>en03-015</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([sS]ections?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([tT]itles?) (\d)</find>
+    <style>All</style>
+    <description>find "[tT]itles? 1", replace by "[tT]itles?&amp;nbsp;1"</description>
+    <id>en03-016</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([tT]itles?) (\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+</dictionary>

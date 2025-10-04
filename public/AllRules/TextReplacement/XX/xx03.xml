@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>XX03 - spaces - money - formula</name>
+  <options />
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false">
+    <find>([\+±=−]) (?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>only SL_CS(S)-at the start of paragraph find "[+±=&amp;minus;] [letter or figure]", replace by "[+±=&amp;minus;]&amp;nbsp;[letter or figure]" </description>
+    <comment>; StartOfPara changed</comment>
+    <id>XX03-001</id>
+    <replace>$1 </replace>
+    <onlyFor>;CS;SL</onlyFor>
+    <normalisedFind>([\+±=−]) </normalisedFind>
+    <suffix>\w</suffix>
+    <normalisedReplace>$1\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;[\(\[\{])([\+±=−]) (?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>only SL_CS(P/S)-find "[([{][+±=&amp;minus;] [letter or figure]", replace by "[([{][+±=&amp;minus;]&amp;nbsp;[letter or figure]" </description>
+    <id>XX03-002</id>
+    <replace>$1 </replace>
+    <onlyFor>;CS;SL</onlyFor>
+    <normalisedFind>([\+±=−]) </normalisedFind>
+    <prefix>[\(\[\{]</prefix>
+    <suffix>\w</suffix>
+    <normalisedReplace>$1\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false">
+    <find>([\+±=−]) ?(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>except SL_CS_HR_EN_GA_DA_DE_HU_IT_ET(S)-at the start of paragraph find "[+±=&amp;minus;]( )[letter or figure]", replace by "[+±=&amp;minus;]&amp;nbsp;[letter or figure]" </description>
+    <comment>; StartOfPara changed</comment>
+    <id>XX03-003</id>
+    <replace>$1 </replace>
+    <notFor>;CS;DA;DE;EN;ET;GA;HR;HU;IT;SL</notFor>
+    <normalisedFind>([\+±=−]) ?</normalisedFind>
+    <suffix>\w</suffix>
+    <normalisedReplace>$1\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;[\(\[\{])([\+±=−]) ?(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>except SL_CS(P/S)-find "[([{][+±=&amp;minus;]( )[letter or figure]", replace by "[([{][+±=&amp;minus;]&amp;nbsp;[letter or figure]" </description>
+    <id>XX03-004</id>
+    <replace>$1 </replace>
+    <notFor>;CS;SL</notFor>
+    <normalisedFind>([\+±=−]) ?</normalisedFind>
+    <prefix>[\(\[\{]</prefix>
+    <suffix>\w</suffix>
+    <normalisedReplace>$1\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>([\(\[\{]) ([%‰])</find>
+    <style>All</style>
+    <description>find "[([{] [%‰]", replace by "[([{][%‰]" </description>
+    <id>XX03-005</id>
+    <replace>$1$2</replace>
+    <normalisedFind>([\(\[\{]) ([%‰])</normalisedFind>
+    <normalisedReplace>$1$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d{4})\u00A0(\d)</find>
+    <style>All</style>
+    <description>find "1111&amp;nbsp;1", replace by "1111 1" (+ xx04 - rule 1) </description>
+    <id>XX03-006</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d{4})\u00A0(\d)</normalisedFind>
+    <normalisedReplace>$1 $2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;([CK])OM \(</find>
+    <style>All</style>
+    <description>only NL - find "[CK]OM (", replace by "[CK]OM(" </description>
+    <id>XX03-007</id>
+    <replace>\1OM(</replace>
+    <onlyFor>;NL;</onlyFor>
+    <normalisedFind>\b&lt;([CK])OM \(</normalisedFind>
+    <normalisedReplace>$1OM(</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;SE([CK]) \(</find>
+    <style>All</style>
+    <description>only NL - find "SE[CK] (", replace by "SE[CK](" </description>
+    <id>XX03-008</id>
+    <replace>SE\1(</replace>
+    <onlyFor>;NL;</onlyFor>
+    <normalisedFind>\b&lt;SE([CK]) \(</normalisedFind>
+    <normalisedReplace>SE$1(</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Z[LŁ]&gt;</find>
+    <style>All</style>
+    <description>only PL - find "Z[LŁ]", replace by "PLN" </description>
+    <id>XX03-009</id>
+    <replace>PLN</replace>
+    <onlyFor>;PL;</onlyFor>
+    <normalisedFind>\b&lt;Z[LŁ]\b&gt;</normalisedFind>
+    <normalisedReplace>PLN</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true" highlightOnly="true">
+    <find>CYL</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "CYL"</description>
+    <id>XX03-010</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>CYL</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true" highlightOnly="true">
+    <find>DKR</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "DKR" </description>
+    <id>XX03-011</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>DKR</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true" highlightOnly="true">
+    <find>Ft</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "Ft"</description>
+    <id>XX03-012</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>Ft</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true" highlightOnly="true">
+    <find>&lt;K[cč]&gt;</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "K[cč](.)"</description>
+    <id>XX03-013</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>\b&lt;K[cč]\b&gt;</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true" highlightOnly="true">
+    <find>Ls</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "Ls" </description>
+    <id>XX03-014</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>Ls</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true" highlightOnly="true">
+    <find>Lt</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "Lt" </description>
+    <id>XX03-015</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>Lt</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true" highlightOnly="true">
+    <find>Sk</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "Sk" </description>
+    <id>XX03-016</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>Sk</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true" highlightOnly="true">
+    <find>SKR</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "SKR" </description>
+    <id>XX03-017</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>SKR</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true" highlightOnly="true">
+    <find>UKL</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "UKL" </description>
+    <id>XX03-018</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>UKL</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true" highlightOnly="true">
+    <find>&lt;Z[LŁ]&gt;</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "Z[LŁ]"</description>
+    <id>XX03-019</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>\b&lt;Z[LŁ]\b&gt;</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true" highlightOnly="true">
+    <find>&lt;[CK]OM \(</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "[CK]OM ("</description>
+    <id>XX03-020</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>\b&lt;[CK]OM \(</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true" highlightOnly="true">
+    <find>&lt;SE[CK] \(</find>
+    <style>All</style>
+    <description>only BG-FR-HR-IT-LV-MT-SL - highlighting "SE[CK] ("</description>
+    <id>XX03-021</id>
+    <replace>\0</replace>
+    <onlyFor>;BG;FR;HR;IT;LV;MT;SL;</onlyFor>
+    <normalisedFind>\b&lt;SE[CK] \(</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>CO2</find>
+    <style>All</style>
+    <description>find "CO2", replace by "CO&lt;SUB&gt;2&lt;/SUB&gt;" </description>
+    <id>XX03-022</id>
+    <replace>CO_SUB_2_SUB_</replace>
+    <normalisedFind>CO2</normalisedFind>
+    <normalisedReplace>CO_SUB_2_SUB_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>H2O2</find>
+    <style>All</style>
+    <description>find "H2O2", replace by "H&lt;SUB&gt;2&lt;/SUB&gt;O&lt;SUB&gt;2&lt;/SUB&gt;" </description>
+    <id>XX03-023</id>
+    <replace>H_SUB_2_SUB_O_SUB_2_SUB_</replace>
+    <normalisedFind>H2O2</normalisedFind>
+    <normalisedReplace>H_SUB_2_SUB_O_SUB_2_SUB_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>CH4</find>
+    <style>All</style>
+    <description>find "CH4", replace by "CH&lt;SUB&gt;4&lt;/SUB&gt;" </description>
+    <id>XX03-024</id>
+    <replace>CH_SUB_4_SUB_</replace>
+    <normalisedFind>CH4</normalisedFind>
+    <normalisedReplace>CH_SUB_4_SUB_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>H2O</find>
+    <style>All</style>
+    <description>find "H2O", replace by "H&lt;SUB&gt;2&lt;/SUB&gt;O" </description>
+    <id>XX03-025</id>
+    <replace>H_SUB_2_SUB_O</replace>
+    <normalisedFind>H2O</normalisedFind>
+    <normalisedReplace>H_SUB_2_SUB_O</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="true" wordRule="false" hasFindFormat="true" hasReplaceFormat="true" highlightOnly="true">
+    <find>\bO_NF_2_NF_\b</find>
+    <style>All</style>
+    <description>highlighting "O2" instead subscript</description>
+    <id>XX03-026</id>
+    <replace>$0</replace>
+    <normalisedFind>\b&lt;O_NF_2_NF_\b&gt;</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="false" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasFindFormat="true" hasReplaceFormat="true">
+    <find>_SUP_[oO0]_SUP_ ?(?&lt;OJStyleSuffix&gt;[CF]\b)</find>
+    <style>All</style>
+    <description>(S)-find "_SUP_[oO0]_SUP_( )[CF]", replace by "_NSUP_°_NSUP_[CF]" </description>
+    <id>XX03-028</id>
+    <replace>_NSUP_°_NSUP_</replace>
+    <normalisedFind>_SUP_[oO0]_SUP_ ?</normalisedFind>
+    <suffix>[CF]\b&gt;</suffix>
+    <normalisedReplace>_NSUP_°_NSUP_</normalisedReplace>
+  </rule>
+  <rule active="false" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasFindFormat="true">
+    <find>(\d) ?_SUP_[oO0]_SUP_ ?(?&lt;OJStyleSuffix&gt;[CF]\b)</find>
+    <style>All</style>
+    <description>(S)-find "1( )&lt;SUP&gt;[oO0]&lt;/SUP&gt;( )C" ---C or F---, replace by "1&amp;nbsp;°C" ---C or F---</description>
+    <id>XX03-029</id>
+    <replace>$1 °</replace>
+    <normalisedFind>(\d) ?_SUP_[oO0]_SUP_ ?</normalisedFind>
+    <suffix>[CF]\b&gt;</suffix>
+    <normalisedReplace>$1\u00A0°</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasFindFormat="true" hasReplaceFormat="true">
+    <find>\b_SUP_[oO0]_SUP_(?&lt;OJStyleSuffix&gt; ?[CF]\b)</find>
+    <style>All</style>
+    <description>Find one of o O 0 and C or F / Replace by ° and C or F</description>
+    <id>XX03-28new</id>
+    <replace>_NSUP_°_NSUP_</replace>
+    <normalisedFind>\b&lt;_SUP_[oO0]_SUP_</normalisedFind>
+    <suffix> ?[CF]\b&gt;</suffix>
+    <normalisedReplace>_NSUP_°_NSUP_</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasFindFormat="true">
+    <find>° ([CF])\b</find>
+    <style>All</style>
+    <description>find "° [CF]", replace by "°[CF]" </description>
+    <id>XX03-027</id>
+    <replace>°$1</replace>
+    <normalisedFind>° ([CF])\b&gt;</normalisedFind>
+    <normalisedReplace>°$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false" highlightOnly="true">
+    <find>\u002B\u00A0(\d{1,3})</find>
+    <style>All</style>
+    <description>highlight "+nbsp111" at the start of paragraph only BG_EL_ES_FI_FR_PL_PT_RO_SK</description>
+    <id>XX03-030</id>
+    <replace>$0</replace>
+    <onlyFor>;BG;EL;ES;FI;FR;PL;PT;RO;SK</onlyFor>
+    <normalisedFind>\u002B\u00A0(\d{1,3})</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" highlightOnly="true">
+    <find>[\u002D\u2212][ \u00A0](\d{1,3})</find>
+    <style>All</style>
+    <description>only PT - highlight "-nbsp111" and "- 111" (hyphen minus and minus sign)</description>
+    <id>XX03-031</id>
+    <replace>D</replace>
+    <onlyFor>;PT</onlyFor>
+    <normalisedFind>[\u002D\u2212][ \u00A0](\d{1,3})</normalisedFind>
+    <normalisedReplace>D</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="true" wordRule="false" highlightOnly="true">
+    <find>\u002B(\d{1,3})</find>
+    <style>All</style>
+    <description>only EN_DE_GA - highlight "+111"</description>
+    <id>XX03-032</id>
+    <replace>$0</replace>
+    <onlyFor>;DE;EN;GA</onlyFor>
+    <normalisedFind>\u002B(\d{1,3})</normalisedFind>
+    <normalisedReplace>$0</normalisedReplace>
+  </rule>
+  <rule active="false" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bK[cč]\b\.?</find>
+    <style>All</style>
+    <description>only NL - find "K[cč](.)", replace by "CZK" </description>
+    <id>XX03-033</id>
+    <replace>CZK</replace>
+    <onlyFor>;NL;</onlyFor>
+    <normalisedFind>\b&lt;K[cč]\b\.?</normalisedFind>
+    <normalisedReplace>CZK</normalisedReplace>
+  </rule>
+  <rule active="false" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>Ls</find>
+    <style>All</style>
+    <description>only NL - find "Ls", replace by "LVL" </description>
+    <id>XX03-034</id>
+    <replace>LVL</replace>
+    <onlyFor>;NL;</onlyFor>
+    <normalisedFind>Ls</normalisedFind>
+    <normalisedReplace>LVL</normalisedReplace>
+  </rule>
+  <rule active="false" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>SKR</find>
+    <style>All</style>
+    <description>only NL - find "SKR" replace by "SEK" </description>
+    <id>XX03-035</id>
+    <replace>SEK</replace>
+    <onlyFor>;NL;</onlyFor>
+    <normalisedFind>SKR</normalisedFind>
+    <normalisedReplace>SEK</normalisedReplace>
+  </rule>
+  <rule active="false" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>UKL</find>
+    <style>All</style>
+    <description>only NL - find "UKL", replace by "GBP" </description>
+    <id>XX03-036</id>
+    <replace>GBP</replace>
+    <onlyFor>;NL;</onlyFor>
+    <normalisedFind>UKL</normalisedFind>
+    <normalisedReplace>GBP</normalisedReplace>
+  </rule>
+</dictionary>

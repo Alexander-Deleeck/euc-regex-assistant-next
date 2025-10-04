@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>de03 - divers (1)</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;ad-hoc-</find>
+    <style>All</style>
+    <description>find "ad-hoc-", replace by "Ad-hoc-" </description>
+    <id>de03-001</id>
+    <replace>Ad-hoc-</replace>
+    <normalisedFind>\b&lt;ad-hoc-</normalisedFind>
+    <normalisedReplace>Ad-hoc-</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;am siebenten&gt;</find>
+    <style>All</style>
+    <description>find "am siebenten", replace by "am siebten" </description>
+    <id>de03-002</id>
+    <replace>am siebten</replace>
+    <normalisedFind>\b&lt;am siebenten\b&gt;</normalisedFind>
+    <normalisedReplace>am siebten</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>bekanntgeben</find>
+    <style>All</style>
+    <description>find "bekanntgeben", replace by "bekannt geben" </description>
+    <id>de03-003</id>
+    <replace>bekannt geben</replace>
+    <normalisedFind>bekanntgeben</normalisedFind>
+    <normalisedReplace>bekannt geben</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>bekanntzugeben</find>
+    <style>All</style>
+    <description>find "bekanntzugeben", replace by "bekannt zu geben" </description>
+    <id>de03-004</id>
+    <replace>bekannt zu geben</replace>
+    <normalisedFind>bekanntzugeben</normalisedFind>
+    <normalisedReplace>bekannt zu geben</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([bB]ekannt)(gegeben)(e[nrs]?)?\b</find>
+    <style>All</style>
+    <description>find "[bB]ekanntgegeben(e|en|er|es)", replace by "[bB]ekannt geben(e|en|er|es)" </description>
+    <id>de03-005</id>
+    <replace>$1 $2$3</replace>
+    <normalisedFind>\b&lt;([bB]ekannt)(gegeben)(e[nrs]?)?\b&gt;</normalisedFind>
+    <normalisedReplace>$1 $2$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>bekanntmachen</find>
+    <style>All</style>
+    <description>find "bekanntmachen", replace by "bekannt machen" </description>
+    <id>de03-006</id>
+    <replace>bekannt machen</replace>
+    <normalisedFind>bekanntmachen</normalisedFind>
+    <normalisedReplace>bekannt machen</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>bekanntzumachen</find>
+    <style>All</style>
+    <description>find "bekanntzumachen", replace by "bekannt zu machen" </description>
+    <id>de03-007</id>
+    <replace>bekannt zu machen</replace>
+    <normalisedFind>bekanntzumachen</normalisedFind>
+    <normalisedReplace>bekannt zu machen</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="true" wordRule="false">
+    <find>\b([bB]ekannt)(gemacht)(e[nrs]?)?\b</find>
+    <style>All</style>
+    <description>find "[bB]ekanntgemacht(e|en|er|es)", replace by "[bB]ekannt gemacht(e|en|er|es)" </description>
+    <id>de03-008</id>
+    <replace>$1 $2$3</replace>
+    <normalisedFind>\b&lt;([bB]ekannt)(gemacht)(e[nrs]?)?\b&gt;</normalisedFind>
+    <normalisedReplace>$1 $2$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>bezug</find>
+    <style>All</style>
+    <description>find "bezug", replace by "Bezug" </description>
+    <id>de03-009</id>
+    <replace>Bezug</replace>
+    <normalisedFind>bezug</normalisedFind>
+    <normalisedReplace>Bezug</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>daß</find>
+    <style>All</style>
+    <description>find "daß", replace by "dass" </description>
+    <id>de03-010</id>
+    <replace>dass</replace>
+    <normalisedFind>daß</normalisedFind>
+    <normalisedReplace>dass</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;so dass&gt;</find>
+    <style>All</style>
+    <description>find "so dass", replace by "sodass" </description>
+    <id>de03-011</id>
+    <replace>sodass</replace>
+    <normalisedFind>\b&lt;so dass\b&gt;</normalisedFind>
+    <normalisedReplace>sodass</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;[EÄ][kq]uador&gt;</find>
+    <style>All</style>
+    <description>find "[EÄ][kq]uador", replace by "Ecuador" </description>
+    <id>de03-012</id>
+    <replace>Ecuador</replace>
+    <normalisedFind>\b&lt;[EÄ][kq]uador\b&gt;</normalisedFind>
+    <normalisedReplace>Ecuador</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;ex-ante-</find>
+    <style>All</style>
+    <description>find "ex-ante-", replace by "Ex-ante-" </description>
+    <id>de03-013</id>
+    <replace>Ex-ante-</replace>
+    <normalisedFind>\b&lt;ex-ante-</normalisedFind>
+    <normalisedReplace>Ex-ante-</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;ex-post-</find>
+    <style>All</style>
+    <description>find "ex-post-", replace by "Ex-post-" </description>
+    <id>de03-014</id>
+    <replace>Ex-post-</replace>
+    <normalisedFind>\b&lt;ex-post-</normalisedFind>
+    <normalisedReplace>Ex-post-</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>Gebietes</find>
+    <style>All</style>
+    <description>find "Gebietes", replace by "Gebiets" </description>
+    <id>de03-015</id>
+    <replace>Gebiets</replace>
+    <normalisedFind>Gebietes</normalisedFind>
+    <normalisedReplace>Gebiets</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Hong[ \-]Kong&gt;</find>
+    <style>All</style>
+    <description>find "Hong[ -]Kong", replace by "Hongkong" </description>
+    <id>de03-016</id>
+    <replace>Hongkong</replace>
+    <normalisedFind>\b&lt;Hong[ \-]Kong\b&gt;</normalisedFind>
+    <normalisedReplace>Hongkong</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Mitglied(s{1,2})taates&gt;</find>
+    <style>All</style>
+    <description>find "Mitglied(s)staates", replace by "Mitgliedstaats" </description>
+    <id>de03-017</id>
+    <replace>Mitgliedstaats</replace>
+    <normalisedFind>\b&lt;Mitglied(s{1,2})taates\b&gt;</normalisedFind>
+    <normalisedReplace>Mitgliedstaats</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Mitgliedsstaa</find>
+    <style>All</style>
+    <description>find "Mitgliedsstaa...", replace by "Mitgliedstaa..." </description>
+    <id>de03-018</id>
+    <replace>Mitgliedstaa</replace>
+    <normalisedFind>\b&lt;Mitgliedsstaa</normalisedFind>
+    <normalisedReplace>Mitgliedstaa</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;m([ia])kro-ök</find>
+    <style>All</style>
+    <description>find "m[ia]kro-ök", replace by "m[ia]kroök" </description>
+    <id>de03-019</id>
+    <replace>m\1kroök</replace>
+    <normalisedFind>\b&lt;m([ia])kro-ök</normalisedFind>
+    <normalisedReplace>m$1kroök</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>muß</find>
+    <style>All</style>
+    <description>find "muß", replace by "muss" </description>
+    <id>de03-020</id>
+    <replace>muss</replace>
+    <normalisedFind>muß</normalisedFind>
+    <normalisedReplace>muss</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;NR\.</find>
+    <style>All</style>
+    <description>find "NR.", replace by "Nr." </description>
+    <id>de03-021</id>
+    <replace>Nr.</replace>
+    <normalisedFind>\b&lt;NR\.</normalisedFind>
+    <normalisedReplace>Nr.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>Rats</find>
+    <style>All</style>
+    <description>find "Rats", replace by "Rates" </description>
+    <id>de03-022</id>
+    <replace>Rates</replace>
+    <normalisedFind>Rats</normalisedFind>
+    <normalisedReplace>Rates</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;sozio-pol</find>
+    <style>All</style>
+    <description>find "sozio-pol...", replace by "soziopol..." </description>
+    <id>de03-023</id>
+    <replace>soziopol</replace>
+    <normalisedFind>\b&lt;sozio-pol</normalisedFind>
+    <normalisedReplace>soziopol</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;sozio-ök</find>
+    <style>All</style>
+    <description>find "sozio-pol...", replace by "sozioök..." </description>
+    <id>de03-024</id>
+    <replace>sozioök</replace>
+    <normalisedFind>\b&lt;sozio-ök</normalisedFind>
+    <normalisedReplace>sozioök</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;sozio-kul</find>
+    <style>All</style>
+    <description>find "sozio-kul...", replace by "soziokul..." </description>
+    <id>de03-025</id>
+    <replace>soziokul</replace>
+    <normalisedFind>\b&lt;sozio-kul</normalisedFind>
+    <normalisedReplace>soziokul</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>Spiegelstrich</find>
+    <style>All</style>
+    <description>find "Spiegelstrich", replace by "Gedankenstrich" </description>
+    <id>de03-026</id>
+    <replace>Gedankenstrich</replace>
+    <normalisedFind>Spiegelstrich</normalisedFind>
+    <normalisedReplace>Gedankenstrich</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>Vertrages</find>
+    <style>All</style>
+    <description>find "Vertrages", replace by "Vertrags" </description>
+    <id>de03-027</id>
+    <replace>Vertrags</replace>
+    <normalisedFind>Vertrages</normalisedFind>
+    <normalisedReplace>Vertrags</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;zu Grunde</find>
+    <style>All</style>
+    <description>find "zu Grunde...", replace by "zugrunde..." </description>
+    <id>de03-028</id>
+    <replace>zugrunde</replace>
+    <normalisedFind>\b&lt;zu Grunde</normalisedFind>
+    <normalisedReplace>zugrunde</normalisedReplace>
+  </rule>
+</dictionary>

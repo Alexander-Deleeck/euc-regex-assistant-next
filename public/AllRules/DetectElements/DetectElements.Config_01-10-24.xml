@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <mappings>
+    <mapping language="BG" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\bg.processList.xml" />
+    <mapping language="CS" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\cs.processList.xml" />
+    <mapping language="DA" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\da.processList.xml" />
+    <mapping language="DE" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\de.processList.xml" />
+    <mapping language="EL" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\el.processList.xml" />
+    <mapping language="EN" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\en.processList.xml" />
+    <mapping language="ES" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\es.processList.xml" />
+    <mapping language="ET" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\et.processList.xml" />
+    <mapping language="FI" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\fi.processList.xml" />
+    <mapping language="FR" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\fr.processList.xml" />
+    <mapping language="GA" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\ga.processList.xml" />
+    <mapping language="HR" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\hr.processList.xml" />
+    <mapping language="HU" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\hu.processList.xml" />
+    <mapping language="IT" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\it.processList.xml" />
+    <mapping language="LT" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\lt.processList.xml" />
+    <mapping language="LV" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\lv.processList.xml" />
+    <mapping language="MT" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\mt.processList.xml" />
+    <mapping language="NL" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\nl.processList.xml" />
+    <mapping language="PL" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\pl.processList.xml" />
+    <mapping language="PT" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\pt.processList.xml" />
+    <mapping language="RO" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\ro.processList.xml" />
+    <mapping language="SK" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\sk.processList.xml" />
+    <mapping language="SL" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\sl.processList.xml" />
+    <mapping language="SV" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\sv.processList.xml" />
+    <mapping language="XX" processList="D:\OJ-Format\Config\DetectElements\Dictionaries\xx.processList.xml" />
+  </mappings>
+  <patternTypeRelations>
+    <warningOn patternType1="date_rev" patternType2="date" languages="DA" />
+    <warningOn patternType1="ordinal_number" patternType2="cardinal_number" languages="HR" />
+    <warningOn patternType1="years" patternType2="year" languages="LT" />
+  </patternTypeRelations>
+  <ruleCategories>
+    <category id="{b62ff48e-4208-4f43-9319-01d466374b20}" value="1. Article Ref" />
+    <category id="{aed3b548-b5d2-44a2-b8de-7f416d35046f}" value="2. OJ Ref" />
+    <category id="{fc492961-997c-4f9d-a263-142f67993948}" value="3. Subdivision" />
+    <category id="{b0789596-b294-47e4-8a05-a56836be2085}" value="4. List" />
+    <category id="{be26c96f-1a88-46a1-bf6e-683c6e99cc44}" value="5. Date" />
+    <category id="{0b15b701-364e-4b96-9816-534cdb5f52eb}" value="6. Number" />
+    <category id="{1f20b75f-48b6-4e37-8aa3-4531eb870e3b}" value="7. Special Number" />
+  </ruleCategories>
+</configuration>

@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>XX02 - spaces - accent - degree</name>
+  <options />
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find> ^t</find>
+    <style>All</style>
+    <description>find "&amp;space;&amp;tab;", replace by "&amp;tab;" </description>
+    <id>XX02-001</id>
+    <replace>^t</replace>
+    <normalisedFind> \t</normalisedFind>
+    <normalisedReplace>\t</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>^t </find>
+    <style>All</style>
+    <description>find "&amp;tab;&amp;space;", replace by "&amp;tab;" </description>
+    <id>XX02-002</id>
+    <replace>^t</replace>
+    <normalisedFind>\t </normalisedFind>
+    <normalisedReplace>\t</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>([\(\[\{]) </find>
+    <style>All</style>
+    <description>delete space after "([{" </description>
+    <id>XX02-003</id>
+    <replace>$1</replace>
+    <normalisedFind>([\(\[\{]) </normalisedFind>
+    <normalisedReplace>$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find> ([\)\]\}])</find>
+    <style>All</style>
+    <description>delete space before ")]}" </description>
+    <id>XX02-004</id>
+    <replace>$1</replace>
+    <normalisedFind> ([\)\]\}])</normalisedFind>
+    <normalisedReplace>$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;(ime|imen|imena|imenu|imeni|imenom|imenoma|imenih)) (?&lt;OJStyleSuffix&gt;\.)</find>
+    <style>All</style>
+    <description>Only SL - prevent replacement of (ime|imen|imena|imenu|imeni|imenom|imenoma|imenih) + add SPACE</description>
+    <id>XX02-005BeforeIme</id>
+    <replace>SPACE</replace>
+    <onlyFor>;SL</onlyFor>
+    <normalisedFind> </normalisedFind>
+    <prefix>(ime|imen|imena|imenu|imeni|imenom|imenoma|imenih)</prefix>
+    <suffix>\.</suffix>
+    <normalisedReplace>SPACE</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;(domena|domene|domeni|domeno)) (?&lt;OJStyleSuffix&gt;\.)</find>
+    <style>All</style>
+    <description>Only SL - prevent replacement of (domena|domene|domeni|domeno) + add SPACE</description>
+    <id>XX02-005BeforeDom</id>
+    <replace>SPACE</replace>
+    <onlyFor>;SL</onlyFor>
+    <normalisedFind> </normalisedFind>
+    <prefix>(domena|domene|domeni|domeno)</prefix>
+    <suffix>\.</suffix>
+    <normalisedReplace>SPACE</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;(skupin|skupina|skupine|skupini|skupino|skupinam|skupinah|skupinami|skupinama)) (?&lt;OJStyleSuffix&gt;\.)</find>
+    <style>All</style>
+    <description>Only SL - prevent replacement of (skupin|skupina|skupine|skupini|skupino|skupinam|skupinah|skupinami|skupinama) + add SPACE</description>
+    <id>XX02-005BeforeSkupin</id>
+    <replace>SPACE</replace>
+    <onlyFor>;SL</onlyFor>
+    <normalisedFind> </normalisedFind>
+    <prefix>(skupin|skupina|skupine|skupini|skupino|skupinam|skupinah|skupinami|skupinama)</prefix>
+    <suffix>\.</suffix>
+    <normalisedReplace>SPACE</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find> \.([^\.])</find>
+    <style>All</style>
+    <description>delete space before ".{.}" </description>
+    <id>XX02-005</id>
+    <replace>.$1</replace>
+    <normalisedFind> \.([^\.])</normalisedFind>
+    <normalisedReplace>.$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;(ime|imen|imena|imenu|imeni|imenom|imenoma|imenih))SPACE(?&lt;OJStyleSuffix&gt;\.)</find>
+    <style>All</style>
+    <description>Only SL - replace SPACE by real space</description>
+    <id>XX02-005AfterIme</id>
+    <replace> </replace>
+    <onlyFor>;SL</onlyFor>
+    <normalisedFind>SPACE</normalisedFind>
+    <prefix>(ime|imen|imena|imenu|imeni|imenom|imenoma|imenih)</prefix>
+    <suffix>\.</suffix>
+    <normalisedReplace> </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;(domena|domene|domeni|domeno))SPACE(?&lt;OJStyleSuffix&gt;\.)</find>
+    <style>All</style>
+    <description>Only SL - replace SPACE by real space</description>
+    <id>XX02-005AfterDom</id>
+    <replace> </replace>
+    <onlyFor>;SL</onlyFor>
+    <normalisedFind>SPACE</normalisedFind>
+    <prefix>(domena|domene|domeni|domeno)</prefix>
+    <suffix>\.</suffix>
+    <normalisedReplace> </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;(skupin|skupina|skupine|skupini|skupino|skupinam|skupinah|skupinami|skupinama))SPACE(?&lt;OJStyleSuffix&gt;\.)</find>
+    <style>All</style>
+    <description>Only SL - replace SPACE by real space</description>
+    <id>XX02-005AfterSkupin</id>
+    <replace> </replace>
+    <onlyFor>;SL</onlyFor>
+    <normalisedFind>SPACE</normalisedFind>
+    <prefix>(skupin|skupina|skupine|skupini|skupino|skupinam|skupinah|skupinami|skupinama)</prefix>
+    <suffix>\.</suffix>
+    <normalisedReplace> </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="true" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find> \.</find>
+    <style>All</style>
+    <description>at the end of paragraph delete space before "."</description>
+    <id>XX02-006</id>
+    <replace>.</replace>
+    <normalisedFind> \.</normalisedFind>
+    <normalisedReplace>.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find> ([,;:!\?;])</find>
+    <style>All</style>
+    <description>except SL - delete space before ,;:!?;</description>
+    <id>XX02-007</id>
+    <replace>$1</replace>
+    <notFor>;SL</notFor>
+    <normalisedFind> ([,;:!\?;])</normalisedFind>
+    <normalisedReplace>$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find> ([,;!\?])</find>
+    <style>All</style>
+    <description>only SL - delete space before ,;!?</description>
+    <id>XX02-008</id>
+    <replace>$1</replace>
+    <onlyFor>;SL</onlyFor>
+    <normalisedFind> ([,;!\?])</normalisedFind>
+    <normalisedReplace>$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;[\)\]%\w\d]) ?([±−]) ?(?&lt;OJStyleSuffix&gt;[\w\d])</find>
+    <style>All</style>
+    <description>(P/S)-find "[)|]|%|letter|figure]( )[± &amp;minus;]( )[letter | figure]", replace by "[)|]|%|letter|figure]&amp;nbsp;[+ ± &amp;minus;]&amp;nbsp;[letter | figure]" </description>
+    <id>XX02-009</id>
+    <replace> $1 </replace>
+    <normalisedFind> ?([±−]) ?</normalisedFind>
+    <prefix>[\)\]%\w\d]</prefix>
+    <suffix>[\w\d]</suffix>
+    <normalisedReplace>\u00A0$1\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;[\)\]%\d]) ?(\+) ?(?&lt;OJStyleSuffix&gt;\d)</find>
+    <style>All</style>
+    <description>except SL_(P/S)-find "[)|]|%|figure]( )+( )figure", replace by "[)|]|%|figure]&amp;nbsp;+&amp;nbsp;letter" </description>
+    <id>XX02-010</id>
+    <replace> $1 </replace>
+    <notFor>;SL;</notFor>
+    <normalisedFind> ?(\+) ?</normalisedFind>
+    <prefix>[\)\]%\d]</prefix>
+    <suffix>\d</suffix>
+    <normalisedReplace>\u00A0$1\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;[\)\]%\d]) (\+) (?&lt;OJStyleSuffix&gt;\d)</find>
+    <style>All</style>
+    <description>only SL_(P/S)-find "[)|]|%|figure] + figure", replace by "[)|]|%|figure]&amp;nbsp;+&amp;nbsp;letter" </description>
+    <id>XX02-011</id>
+    <replace> $1 </replace>
+    <onlyFor>;SL;</onlyFor>
+    <normalisedFind> (\+) </normalisedFind>
+    <prefix>[\)\]%\d]</prefix>
+    <suffix>\d</suffix>
+    <normalisedReplace>\u00A0$1\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;[\)\]%\p{Lu}\p{Ll}\p{Lt}\d]) (\+) (?&lt;OJStyleSuffix&gt;[\p{Lu}\p{Ll}\p{Lt}\d])</find>
+    <style>All</style>
+    <description>(P/S)-find "[)|]|%|letter|figure] + [letter|figure]", replace by "[)|]|%|letter|figure]&amp;nbsp;+&amp;nbsp;[letter|figure]" </description>
+    <id>XX02-012</id>
+    <replace> $1 </replace>
+    <normalisedFind> (\+) </normalisedFind>
+    <prefix>[\)\]%\p{Lu}\p{Ll}\p{Lt}\d]</prefix>
+    <suffix>[\p{Lu}\p{Ll}\p{Lt}\d]</suffix>
+    <normalisedReplace>\u00A0$1\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" replaceForStyle="false">
+    <find>(?&lt;OJStylePrefix&gt;[\]\)%\w\d]) ?= ?(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>Footnote Text</style>
+    <description>(P/S)-find "[)|]|%|letter|figure]( )=( )[letter]", replace by "[)|]|%|letter|figure] = [letter]" </description>
+    <id>XX02-013</id>
+    <replace> = </replace>
+    <normalisedFind> ?= ?</normalisedFind>
+    <prefix>[\]\)%\w\d]</prefix>
+    <suffix>\w</suffix>
+    <normalisedReplace> = </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" replaceForStyle="false">
+    <find>(?&lt;OJStylePrefix&gt;[\]\)%\w\d]) ?= ?(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>Endnote Text</style>
+    <description>(P/S)-find "[)|]|%|letter|figure]( )=( )[letter]", replace by "[)|]|%|letter|figure] = [letter]" </description>
+    <id>XX02-014</id>
+    <replace> = </replace>
+    <normalisedFind> ?= ?</normalisedFind>
+    <prefix>[\]\)%\w\d]</prefix>
+    <suffix>\w</suffix>
+    <normalisedReplace> = </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" replaceForStyle="false">
+    <find>(?&lt;OJStylePrefix&gt;[%\w\d]) ?= ?(?&lt;OJStyleSuffix&gt;\d)</find>
+    <style>Footnote Text</style>
+    <description>(P/S)-find "[% or letter or figure]( )=( )[figure]", replace by "[% or letter or figure]&amp;nbsp;= [figure]" </description>
+    <id>XX02-015</id>
+    <replace> = </replace>
+    <normalisedFind> ?= ?</normalisedFind>
+    <prefix>[%\w\d]</prefix>
+    <suffix>\d</suffix>
+    <normalisedReplace>\u00A0= </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" replaceForStyle="false">
+    <find>(?&lt;OJStylePrefix&gt;[%\w\d]) ?= ?(?&lt;OJStyleSuffix&gt;\d)</find>
+    <style>Endnote Text</style>
+    <description>(P/S)-find "[% or letter or figure]( )=( )[figure]", replace by "[% or letter or figure]&amp;nbsp;= [figure]" </description>
+    <id>XX02-016</id>
+    <replace> = </replace>
+    <normalisedFind> ?= ?</normalisedFind>
+    <prefix>[%\w\d]</prefix>
+    <suffix>\d</suffix>
+    <normalisedReplace>\u00A0= </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>([\u003c\u003e\u2264\u2265]) ?(?&lt;OJStyleSuffix&gt;\d)</find>
+    <style>All</style>
+    <description>(S)-find "[&lt;&gt;≤≥]( )1", replace by "[&lt;&gt;≤≥]&amp;nbsp;1" - unicode</description>
+    <id>XX02-017</id>
+    <replace>$1 </replace>
+    <normalisedFind>([\u003c\u003e\u2264\u2265]) ?</normalisedFind>
+    <suffix>\d</suffix>
+    <normalisedReplace>$1\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true" highlightOnly="true">
+    <find> /</find>
+    <style>All</style>
+    <description>except BG-FI-SL-SV - find space &amp; / - replace by / Highlight only EN</description>
+    <id>XX02-018</id>
+    <replace>/</replace>
+    <notFor>;BG;FI;SL;SV</notFor>
+    <normalisedFind> /</normalisedFind>
+    <normalisedReplace>/</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true" highlightOnly="true">
+    <find>/ </find>
+    <style>All</style>
+    <description>except BG-FI-SL-SV - find / &amp; space / replace by / Highlight only EN</description>
+    <id>XX02-019</id>
+    <replace>/</replace>
+    <notFor>;BG;FI;SL;SV</notFor>
+    <normalisedFind>/ </normalisedFind>
+    <normalisedReplace>/</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) (\d{3}) (\d{3}) (\d{3})\b</find>
+    <style>All</style>
+    <description>find "1 111 111 111", replace by "1&amp;nbsp;111&amp;nbsp;111&amp;nbsp;111"</description>
+    <id>XX02-020</id>
+    <replace>$1 $2 $3 $4</replace>
+    <normalisedFind>(\d) (\d{3}) (\d{3}) (\d{3})\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2\u00A0$3\u00A0$4</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) (\d{3}) (\d{3})\b</find>
+    <style>All</style>
+    <description>find "1 111 111", replace by "1&amp;nbsp;111&amp;nbsp;111" </description>
+    <id>XX02-021</id>
+    <replace>$1 $2 $3</replace>
+    <normalisedFind>(\d) (\d{3}) (\d{3})\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) (\d{3})\b</find>
+    <style>All</style>
+    <description>find "1 111", replace by "1&amp;nbsp;111"</description>
+    <id>XX02-022</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(\d) (\d{3})\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;\d) (?&lt;OJStyleSuffix&gt;\d)</find>
+    <style>All</style>
+    <description>(P/S) - except FI-LV - find "1 1", replace by "1&amp;nbsp;1" - except FI-LV </description>
+    <id>XX02-023</id>
+    <replace> </replace>
+    <notFor>;FI;LV;</notFor>
+    <normalisedFind> </normalisedFind>
+    <prefix>\d</prefix>
+    <suffix>\d</suffix>
+    <normalisedReplace>\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>« </find>
+    <style>All</style>
+    <description>except CS-DE-DA-HR-HU-NL-PL-SK-SL - find « AND space / replace by «</description>
+    <id>XX02-024</id>
+    <replace>«</replace>
+    <notFor>;CS;DA;DE;HR;HU;NL;PL;SK;SL</notFor>
+    <normalisedFind>« </normalisedFind>
+    <normalisedReplace>«</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find> »</find>
+    <style>All</style>
+    <description>except CS-DA-DE-HR-HU-NL-PL-SK-SL - find space AND » / replace by »</description>
+    <id>XX02-025</id>
+    <replace>»</replace>
+    <notFor>;CS;DA;DE;HR;HU;NL;PL;SK;SL</notFor>
+    <normalisedFind> »</normalisedFind>
+    <normalisedReplace>»</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" highlightOnly="true">
+    <find>([…\.:,;!\?;]) (["“”„«»'‘’‚])([…\.:,;!\?;])</find>
+    <style>All</style>
+    <description>except IT-NL - find one of ….:,;!?; AND space AND one of "“”„«»'‘’‚ AND one of ….:,;!?; / highlight only</description>
+    <id>XX02-026</id>
+    <replace>$1$2$3</replace>
+    <notFor>;IT;NL</notFor>
+    <normalisedFind>([…\.:,;!\?;]) (["“”„«»'‘’‚])([…\.:,;!\?;])</normalisedFind>
+    <normalisedReplace>$1$2$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" highlightOnly="true">
+    <find>([…\.,;:!\?;] )“ </find>
+    <style>All</style>
+    <description>except IT-NL - find one of ….,;:!?; AND space AND “ / highlight only</description>
+    <id>XX02-027</id>
+    <replace>$1“</replace>
+    <notFor>;IT;NL</notFor>
+    <normalisedFind>([…\.,;:!\?;] )“ </normalisedFind>
+    <normalisedReplace>$1“</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="true" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" highlightOnly="true">
+    <find> (["“”„«»'‘’‚])([…\.:,;!\?;]?)</find>
+    <style>All</style>
+    <description>except IT-NL - end of paragraph: find space AND one of "“”„«»'‘’‚ AND one of …\.:,;!\?; (optionnal) / highlight only</description>
+    <id>XX02-028</id>
+    <replace>$1$2</replace>
+    <notFor>;IT;NL</notFor>
+    <normalisedFind> (["“”„«»'‘’‚])([…\.:,;!\?;]?)</normalisedFind>
+    <normalisedReplace>$1$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false" highlightOnly="true">
+    <find>“ </find>
+    <style>All</style>
+    <description>except IT-NL - start of paragraph: find “ AND space / highlight only</description>
+    <id>XX02-029</id>
+    <replace>“</replace>
+    <notFor>;IT;NL</notFor>
+    <normalisedFind>“ </normalisedFind>
+    <normalisedReplace>“</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>[˚º]</find>
+    <style>All</style>
+    <description>find  "ring above " or "masculine ordinal indicator" and replace by ° "degree"</description>
+    <id>XX02-030</id>
+    <replace>°</replace>
+    <normalisedFind>[˚º]</normalisedFind>
+    <normalisedReplace>°</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>˝</find>
+    <style>All</style>
+    <description>except HU-IT-NL - find "dble acute accent", replace by "quotation mark" </description>
+    <id>XX02-031</id>
+    <replace>"</replace>
+    <notFor>;HU;IT;NL</notFor>
+    <normalisedFind>˝</normalisedFind>
+    <normalisedReplace>"</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>''</find>
+    <style>All</style>
+    <description>except IT-NL - find "2 x prime", replace by "double prime" </description>
+    <id>XX02-032</id>
+    <replace>"</replace>
+    <notFor>;IT;NL</notFor>
+    <normalisedFind>''</normalisedFind>
+    <normalisedReplace>"</normalisedReplace>
+  </rule>
+</dictionary>

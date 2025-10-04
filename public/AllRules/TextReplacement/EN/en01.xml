@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>en01 - quotation - digits - nbsp</name>
+  <options />
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false">
+    <find>ARTICLE</find>
+    <style>All</style>
+    <description>at the start of paragraph, find "ARTICLE" and replace by "Article"</description>
+    <id>en01-001</id>
+    <replace>Article</replace>
+    <normalisedFind>ARTICLE</normalisedFind>
+    <normalisedReplace>Article</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bone(?: |\u00A0)(kg|metre|tonne)\b</find>
+    <style>All</style>
+    <description>find "one (kg|metre|tonne)", replace by "1&amp;nbsp;(kg|metre|tonne)"</description>
+    <id>en01-002</id>
+    <replace>1 $1</replace>
+    <normalisedFind>\b&lt;one(?: |\u00A0)(kg|metre|tonne)\b&gt;</normalisedFind>
+    <normalisedReplace>1\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\btwo(?: |\u00A0)(kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "two (kg|metres|tonnes)", replace by "2&amp;nbsp;(kg|metres|tonnes)"</description>
+    <id>en01-003</id>
+    <replace>2 $1</replace>
+    <normalisedFind>\b&lt;two(?: |\u00A0)(kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>2\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bthree(?: |\u00A0)(kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "three (kg|metres|tonnes)", replace by "3&amp;nbsp;(kg|metres|tonnes)"</description>
+    <id>en01-004</id>
+    <replace>3 $1</replace>
+    <normalisedFind>\b&lt;three(?: |\u00A0)(kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>3\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bfour(?: |\u00A0)(kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "four (kg|metres|tonnes)", replace by "4&amp;nbsp;(kg|metres|tonnes)"</description>
+    <id>en01-005</id>
+    <replace>4 $1</replace>
+    <normalisedFind>\b&lt;four(?: |\u00A0)(kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>4\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bfive(?: |\u00A0)(kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "five (kg|metres|tonnes)", replace by "5&amp;nbsp;(kg|metres|tonnes)"</description>
+    <id>en01-006</id>
+    <replace>5 $1</replace>
+    <normalisedFind>\b&lt;five(?: |\u00A0)(kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>5\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bsix(?: |\u00A0)(kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "six (kg|metres|tonnes)", replace by "6&amp;nbsp;(kg|metres|tonnes)"</description>
+    <id>en01-007</id>
+    <replace>6 $1</replace>
+    <normalisedFind>\b&lt;six(?: |\u00A0)(kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>6\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bseven(?: |\u00A0)(kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "seven (kg|metres|tonnes)", replace by "7&amp;nbsp;(kg|metres|tonnes)"</description>
+    <id>en01-008</id>
+    <replace>7 $1</replace>
+    <normalisedFind>\b&lt;seven(?: |\u00A0)(kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>7\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\beight(?: |\u00A0)(kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "eight (kg|metres|tonnes)", replace by "8&amp;nbsp;(kg|metres|tonnes)"</description>
+    <id>en01-009</id>
+    <replace>8 $1</replace>
+    <normalisedFind>\b&lt;eight(?: |\u00A0)(kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>8\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bnine(?: |\u00A0)(kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "nine (kg|metres|tonnes)", replace by "9&amp;nbsp;(kg|metres|tonnes)"</description>
+    <id>en01-010</id>
+    <replace>9 $1</replace>
+    <normalisedFind>\b&lt;nine(?: |\u00A0)(kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>9\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bten(?: |\u00A0)(hours|days|weeks|months|years|decades|kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "ten (hours|days|weeks|months|years|decades|kg|metres|tonnes)", replace by "10&amp;nbsp;(hours|days|weeks|months|years|decades|kg|metres|tonnes)"</description>
+    <id>en01-011</id>
+    <replace>10 $1</replace>
+    <normalisedFind>\b&lt;ten(?: |\u00A0)(hours|days|weeks|months|years|decades|kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>10\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\btwelve(?: |\u00A0)(hours|days|weeks|months|years|decades|kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "twelve (hours|days|weeks|months|years|decades|kg|metres|tonnes)", replace by "12&amp;nbsp;(hours|days|weeks|months|years|decades|kg|metres|tonnes)"</description>
+    <id>en01-012</id>
+    <replace>12 $1</replace>
+    <normalisedFind>\b&lt;twelve(?: |\u00A0)(hours|days|weeks|months|years|decades|kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>12\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bfifteen(?: |\u00A0)(hours|days|weeks|months|years|decades|kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "fifteen (hours|days|weeks|months|years|decades|kg|metres|tonnes)", replace by "15&amp;nbsp;(hours|days|weeks|months|years|decades|kg|metres|tonnes)"</description>
+    <id>en01-013</id>
+    <replace>15 $1</replace>
+    <normalisedFind>\b&lt;fifteen(?: |\u00A0)(hours|days|weeks|months|years|decades|kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>15\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\btwenty(?: |\u00A0)(hours|days|weeks|months|years|decades|kg|metres|tonnes)\b</find>
+    <style>All</style>
+    <description>find "twenty (hours|days|weeks|months|years|decades|kg|metres|tonnes)", replace by "20&amp;nbsp;(hours|days|weeks|months|years|decades|kg|metres|tonnes)"</description>
+    <id>en01-014</id>
+    <replace>20 $1</replace>
+    <normalisedFind>\b&lt;twenty(?: |\u00A0)(hours|days|weeks|months|years|decades|kg|metres|tonnes)\b&gt;</normalisedFind>
+    <normalisedReplace>20\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d+)\.(\d+)([ \u00A0])?%</find>
+    <style>All</style>
+    <description>find "1.1([ &amp;nbsp;])% ", replace by "1,1&amp;nbsp;%"</description>
+    <id>en01-015</id>
+    <replace>$1,$2 %</replace>
+    <normalisedFind>(\d+)\.(\d+)([ \u00A0])?%</normalisedFind>
+    <normalisedReplace>$1,$2\u00A0%</normalisedReplace>
+  </rule>
+</dictionary>

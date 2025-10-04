@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>XX01 - ellip - single quotation - footnote - case</name>
+  <options />
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\.\.\.?/\.\.\.?</find>
+    <style>All</style>
+    <description>find "..(.)/..(.)", replace by the single character ... "&amp;ellip;/&amp;ellip;"</description>
+    <id>XX01-001</id>
+    <replace>…/…</replace>
+    <normalisedFind>\.\.\.?/\.\.\.?</normalisedFind>
+    <normalisedReplace>…/…</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>…/\.\.\.?</find>
+    <style>All</style>
+    <description>find "&amp;ellip;/..(.)", replace by the single character ... "&amp;ellip;/&amp;ellip;"</description>
+    <id>XX01-002</id>
+    <replace>…/…</replace>
+    <normalisedFind>…/\.\.\.?</normalisedFind>
+    <normalisedReplace>…/…</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\.\.\.?/…</find>
+    <style>All</style>
+    <description> find "..(.)/&amp;ellip;", replace by the single character ... "&amp;ellip;/&amp;ellip;"</description>
+    <id>XX01-003</id>
+    <replace>…/…</replace>
+    <normalisedFind>\.\.\.?/…</normalisedFind>
+    <normalisedReplace>…/…</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;")\.\.\.(?&lt;OJStyleSuffix&gt;")</find>
+    <style>All</style>
+    <description>(P/S) - find ..., replace by the single character ... &amp;ellip;</description>
+    <id>XX01-004</id>
+    <replace>…</replace>
+    <normalisedFind>\.\.\.</normalisedFind>
+    <prefix>"</prefix>
+    <suffix>"</suffix>
+    <normalisedReplace>…</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;')\.\.\.(?&lt;OJStyleSuffix&gt;')</find>
+    <style>All</style>
+    <description>(P/S) - find ... / replace by the single character ... &amp;ellip;</description>
+    <id>XX01-005</id>
+    <replace>…</replace>
+    <normalisedFind>\.\.\.</normalisedFind>
+    <prefix>'</prefix>
+    <suffix>'</suffix>
+    <normalisedReplace>…</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;\w ),(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>(P/S) - CS-DE-HR-SK-SL - find "A ,A" (comma), replace by "A ‚A" (lsquor)</description>
+    <id>XX01-006</id>
+    <replace>‚</replace>
+    <onlyFor>;CS;DE;HR;SK;SL;</onlyFor>
+    <normalisedFind>,</normalisedFind>
+    <prefix>\w </prefix>
+    <suffix>\w</suffix>
+    <normalisedReplace>‚</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(?&lt;OJStylePrefix&gt;[\.:,;!\?] ),(?&lt;OJStyleSuffix&gt;\w)</find>
+    <style>All</style>
+    <description>(P/S) - CS-DE-HR-SK-SL - find "[.:,;?!] ,A" (comma), replace by "[,.:;?!] ‚A" (lsquor)</description>
+    <id>XX01-007</id>
+    <replace>‚</replace>
+    <onlyFor>;CS;DE;HR;SK;SL;</onlyFor>
+    <normalisedFind>,</normalisedFind>
+    <prefix>[\.:,;!\?] </prefix>
+    <suffix>\w</suffix>
+    <normalisedReplace>‚</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false">
+    <find>,(?&lt;OJStyleSuffix&gt;\(\d{1,3}\)[ \t])</find>
+    <style>All</style>
+    <description>(S)-CS-DE-HR-SK-SL - at start of paragraph, find ",(1[11])" (comma), replace by "‚(1[11])" (lsquor)</description>
+    <id>XX01-008</id>
+    <replace>‚</replace>
+    <onlyFor>;CS;DE;HR;SK;SL;</onlyFor>
+    <normalisedFind>,</normalisedFind>
+    <suffix>\(\d{1,3}\)[ \t]</suffix>
+    <normalisedReplace>‚</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false">
+    <find>,(?&lt;OJStyleSuffix&gt;\d{1,3}\.[ \t])</find>
+    <style>All</style>
+    <description>(S)-CS-DE-HR-SK-SL - at start of paragraph, find ",1[11]." (comma), replace by "‚1[11]." (lsquor)</description>
+    <id>XX01-009</id>
+    <replace>‚</replace>
+    <onlyFor>;CS;DE;HR;SK;SL;</onlyFor>
+    <normalisedFind>,</normalisedFind>
+    <suffix>\d{1,3}\.[ \t]</suffix>
+    <normalisedReplace>‚</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false">
+    <find>,(?&lt;OJStyleSuffix&gt;. )</find>
+    <style>All</style>
+    <description>(S) - CS-DE-HR-SK-SL - at start of paragraph, find ",. " (comma), replace by "‚. " (lsquor)</description>
+    <id>XX01-010</id>
+    <replace>‚</replace>
+    <onlyFor>;CS;DE;HR;SK;SL;</onlyFor>
+    <normalisedFind>,</normalisedFind>
+    <suffix>. </suffix>
+    <normalisedReplace>‚</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>,(?&lt;OJStyleSuffix&gt;.‘)</find>
+    <style>All</style>
+    <description>(S) SL - find ,[1 character]‘, replace by ‚[1 character]‘  (comma/lsquor) </description>
+    <id>XX01-011</id>
+    <replace>‚</replace>
+    <onlyFor>;SL;</onlyFor>
+    <normalisedFind>,</normalisedFind>
+    <suffix>.‘</suffix>
+    <normalisedReplace>‚</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasFindFormat="true" hasReplaceFormat="true">
+    <find>\(\u00A0</find>
+    <style>All</style>
+    <description>find "(&amp;nbsp;", replace by "(" - cleanup option footnote spacing </description>
+    <id>XX01-012</id>
+    <replace>(</replace>
+    <normalisedFind>\(\u00A0</normalisedFind>
+    <normalisedReplace>(</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;([CET])\.([0-9]{1,5})/([0-9]{2})&gt;</find>
+    <style>All</style>
+    <description>find "([CET]).11111/11", replace by "([CET])-11111/11" - case</description>
+    <id>XX01-013</id>
+    <replace>\1-\2/\3</replace>
+    <normalisedFind>\b&lt;([CET])\.(\d{1,5})/(\d{2})\b&gt;</normalisedFind>
+    <normalisedReplace>$1-$2/$3</normalisedReplace>
+  </rule>
+</dictionary>

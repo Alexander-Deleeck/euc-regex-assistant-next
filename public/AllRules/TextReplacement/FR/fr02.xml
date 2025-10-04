@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>fr02 - nbsp (2)-euros</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b[OJ][JO] ([CL]) ?(\d{1,3}) ?([AE])\b</find>
+    <style>All</style>
+    <description>find "[OJ][JO] [CL]( )1[11]( )[AE]", replace by "JO [CL]&amp;nbsp;1[11]&amp;nbsp;[AE]" </description>
+    <id>fr02-001</id>
+    <replace>JO $1 $2 $3</replace>
+    <normalisedFind>\b&lt;[OJ][JO] ([CL]) ?(\d{1,3}) ?([AE])\b&gt;</normalisedFind>
+    <normalisedReplace>JO $1\u00A0$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b[OJ][JO] ([CL])[ \u00A0]?(\d)</find>
+    <style>All</style>
+    <description>find "[OJ][JO] [CL]( )1", replace by "JO [CL]&amp;nbsp;1" </description>
+    <id>fr02-002</id>
+    <replace>JO $1 $2</replace>
+    <normalisedFind>\b&lt;[OJ][JO] ([CL])[ \u00A0]?(\d)</normalisedFind>
+    <normalisedReplace>JO $1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;(JO)UE( [CL]) </find>
+    <style>Footnote Text</style>
+    <description>find "JOUE [CL] ", replace by "JO [CL]&amp;nbsp;" only in Footnote Text</description>
+    <id>fr02-003</id>
+    <replace>\1\2 </replace>
+    <normalisedFind>\b&lt;(JO)UE( [CL]) </normalisedFind>
+    <normalisedReplace>$1$2\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>\bDr </find>
+    <style>All</style>
+    <description>find "Dr ", replace by "D&lt;SUP&gt;r&lt;/SUP&gt;&amp;nbsp;" </description>
+    <id>fr02-004</id>
+    <replace>D_SUP_r_SUP_ </replace>
+    <normalisedFind>\b&lt;Dr </normalisedFind>
+    <normalisedReplace>D_SUP_r_SUP_\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;M\. ([a-zA-Z])</find>
+    <style>All</style>
+    <description>find "M. [any letter]", replace by "M.&amp;nbsp;[any letter]" </description>
+    <id>fr02-005</id>
+    <replace>M. \1</replace>
+    <normalisedFind>\b&lt;M\. ([a-zA-Z])</normalisedFind>
+    <normalisedReplace>M.\u00A0$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Mr </find>
+    <style>All</style>
+    <description>find "Mr ", replace by "M.&amp;nbsp;" </description>
+    <id>fr02-006</id>
+    <replace>M. </replace>
+    <normalisedFind>\b&lt;Mr </normalisedFind>
+    <normalisedReplace>M.\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>\bMlle(s)?\.? </find>
+    <style>All</style>
+    <description>find "Mlle(s)(.) ", replace by "M&lt;SUP&gt;lle(s)&lt;/SUP&gt;&amp;nbsp;" </description>
+    <id>fr02-007</id>
+    <replace>M_SUP_lle$1_SUP_ </replace>
+    <normalisedFind>\b&lt;Mlle(s)?\.? </normalisedFind>
+    <normalisedReplace>M_SUP_lle$1_SUP_\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>\bMme(s)?\.? </find>
+    <style>All</style>
+    <description>find "Mme(s)(.) ", replace by "M&lt;SUP&gt;me(s)&lt;/SUP&gt;&amp;nbsp;" </description>
+    <id>fr02-008</id>
+    <replace>M_SUP_me$1_SUP_ </replace>
+    <normalisedFind>\b&lt;Mme(s)?\.? </normalisedFind>
+    <normalisedReplace>M_SUP_me$1_SUP_\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>\b([nN])o ?(\d)</find>
+    <style>All</style>
+    <description>find "[nN]o( )1", replace by "n&lt;SUP&gt;o&lt;/SUP&gt;&amp;nbsp;1" </description>
+    <id>fr02-009</id>
+    <replace>$1_SUP_o_SUP_ $2</replace>
+    <normalisedFind>\b&lt;([nN])o ?(\d)</normalisedFind>
+    <normalisedReplace>$1_SUP_o_SUP_\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>\b([nN])° ?</find>
+    <style>All</style>
+    <description>find "[nN]°( )", replace by "[nN]&lt;SUP&gt;o&lt;/SUP&gt;&amp;nbsp;" - degree</description>
+    <id>fr02-010</id>
+    <replace>$1_SUP_o_SUP_ </replace>
+    <normalisedFind>\b&lt;([nN])° ?</normalisedFind>
+    <normalisedReplace>$1_SUP_o_SUP_\u00A0</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(§) ?(\d)</find>
+    <style>All</style>
+    <description>find "§( )1", replace by "§&amp;nbsp;1" </description>
+    <id>fr02-011</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>(§) ?(\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>, ?(p{1,2})\.? ?(\d)</find>
+    <style>All</style>
+    <description>find ",( )p[p](.)( )1", replace by ", p.&amp;nbsp;1" </description>
+    <id>fr02-012</id>
+    <replace>, p. $2</replace>
+    <normalisedFind>, ?(p{1,2})\.? ?(\d)</normalisedFind>
+    <normalisedReplace>, p.\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?(p{1,2})\.? ?(\d)</find>
+    <style>All</style>
+    <description>find "1( )p[p](.)( )1", replace by "1, p.&amp;nbsp;1" </description>
+    <id>fr02-013</id>
+    <replace>$1, p. $3</replace>
+    <normalisedFind>(\d) ?(p{1,2})\.? ?(\d)</normalisedFind>
+    <normalisedReplace>$1, p.\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?([aA]nnexes?) ?([IVX]+)\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[aA]nnexe(s)( )[IXV]", replace by "(dDlL’)[aA]nnexe(s)&amp;nbsp;[IXV]" - ATTENTION les début de mot/fin de mot ne fonctionnement pas après les caractères ['’] , il faut donc ajouter \b&lt;([dDlL]’)? dans ces règles</description>
+    <id>fr02-014</id>
+    <replace>$1$2 $3</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?([aA]nnexes?) ?([IVX]+)\b&gt;</normalisedFind>
+    <normalisedReplace>$1$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?([aA]nnexes?)[ \u00A0]?([A-Z])\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[aA]nnexe(s)( )A", replace by "(dDlL’)[aA]nnexe(s)&amp;nbsp;A" </description>
+    <id>fr02-015</id>
+    <replace>$1$2 $3</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?([aA]nnexes?)[ \u00A0]?([A-Z])\b&gt;</normalisedFind>
+    <normalisedReplace>$1$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?([aA]nnexes?)[ \u00A0]?(\d)\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[aA]nnexe(s)( )1", replace by "(dDlL’)[aA]nnexe(s)&amp;nbsp;1" </description>
+    <id>fr02-016</id>
+    <replace>$1$2 $3</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?([aA]nnexes?)[ \u00A0]?(\d)\b&gt;</normalisedFind>
+    <normalisedReplace>$1$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?([aA]ppendices?) ?([IVX]+)\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[aA]ppendice(s)( )[IXV]", replace by "(dDlL’)[aA]ppendice(s)&amp;nbsp;[IXV]"</description>
+    <id>fr02-017</id>
+    <replace>$1$2 $3</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?([aA]ppendices?) ?([IVX]+)\b&gt;</normalisedFind>
+    <normalisedReplace>$1$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?([aA]ppendices?)[ \u00A0]?([A-Z])\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[aA]ppendice(s)( )A", replace by "(dDlL’)[aA]ppendice(s)&amp;nbsp;A" </description>
+    <id>fr02-018</id>
+    <replace>$1$2 $3</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?([aA]ppendices?)[ \u00A0]?([A-Z])\b&gt;</normalisedFind>
+    <normalisedReplace>$1$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?([aA]ppendices?)[ \u00A0]?(\d)\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[aA]ppendice(s)( )1", replace by "(dDlL’)[aA]ppendice(s)&amp;nbsp;1" </description>
+    <id>fr02-019</id>
+    <replace>$1$2 $3</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?([aA]ppendices?)[ \u00A0]?(\d)\b&gt;</normalisedFind>
+    <normalisedReplace>$1$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?([aA]rticles?) ?(\d)</find>
+    <style>All</style>
+    <description>find "(dDlL’)[aA]rticle(s)( )1", replace by "(dDlL’)[aA]rticle(s)&amp;nbsp;1" </description>
+    <id>fr02-020</id>
+    <replace>$1$2 $3</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?([aA]rticles?) ?(\d)</normalisedFind>
+    <normalisedReplace>$1$2\u00A0$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(chapitres?) ?([ivx]+)\b</find>
+    <style>All</style>
+    <description>find "chapitre(s)( )IVX", replace by "chapitre(s)&amp;nbsp;IVX" - lowercase + uppercase</description>
+    <id>fr02-021</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;(chapitres?) ?([ivx]+)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([fF]igures?) ?(\d)</find>
+    <style>All</style>
+    <description>find "[fF]igure(s)( )1", replace by "[fF]igure(s)&amp;nbsp;1" </description>
+    <id>fr02-022</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([fF]igures?) ?(\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([hH][éÉeE][pP][aA][tT][iI][tT][eE]s?) (A)\b</find>
+    <style>All</style>
+    <description>find "[hH]épatites? A", replace by "[hH]épatites?&amp;nbsp;A" </description>
+    <id>fr02-023</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([hH][éÉeE][pP][aA][tT][iI][tT][eE]s?) (A)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]aragraphes?) ?(\d)</find>
+    <style>All</style>
+    <description>find "[pP]aragraphe(s)( )1", replace by "[pP]aragraphe(s)&amp;nbsp;1" </description>
+    <id>fr02-024</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([pP]aragraphes?) ?(\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(parties?) ?([ivx]+)\b</find>
+    <style>All</style>
+    <description>find "partie(s)( )IVX", replace by "partie(s)&amp;nbsp;IVX" - lowercase + uppercase</description>
+    <id>fr02-025</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;(parties?) ?([ivx]+)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]oints?) ?(\d)</find>
+    <style>All</style>
+    <description>find "[pP]oint(s)( )1", replace by "[pP]oint(s)&amp;nbsp;1" </description>
+    <id>fr02-026</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([pP]oints?) ?(\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]oints?) ?([ivx]{2,3})([,;:.»”)])</find>
+    <style>All</style>
+    <description>find "[pP]oint(s)( )[ivx][,;:.»”]", replace by "[pP]oint(s)&amp;nbsp;[ivx])[,;:.»”]" </description>
+    <id>fr02-027</id>
+    <replace>$1 $2)$3</replace>
+    <normalisedFind>\b&lt;([pP]oints?) ?([ivx]{2,3})([,;:.»”)])</normalisedFind>
+    <normalisedReplace>$1\u00A0$2)$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]oints?) ?([ivx]{2,3})( et)\b</find>
+    <style>All</style>
+    <description>find "[pP]oint(s)( )[ivx] et", replace by "[pP]oint(s)&amp;nbsp;[ivx]) et" </description>
+    <id>fr02-028</id>
+    <replace>$1 $2)$3</replace>
+    <normalisedFind>\b&lt;([pP]oints?) ?([ivx]{2,3})( et)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2)$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]oints?) ([a-z])([,;:.»”])</find>
+    <style>All</style>
+    <description>find "[pP]oint(s) a[,;:.»”]", replace by "[pP]oint(s)&amp;nbsp;a)[,;:.»”]" </description>
+    <id>fr02-029</id>
+    <replace>$1 $2)$3</replace>
+    <normalisedFind>\b&lt;([pP]oints?) ([a-z])([,;:.»”])</normalisedFind>
+    <normalisedReplace>$1\u00A0$2)$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]oints?) ([a-z])( et)\b</find>
+    <style>All</style>
+    <description>find "[pP]oint(s) a et", replace by "[pP]oint(s)&amp;nbsp;a) et" </description>
+    <id>fr02-030</id>
+    <replace>$1 $2)$3</replace>
+    <normalisedFind>\b&lt;([pP]oints?) ([a-z])( et)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2)$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]oints?) ?([ivx]{2,3})\)</find>
+    <style>All</style>
+    <description>find "[pP]oint(s)( )[ivx])", replace by "[pP]oint(s)&amp;nbsp;[ivx])" </description>
+    <id>fr02-031</id>
+    <replace>$1 $2)</replace>
+    <normalisedFind>\b&lt;([pP]oints?) ?([ivx]{2,3})\)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2)</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([pP]oints?) ?([a-z])\)</find>
+    <style>All</style>
+    <description>find "[pP]oint(s)( )a)", replace by "[pP]oint(s)&amp;nbsp;a)" </description>
+    <id>fr02-032</id>
+    <replace>$1 $2)</replace>
+    <normalisedFind>\b&lt;([pP]oints?) ?([a-z])\)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2)</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(sections?) ?([ivx]+)\b</find>
+    <style>All</style>
+    <description>find "section(s)( )IVX", replace by "section(s)&amp;nbsp;IVX" - lowercase + uppercase</description>
+    <id>fr02-033</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;(sections?) ?([ivx]+)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([tT]ableaux?) ?(\d)</find>
+    <style>All</style>
+    <description>find "[tT]ableau(x)( )1", replace by "[tT]ableau(x))&amp;nbsp;1" </description>
+    <id>fr02-034</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;([tT]ableaux?) ?(\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(titres?) ?([ivx]+)\b</find>
+    <style>All</style>
+    <description>find "titre(s)( )IVX", replace by "titre(s)&amp;nbsp;IVX" - lowercase + uppercase</description>
+    <id>fr02-037</id>
+    <replace>$1 $2</replace>
+    <normalisedFind>\b&lt;(titres?) ?([ivx]+)\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([Vv]ol\.?) ?(\d)</find>
+    <style>All</style>
+    <description>find "[Vv]ol(.)( )1", replace by "[Vv]ol.&amp;nbsp;1" </description>
+    <id>fr02-035</id>
+    <replace>$1. $2</replace>
+    <normalisedFind>\b&lt;([Vv]ol\.?) ?(\d)</normalisedFind>
+    <normalisedReplace>$1.\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="false" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>€</find>
+    <style>All</style>
+    <description>find "€", replace by "EUR" / désactivé et remplacé par fr06-031</description>
+    <id>fr02-036</id>
+    <replace>EUR</replace>
+    <normalisedFind>€</normalisedFind>
+    <normalisedReplace>EUR</normalisedReplace>
+  </rule>
+</dictionary>

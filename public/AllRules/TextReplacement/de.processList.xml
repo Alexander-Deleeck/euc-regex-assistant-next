@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<processList processType="TextReplacement">
+  <name>de.processList</name>
+  <dictionary active="True">
+    <fileName>XX\xx01.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx02.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx03.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx04.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx05.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx06.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx17.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx18.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx19.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx08.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx09.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx10.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx11_EL.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx12_EL.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx13.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx14.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx15.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de01.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de02.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de03.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de04.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de05.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de06.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de07.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de08.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de09.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de10.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de11.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de12.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de13.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de14.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de15.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de16_PROG.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>DE\de17.xml</fileName>
+  </dictionary>
+</processList>

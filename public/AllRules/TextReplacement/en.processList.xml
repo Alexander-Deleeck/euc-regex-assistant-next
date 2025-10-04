@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<processList processType="TextReplacement">
+  <name>en.processList</name>
+  <dictionary active="True">
+    <fileName>XX\xx01.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx02.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx03.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx04.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx05.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx06.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx07.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx17.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx09.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx10.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx11_EL.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx12_EL.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx13.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx14.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx15.xml</fileName>
+  </dictionary>
+  <dictionary active="False">
+    <fileName>XX\xx20.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en01.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en02.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en03.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en04.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en05.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en07_PROG.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en08.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en09.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en10.xml</fileName>
+  </dictionary>
+  <dictionary active="False">
+    <fileName>EN\en11.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en12.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en13.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx16.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en14.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en15.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en16.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>EN\en17.xml</fileName>
+  </dictionary>
+</processList>

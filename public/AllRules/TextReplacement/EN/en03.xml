@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>en03 - words (2)</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Dr\. </find>
+    <style>All</style>
+    <description>find "Dr. ", replace by "Dr " </description>
+    <id>en03-001</id>
+    <replace>Dr </replace>
+    <normalisedFind>\b&lt;Dr\. </normalisedFind>
+    <normalisedReplace>Dr </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([eE])-?[mM]ail\b</find>
+    <style>All</style>
+    <description>find "[eE]-?[mM]ail", replace by "[eE]mail" </description>
+    <id>en03-002</id>
+    <replace>$1mail</replace>
+    <normalisedFind>\b&lt;([eE])-?[mM]ail\b&gt;</normalisedFind>
+    <normalisedReplace>$1mail</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\betc\b\.?</find>
+    <style>All</style>
+    <description>find "etc", replace by "etc." </description>
+    <id>en03-003</id>
+    <replace>etc.</replace>
+    <normalisedFind>\b&lt;etc\b&gt;\.?</normalisedFind>
+    <normalisedReplace>etc.</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;exchange of letters&gt;</find>
+    <style>All</style>
+    <description>find "exchange of letters", replace by "Exchange of Letters" </description>
+    <id>en03-004</id>
+    <replace>Exchange of Letters</replace>
+    <normalisedFind>\b&lt;exchange of letters\b&gt;</normalisedFind>
+    <normalisedReplace>Exchange of Letters</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([fF])ax\b\.?:?</find>
+    <style>All</style>
+    <description>find "[fF]ax[.:]", replace by "[fF]ax" </description>
+    <id>en03-005</id>
+    <replace>$1ax</replace>
+    <normalisedFind>\b&lt;([fF])ax\b&gt;\.?:?</normalisedFind>
+    <normalisedReplace>$1ax</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b[mM]ember state(s)?\b</find>
+    <style>All</style>
+    <description>find "[mM]ember state" or "[mM]ember states", replace by "Member State" or "Member States" </description>
+    <id>en03-006</id>
+    <replace>Member State$1</replace>
+    <normalisedFind>\b&lt;[mM]ember state(s)?\b&gt;</normalisedFind>
+    <normalisedReplace>Member State$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bMr(s)?\. </find>
+    <style>All</style>
+    <description>find "Mr. " or "Mrs. ", replace by "Mr " or "Mrs " </description>
+    <id>en03-007</id>
+    <replace>Mr$1 </replace>
+    <normalisedFind>\b&lt;Mr(s)?\. </normalisedFind>
+    <normalisedReplace>Mr$1 </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([tT])el\.?/([fF])ax\b( )?</find>
+    <style>All</style>
+    <description>find "[tT]el/[fF]ax", replace by "[tT]el./fax" </description>
+    <id>en03-008</id>
+    <replace>$1el./fax$3</replace>
+    <normalisedFind>\b&lt;([tT])el\.?/([fF])ax\b&gt;( )?</normalisedFind>
+    <normalisedReplace>$1el./fax$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([tT])el\b\.?:?( )?</find>
+    <style>All</style>
+    <description>find "[tT]el[.:]", replace by "[tT]el." </description>
+    <id>en03-009</id>
+    <replace>$1el.$2</replace>
+    <normalisedFind>\b&lt;([tT])el\b&gt;\.?:?( )?</normalisedFind>
+    <normalisedReplace>$1el.$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Tel\. Aviv&gt;</find>
+    <style>All</style>
+    <description>find "Tel. Aviv", replace by "Tel Aviv" </description>
+    <id>en03-010</id>
+    <replace>Tel Aviv</replace>
+    <normalisedFind>\b&lt;Tel\. Aviv\b&gt;</normalisedFind>
+    <normalisedReplace>Tel Aviv</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([tT])elex:( )?</find>
+    <style>All</style>
+    <description>find "[tT]elex:", replace by "[tT]elex" </description>
+    <id>en03-011</id>
+    <replace>$1elex$2</replace>
+    <normalisedFind>\b&lt;([tT])elex:( )?</normalisedFind>
+    <normalisedReplace>$1elex$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b[aA]rticle(s)?(\d{1,3})([a-z])?\b</find>
+    <style>All</style>
+    <description>find "[aA]rticle(s)1[11]" or "[aA]rticle(s)1[11]a" and replace by "Article(s) 1[11]" or "Article(s) 1[11]a"</description>
+    <id>en03-012</id>
+    <replace>Article$1 $2$3</replace>
+    <normalisedFind>\b&lt;[aA]rticle(s)?(\d{1,3})([a-z])?\b&gt;</normalisedFind>
+    <normalisedReplace>Article$1 $2$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b[aA]rticle(s)? ?(\d{1,3}) ([a-z]) (of|and|to|or)\b</find>
+    <style>All</style>
+    <description>find "[aA]rticle(s) 1[11] a [of|and|to|or]" and replace by "Article(s) 1[11]a [of|and|to|or]"</description>
+    <id>en03-013</id>
+    <replace>Article$1 $2$3 $4</replace>
+    <normalisedFind>\b&lt;[aA]rticle(s)? ?(\d{1,3}) ([a-z]) (of|and|to|or)\b&gt;</normalisedFind>
+    <normalisedReplace>Article$1 $2$3 $4</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b[aA]rticle(s)? (\d{1,3}) ?([a-z])? (\(\d{1,3}\))</find>
+    <style>All</style>
+    <description>find "[aA]rticle(s) 1[11] (1[11])" or "[aA]rticle(s) 1[11]( )a (1[11])" and replace by "Article(s) 1[11](1[11])" or "Article(s) 1[11]a(1[11])"</description>
+    <id>en03-014</id>
+    <replace>Article$1 $2$3$4</replace>
+    <normalisedFind>\b&lt;[aA]rticle(s)? (\d{1,3}) ?([a-z])? (\(\d{1,3}\))</normalisedFind>
+    <normalisedReplace>Article$1 $2$3$4</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b[aA]rticle(s)? (\d{1,3}) ?([a-z])?(\(\d{1,3}\)) (\([a-z]\))</find>
+    <style>All</style>
+    <description>find "[aA]rticle(s) 1[11](1[11]) (a)" or "[aA]rticle(s) 1[11]( )a(1[11]) (a)"and replace by "Article(s) 1[11](1[11])(a)" or "Article(s) 1[11]a(1[11])(a)"</description>
+    <id>en03-015</id>
+    <replace>Article$1 $2$3$4$5</replace>
+    <normalisedFind>\b&lt;[aA]rticle(s)? (\d{1,3}) ?([a-z])?(\(\d{1,3}\)) (\([a-z]\))</normalisedFind>
+    <normalisedReplace>Article$1 $2$3$4$5</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b[aA]rticle(s)? (\d{1,3}) ?([a-z])?(\(\d{1,3}\))(\([a-z]\)) (\([a-z]\))</find>
+    <style>All</style>
+    <description>find "[aA]rticle(s) 1[11](1[11])(a) (a)" or "[aA]rticle(s) 1[11]( )a(1[11])(a) (a)"and replace by "Article(s) 1[11](1[11])(a)(a)" or "Article(s) 1[11]a(1[11])(a)(a)"</description>
+    <id>en03-016</id>
+    <replace>Article$1 $2$3$4$5$6</replace>
+    <normalisedFind>\b&lt;[aA]rticle(s)? (\d{1,3}) ?([a-z])?(\(\d{1,3}\))(\([a-z]\)) (\([a-z]\))</normalisedFind>
+    <normalisedReplace>Article$1 $2$3$4$5$6</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="true" wholeWord="false" wildcard="true" wordRule="false" hasReplaceFormat="true">
+    <find>(\t)?([‘“])?[aA]rticle (\d{1,4}) ?([a-z])?\u000B</find>
+    <style>All</style>
+    <description>in one paragraph find "(&amp;tab;)(‘“)[aA]rticle 1[111][manual line break]" or "(&amp;tab;)(‘“)[aA]rticle 1[111]( )a[manual line break]", replace by "(&amp;tab;)(‘“)Article 1[111][paragraph mark]" or "(&amp;tab;)(‘“)Article 1[111]a[paragraph mark]"</description>
+    <id>en03-017</id>
+    <replace>_I_$1$2Article $3$4_I_
+</replace>
+    <normalisedFind>(\t)?([‘“])?[aA]rticle (\d{1,4}) ?([a-z])?\u000B</normalisedFind>
+    <normalisedReplace>_I_$1$2Article $3$4_I_\u000D</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\bDirector(ate)? General\b</find>
+    <style>All</style>
+    <description>find "Director(ate)? General", replace by "Director(ate)?-General" </description>
+    <id>en03-018</id>
+    <replace>Director$1-General</replace>
+    <normalisedFind>\b&lt;Director(ate)? General\b&gt;</normalisedFind>
+    <normalisedReplace>Director$1-General</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Secretary General&gt;</find>
+    <style>All</style>
+    <description>find "Secretary General", replace by "Secretary-General"</description>
+    <id>en03-019</id>
+    <replace>Secretary-General</replace>
+    <normalisedFind>\b&lt;Secretary General\b&gt;</normalisedFind>
+    <normalisedReplace>Secretary-General</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Secretariat General&gt;</find>
+    <style>All</style>
+    <description>find "Secretariat General", replace by "Secretariat-General"</description>
+    <id>en03-020</id>
+    <replace>Secretariat-General</replace>
+    <normalisedFind>\b&lt;Secretariat General\b&gt;</normalisedFind>
+    <normalisedReplace>Secretariat-General</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;[tT]reaty on the [fF]unctioning of the European Union&gt;</find>
+    <style>All</style>
+    <description>find "[tT]reaty on the [fF]unctioning of the European Union", replace by "Treaty on the Functioning of the European Union" </description>
+    <id>en03-021</id>
+    <replace>Treaty on the Functioning of the European Union</replace>
+    <normalisedFind>\b&lt;[tT]reaty on the [fF]unctioning of the European Union\b&gt;</normalisedFind>
+    <normalisedReplace>Treaty on the Functioning of the European Union</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;Treaty on the European Union&gt;</find>
+    <style>All</style>
+    <description>find "Treaty on the European Union", replace by "Treaty on European Union"</description>
+    <id>en03-022</id>
+    <replace>Treaty on European Union</replace>
+    <normalisedFind>\b&lt;Treaty on the European Union\b&gt;</normalisedFind>
+    <normalisedReplace>Treaty on European Union</normalisedReplace>
+  </rule>
+</dictionary>

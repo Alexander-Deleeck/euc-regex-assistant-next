@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<processList processType="TextReplacement">
+  <name>nl.processList</name>
+  <dictionary active="True">
+    <fileName>XX\xx01.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx02.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx03.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx04.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx05.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx06.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx08.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx09.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx10.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx11_EL.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx12_EL.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx13.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx14.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx15.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl01.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl02.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl03.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl04.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl05.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl06.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl07.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl08.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl09.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl10.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl11.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl12.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl13.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl14.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl15.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl16_PROG.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx16.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl17.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl18.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>NL\nl19.xml</fileName>
+  </dictionary>
+</processList>

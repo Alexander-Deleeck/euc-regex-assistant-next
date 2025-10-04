@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>de01 - mdash - ndash - hyphen</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="true" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find> [—–\-](,)?</find>
+    <style>All</style>
+    <description>at the end of paragraph, find " [mdash ndash -](,)", replace by "$nbsp;mdash(,)"</description>
+    <id>de01-001</id>
+    <replace> —$1</replace>
+    <normalisedFind> [—–\-](,)?</normalisedFind>
+    <normalisedReplace>\u00A0—$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find> [—–\-](,)? </find>
+    <style>All</style>
+    <description>find " [mdash ndash -](,) ", replace by "$nbsp;mdash(,) "</description>
+    <id>de01-002</id>
+    <replace> —$1 </replace>
+    <normalisedFind> [—–\-](,)? </normalisedFind>
+    <normalisedReplace>\u00A0—$1 </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>([\p{Ll}\p{Lu}\p{Lt}\p{Lo}])[—–](,)? </find>
+    <style>All</style>
+    <description>find "[any letter][mdash ndash](,) ", replace by "[any letter]-(,) "</description>
+    <id>de01-003</id>
+    <replace>$1-$2 </replace>
+    <normalisedFind>([\p{Ll}\p{Lu}\p{Lt}\p{Lo}])[—–](,)? </normalisedFind>
+    <normalisedReplace>$1-$2 </normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find> [—–]([\p{Ll}\p{Lu}\p{Lt}\p{Lo}])</find>
+    <style>All</style>
+    <description>find " [mdash ndash][any letter]", replace by " -[any letter]"</description>
+    <id>de01-004</id>
+    <replace> -$1</replace>
+    <normalisedFind> [—–]([\p{Ll}\p{Lu}\p{Lt}\p{Lo}])</normalisedFind>
+    <normalisedReplace> -$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9])(jährige)&gt;</find>
+    <style>All</style>
+    <description>find "[any figure]jährige" replace by "[any figure]-jährige"</description>
+    <id>de01-005</id>
+    <replace>\1-\2</replace>
+    <normalisedFind>(\d)(jährige)\b&gt;</normalisedFind>
+    <normalisedReplace>$1-$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>(\d)mal&gt;</find>
+    <style>All</style>
+    <description>find "[any figure]mal" replace by "[any figure]-mal"</description>
+    <id>de01-006</id>
+    <replace>\1-mal</replace>
+    <normalisedFind>(\d)mal\b&gt;</normalisedFind>
+    <normalisedReplace>$1-mal</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9])-(er)&gt;</find>
+    <style>All</style>
+    <description>find "[any figure]-er" replace by "[any figure]er"</description>
+    <id>de01-007</id>
+    <replace>\1\2</replace>
+    <normalisedFind>(\d)-(er)\b&gt;</normalisedFind>
+    <normalisedReplace>$1$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9])fach&gt;</find>
+    <style>All</style>
+    <description>find "[any figure]fach" replace by "[any figure]-fach"</description>
+    <id>de01-008</id>
+    <replace>\1-fach</replace>
+    <normalisedFind>(\d)fach\b&gt;</normalisedFind>
+    <normalisedReplace>$1-fach</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d)-?(er) (Jahren?)\b</find>
+    <style>All</style>
+    <description>find "[any figure](-)er Jahre(n)", replace by "[any figure]er-Jahre(n)"</description>
+    <id>de01-009</id>
+    <replace>$1$2-$3</replace>
+    <normalisedFind>(\d)-?(er) (Jahren?)\b&gt;</normalisedFind>
+    <normalisedReplace>$1$2-$3</normalisedReplace>
+  </rule>
+</dictionary>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>en01 - changing</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([aA]rticles?)([ \u00A0])?(\d{1,3})[ \u00A0](\(\d\d?\))</find>
+    <style>All</style>
+    <description>find "[aA]rticles?)[ \u00A0]?1[111][ \u00A0](1[1])", replace by "[aA]rticles?)[ \u00A0]?1[111](1[1])"</description>
+    <id>en01-001</id>
+    <replace>$1$2$3$4</replace>
+    <normalisedFind>\b&lt;([aA]rticles?)([ \u00A0])?(\d{1,3})[ \u00A0](\(\d\d?\))</normalisedFind>
+    <normalisedReplace>$1$2$3$4</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;OJ[ ^s]([LC])[ ^s]([0-9]{1,4}), ([0-9][0-9][0-9][0-9]),</find>
+    <style>All</style>
+    <description>find "OJ[ &amp;nbsp;][LC][ &amp;nbsp;]1[111], 1111,", replace by "OJ 1111 [LC]&amp;nbsp;1[111],"</description>
+    <id>en01-002</id>
+    <replace>OJ \3 \1 \2,</replace>
+    <normalisedFind>\b&lt;OJ[ \u00A0]([LC])[ \u00A0](\d{1,4}), (\d\d\d\d),</normalisedFind>
+    <normalisedReplace>OJ $3 $1\u00A0$2,</normalisedReplace>
+  </rule>
+</dictionary>

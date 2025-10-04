@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<processList processType="TextReplacement">
+  <name>fr.processList</name>
+  <dictionary active="True">
+    <fileName>XX\xx01.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx02.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx03.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx04.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx05.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx06.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx07.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx08.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx09.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx10.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx11_EL.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx12_EL.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx13.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx14.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>XX\xx15.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr01.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr02.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr03.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr04.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr05.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr06.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr07.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr08.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr09.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr10.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr11.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr12.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr13.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr14.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr15.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr16.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr17.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr18.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr19.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr20_PROG.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr21.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr22.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr23.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>FR\fr24.xml</fileName>
+  </dictionary>
+</processList>

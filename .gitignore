@@ -1,4 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
@@ -43,23 +44,23 @@ next-env.d.ts
 README.md
 tests.txt
 .archive/
-*.xml
+
 *.lingua
 *.db
 *.old
 *.xsl
-AllRules/CreateTickets/CoDe.ico
-AllRules/CaseLaw_CleanUp/PlugInSampleCode/AttacheNormalTemplate.vbproj
-AllRules/CaseLaw_CleanUp/PlugInSampleCode/AssemblyInfo.vb
-AllRules/CheckConcordance/vssver2.scc
-AllRules/*
-public/AllRules/*
-.DOCUMENTATION/*
-DOCUMENTATION/*
+
+.DOCUMENTATION/
+DOCUMENTATION/
 .venv/
 .vercel
-api/__pycache__/*
+api/__pycache__/
 vercel.json
 
 DEPLOYMENT_GUIDE.md
 vercel.json
+
+# AllRules public directory configuration
+AllRules_original/
+AllRules/*
+public/AllRulesFull/

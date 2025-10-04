@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <mappings>
+    <mapping language="BG" processList="Dictionaries\bg.processList.xml" />
+    <mapping language="CS" processList="Dictionaries\cs.processList.xml" />
+    <mapping language="DA" processList="Dictionaries\da.processList.xml" />
+    <mapping language="DE" processList="Dictionaries\de.processList.xml" />
+    <mapping language="EL" processList="Dictionaries\el.processList.xml" />
+    <mapping language="EN" processList="Dictionaries\en.processList.xml" />
+    <mapping language="ES" processList="Dictionaries\es.processList.xml" />
+    <mapping language="ET" processList="Dictionaries\et.processList.xml" />
+    <mapping language="FI" processList="Dictionaries\fi.processList.xml" />
+    <mapping language="FR" processList="Dictionaries\fr.processList.xml" />
+    <mapping language="GA" processList="Dictionaries\ga.processList.xml" />
+    <mapping language="HR" processList="Dictionaries\hr.processList.xml" />
+    <mapping language="HU" processList="Dictionaries\hu.processList.xml" />
+    <mapping language="IT" processList="Dictionaries\it.processList.xml" />
+    <mapping language="LT" processList="Dictionaries\lt.processList.xml" />
+    <mapping language="LV" processList="Dictionaries\lv.processList.xml" />
+    <mapping language="MT" processList="Dictionaries\mt.processList.xml" />
+    <mapping language="NL" processList="Dictionaries\nl.processList.xml" />
+    <mapping language="PL" processList="Dictionaries\pl.processList.xml" />
+    <mapping language="PT" processList="Dictionaries\pt.processList.xml" />
+    <mapping language="RO" processList="Dictionaries\ro.processList.xml" />
+    <mapping language="SK" processList="Dictionaries\sk.processList.xml" />
+    <mapping language="SL" processList="Dictionaries\sl.processList.xml" />
+    <mapping language="SV" processList="Dictionaries\sv.processList.xml" />
+    <mapping language="XX" processList="Dictionaries\xx.processList.xml" />
+  </mappings>
+  <patternTypeRelations>
+    <warningOn patternType1="date_rev" patternType2="date" languages="DA" />
+    <warningOn patternType1="ordinal_number" patternType2="cardinal_number" languages="HR" />
+    <warningOn patternType1="years" patternType2="year" languages="LT" />
+  </patternTypeRelations>
+  <ruleCategories>
+    <category id="{b62ff48e-4208-4f43-9319-01d466374b20}" value="1. Article Ref" />
+    <category id="{aed3b548-b5d2-44a2-b8de-7f416d35046f}" value="2. OJ Ref" />
+    <category id="{fc492961-997c-4f9d-a263-142f67993948}" value="3. Subdivision" />
+    <category id="{b0789596-b294-47e4-8a05-a56836be2085}" value="4. List" />
+    <category id="{be26c96f-1a88-46a1-bf6e-683c6e99cc44}" value="5. Date" />
+    <category id="{0b15b701-364e-4b96-9816-534cdb5f52eb}" value="6. Number" />
+    <category id="{1f20b75f-48b6-4e37-8aa3-4531eb870e3b}" value="7. Special Number" />
+  </ruleCategories>
+</configuration>

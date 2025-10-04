@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>fr03 - point 1e - millions EUR (1)</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(points?)[ \u00A0]?(\d{1,3}) ?e\b</find>
+    <style>All</style>
+    <description>find "points?[ &amp;nbsp;]1[11] ?[_SUP_e_SUP_e]", replace by "points?&amp;nbsp;1[11]e" </description>
+    <id>fr03-001</id>
+    <replace>$1 $2e</replace>
+    <normalisedFind>\b&lt;(points?)[ \u00A0]?(\d{1,3}) ?e\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2e</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(paragraphes?)[ \u00A0]?(\d{1,3}) ?e\b</find>
+    <style>All</style>
+    <description>find "paragraphes?[ &amp;nbsp;]1[11] ?[_SUP_e_SUP_e]", replace by "points?|paragraphes?|sections?&amp;nbsp;1[11]e" </description>
+    <id>fr03-002</id>
+    <replace>$1 $2e</replace>
+    <normalisedFind>\b&lt;(paragraphes?)[ \u00A0]?(\d{1,3}) ?e\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2e</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(sections?)[ \u00A0]?(\d{1,3}) ?e\b</find>
+    <style>All</style>
+    <description>find "sections?[ &amp;nbsp;]1[11] ?[_SUP_e_SUP_e]", replace by "points?|sections?&amp;nbsp;1[11]e" </description>
+    <id>fr03-003</id>
+    <replace>$1 $2e</replace>
+    <normalisedFind>\b&lt;(sections?)[ \u00A0]?(\d{1,3}) ?e\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2e</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b(chapitres?)[ \u00A0]?(\d{1,3}) ?e\b</find>
+    <style>All</style>
+    <description>find "chapitres?[ &amp;nbsp;]1[11] ?[_SUP_e_SUP_e]", replace by "chapitres?&amp;nbsp;1[11]e" </description>
+    <id>fr03-004</id>
+    <replace>$1 $2e</replace>
+    <normalisedFind>\b&lt;(chapitres?)[ \u00A0]?(\d{1,3}) ?e\b&gt;</normalisedFind>
+    <normalisedReplace>$1\u00A0$2e</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d),(\d{1,2})[ \u00A0]?[mM]illions?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)EUR 1[11]&amp;nbsp;111,1[1]( )[mM]illion(s)" or "(dDlL’)euros 1[11]&amp;nbsp;111,1[1]( )[mM]illion(s)", replace by "(dDlL’)1&amp;nbsp;111,1[1]&amp;nbsp;millions d’EUR" </description>
+    <id>fr03-005</id>
+    <replace>$1$3 $4,$5 millions d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d),(\d{1,2})[ \u00A0]?[mM]illions?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3\u00A0$4,$5\u00A0millions d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d)[ \u00A0]?[mM]illions?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11]&amp;nbsp;111( )[mM]illion(s)", replace by "(dDlL’)1&amp;nbsp;111&amp;nbsp;millions d’EUR" </description>
+    <id>fr03-006</id>
+    <replace>$1$3 $4 millions d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d)[ \u00A0]?[mM]illions?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3\u00A0$4\u00A0millions d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3}),(\d{1,2})[ \u00A0]?[mM]illions?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11],1[1]( )[mM]illion(s)", replace by "(dDlL’)1[11],1[1]&amp;nbsp;millions d’EUR" </description>
+    <id>fr03-007</id>
+    <replace>$1$3,$4 millions d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3}),(\d{1,2})[ \u00A0]?[mM]illions?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3,$4\u00A0millions d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0]?[mM]illions?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11]( )[mM]illion(s)", replace by "(dDlL’)1[11]&amp;nbsp;millions d’EUR" </description>
+    <id>fr03-008</id>
+    <replace>$1$3 millions d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0]?[mM]illions?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3\u00A0millions d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d),(\d{1,2})[ \u00A0]?[bB]illions?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11]&amp;nbsp;111,1[1]( )[bB]illion(s)", replace by "(dDlL’)1[11]&amp;nbsp;111,1[1]&amp;nbsp;milliards d’EUR" </description>
+    <id>fr03-009</id>
+    <replace>$1$3 $4,$5 milliards d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d),(\d{1,2})[ \u00A0]?[bB]illions?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3\u00A0$4,$5\u00A0milliards d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d)[ \u00A0]?[bB]illions?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11]&amp;nbsp;111( )[bB]illion(s)", replace by "(dDlL’)1[11]&amp;nbsp;111&amp;nbsp;milliards d’EUR" </description>
+    <id>fr03-010</id>
+    <replace>$1$3 $4 milliards d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d)[ \u00A0]?[bB]illions?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3\u00A0$4\u00A0milliards d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3}),(\d{1,2})[ \u00A0]?[bB]illions?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11],1[1]( )[bB]illion(s)", replace by "(dDlL’)1[11],1[1]&amp;nbsp;milliards d’EUR" </description>
+    <id>fr03-011</id>
+    <replace>$1$3,$4 milliards d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3}),(\d{1,2})[ \u00A0]?[bB]illions?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3,$4\u00A0milliards d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0]?[bB]illions?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11]( )[bB]illion(s)", replace by "(dDlL’)1[11]&amp;nbsp;milliards d’EUR" </description>
+    <id>fr03-012</id>
+    <replace>$1$3 milliards d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0]?[bB]illions?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3\u00A0milliards d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d),(\d{1,2})[ \u00A0]?[mM]illiards?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11]&amp;nbsp;111,1[1]( )[mM]illiard(s)", replace by "(dDlL’)1[11]&amp;nbsp;111,1[1]&amp;nbsp;milliards d’EUR" </description>
+    <id>fr03-013</id>
+    <replace>$1$3 $4,$5 milliards d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d),(\d{1,2})[ \u00A0]?[mM]illiards?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3\u00A0$4,$5\u00A0milliards d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d)[ \u00A0]?[mM]illiards?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11]&amp;nbsp;111( )[mM]illiard(s)", replace by "(dDlL’)1[11]&amp;nbsp;111&amp;nbsp;milliards d’EUR" </description>
+    <id>fr03-014</id>
+    <replace>$1$3 $4 milliards d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0](\d\d\d)[ \u00A0]?[mM]illiards?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3\u00A0$4\u00A0milliards d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3}),(\d{1,2})[ \u00A0]?[mM]illiards?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11],1[1]( )[mM]illiard(s)", replace by "(dDlL’)1[11],1[1]&amp;nbsp;milliards d’EUR" </description>
+    <id>fr03-015</id>
+    <replace>$1$3,$4 milliards d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3}),(\d{1,2})[ \u00A0]?[mM]illiards?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3,$4\u00A0milliards d’EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0]?[mM]illiards?\b</find>
+    <style>All</style>
+    <description>find "(dDlL’)[EUR|euros] 1[11]( )[mM]illiard(s)", replace by "(dDlL’)1[11]&amp;nbsp;milliards d’EUR" </description>
+    <id>fr03-016</id>
+    <replace>$1$3 milliards d’EUR</replace>
+    <normalisedFind>\b&lt;([dDlL]’)?[eE][uU][rR](os)? (\d{1,3})[ \u00A0]?[mM]illiards?\b&gt;</normalisedFind>
+    <normalisedReplace>$1$3\u00A0milliards d’EUR</normalisedReplace>
+  </rule>
+</dictionary>

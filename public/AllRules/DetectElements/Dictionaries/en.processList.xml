@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<processList processType="Concordance">
+  <name>Rule dictionaries for English documents</name>
+  <dictionary active="True">
+    <fileName>rulesAll.xml</fileName>
+  </dictionary>
+  <dictionary active="True">
+    <fileName>rulesEN.xml</fileName>
+  </dictionary>
+</processList>

@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dictionary version="2.0">
+  <name>nl02 - degree -  hyphen - dates - various - ponctuation</name>
+  <options />
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9]) °([NZ]B)&gt;</find>
+    <style>All</style>
+    <description>find "1 °[NZ]B", replace by "1° [NZ]B" </description>
+    <id>nl02-001</id>
+    <replace>\1° \2</replace>
+    <normalisedFind>(\d) °([NZ]B)\b&gt;</normalisedFind>
+    <normalisedReplace>$1° $2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>([0-9]) °([OW]L)&gt;</find>
+    <style>All</style>
+    <description>find "1 °[OW]L", replace by "1° [OW]L" </description>
+    <id>nl02-002</id>
+    <replace>\1° \2</replace>
+    <normalisedFind>(\d) °([OW]L)\b&gt;</normalisedFind>
+    <normalisedReplace>$1° $2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>-([0-9]) °</find>
+    <style>All</style>
+    <description>find "-1 °", replace by "–&amp;nbsp;1&amp;nbsp°" </description>
+    <id>nl02-003</id>
+    <replace>– \1 °</replace>
+    <normalisedFind>\-(\d) °</normalisedFind>
+    <normalisedReplace>–\u00A0$1\u00A0°</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>(\d) ?[x×] ?(\d)</find>
+    <style>All</style>
+    <description>find "1 ?[x×] ?1", replace by "1&amp;nbsp;×&amp;nbsp1" </description>
+    <id>nl02-004</id>
+    <replace>$1 × $2</replace>
+    <normalisedFind>(\d) ?[x×] ?(\d)</normalisedFind>
+    <normalisedReplace>$1\u00A0×\u00A0$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([12]\d\d\d) - ([12]\d\d\d)\b</find>
+    <style>All</style>
+    <description>find "[12]111 - [12]111", replace by "[12]111-[12]111" </description>
+    <id>nl02-005</id>
+    <replace>$1-$2</replace>
+    <normalisedFind>\b&lt;([12]\d\d\d) - ([12]\d\d\d)\b&gt;</normalisedFind>
+    <normalisedReplace>$1-$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>\b([12]\d\d\d) ?— ?([12]\d\d\d)\b</find>
+    <style>All</style>
+    <description>find "[12]111( )&amp;mdash;( )[12]111", replace by "[12]111-[12]111" </description>
+    <id>nl02-006</id>
+    <replace>$1-$2</replace>
+    <normalisedFind>\b&lt;([12]\d\d\d) ?— ?([12]\d\d\d)\b&gt;</normalisedFind>
+    <normalisedReplace>$1-$2</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;2019/20&gt;([!/])</find>
+    <style>All</style>
+    <description>find "2019/20", replace by "2019/2020" </description>
+    <id>nl02-007</id>
+    <replace>2019/2020\1</replace>
+    <normalisedFind>\b&lt;2019/20\b&gt;([^/])</normalisedFind>
+    <normalisedReplace>2019/2020$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;202([012345678])/2([123456789])&gt;([!/])</find>
+    <style>All</style>
+    <description>find "202[012345678]/2[123456789]", replace by "202[012345678]/202[123456789]" </description>
+    <id>nl02-008</id>
+    <replace>202\1/202\2\3</replace>
+    <normalisedFind>\b&lt;202([012345678])/2([123456789])\b&gt;([^/])</normalisedFind>
+    <normalisedReplace>202$1/202$2$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;2029/30&gt;([!/])</find>
+    <style>All</style>
+    <description>find "2029/30", replace by "2029/2030" </description>
+    <id>nl02-009</id>
+    <replace>2029/2030\1</replace>
+    <normalisedFind>\b&lt;2029/30\b&gt;([^/])</normalisedFind>
+    <normalisedReplace>2029/2030$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;203([012345678])/3([123456789])&gt;([!/])</find>
+    <style>All</style>
+    <description>find "203[012345678]/3[123456789]", replace by "203[012345678]/203[123456789]" </description>
+    <id>nl02-010</id>
+    <replace>203\1/203\2\3</replace>
+    <normalisedFind>\b&lt;203([012345678])/3([123456789])\b&gt;([^/])</normalisedFind>
+    <normalisedReplace>203$1/203$2$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;2039/40&gt;([!/])</find>
+    <style>All</style>
+    <description>find "2039/40", replace by "2039/2040" </description>
+    <id>nl02-011</id>
+    <replace>2039/2040\1</replace>
+    <normalisedFind>\b&lt;2039/40\b&gt;([^/])</normalisedFind>
+    <normalisedReplace>2039/2040$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;204([012345678])/4([123456789])&gt;([!/])</find>
+    <style>All</style>
+    <description>find "204[012345678]/4[123456789]", replace by "204[012345678]/204[123456789]" </description>
+    <id>nl02-012</id>
+    <replace>204\1/204\2\3</replace>
+    <normalisedFind>\b&lt;204([012345678])/4([123456789])\b&gt;([^/])</normalisedFind>
+    <normalisedReplace>204$1/204$2$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;2049/50&gt;([!/])</find>
+    <style>All</style>
+    <description>find "2049/50", replace by "2049/2050" </description>
+    <id>nl02-013</id>
+    <replace>2049/2050\1</replace>
+    <normalisedFind>\b&lt;2049/50\b&gt;([^/])</normalisedFind>
+    <normalisedReplace>2049/2050$1</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>&lt;205([012345678])/5([123456789])&gt;([!/])</find>
+    <style>All</style>
+    <description>find "205[012345678]/5[123456789]", replace by "205[012345678]/205[123456789]" </description>
+    <id>nl02-014</id>
+    <replace>205\1/205\2\3</replace>
+    <normalisedFind>\b&lt;205([012345678])/5([123456789])\b&gt;([^/])</normalisedFind>
+    <normalisedReplace>205$1/205$2$3</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>dkr</find>
+    <style>All</style>
+    <description>find "dkr", replace by "DKK" </description>
+    <id>nl02-015</id>
+    <replace>DKK</replace>
+    <normalisedFind>dkr</normalisedFind>
+    <normalisedReplace>DKK</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="true">
+    <find>£Stg&gt;</find>
+    <style>All</style>
+    <description>find "£Stg", replace by "GBP" </description>
+    <id>nl02-016</id>
+    <replace>GBP</replace>
+    <normalisedFind>£Stg\b&gt;</normalisedFind>
+    <normalisedReplace>GBP</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="true" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>Skr</find>
+    <style>All</style>
+    <description>find "Skr", replace by "SEK" </description>
+    <id>nl02-017</id>
+    <replace>SEK</replace>
+    <normalisedFind>Skr</normalisedFind>
+    <normalisedReplace>SEK</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>€</find>
+    <style>All</style>
+    <description>find "€", replace by "EUR" </description>
+    <id>nl02-018</id>
+    <replace>EUR</replace>
+    <normalisedFind>€</normalisedFind>
+    <normalisedReplace>EUR</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="false" wildcard="false" wordRule="true">
+    <find>$</find>
+    <style>All</style>
+    <description>find "$", replace by "USD" </description>
+    <id>nl02-019</id>
+    <replace>USD</replace>
+    <normalisedFind>$</normalisedFind>
+    <normalisedReplace>USD</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>boetes</find>
+    <style>All</style>
+    <description>find "boetes", replace by "boeten" </description>
+    <id>nl02-020</id>
+    <replace>boeten</replace>
+    <normalisedFind>boetes</normalisedFind>
+    <normalisedReplace>boeten</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>fases</find>
+    <style>All</style>
+    <description>find "fases", replace by "fasen" </description>
+    <id>nl02-021</id>
+    <replace>fasen</replace>
+    <normalisedFind>fases</normalisedFind>
+    <normalisedReplace>fasen</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>methodes</find>
+    <style>All</style>
+    <description>find "methodes", replace by "methoden" </description>
+    <id>nl02-022</id>
+    <replace>methoden</replace>
+    <normalisedFind>methodes</normalisedFind>
+    <normalisedReplace>methoden</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>periodes</find>
+    <style>All</style>
+    <description>find "periodes", replace by "perioden" </description>
+    <id>nl02-023</id>
+    <replace>perioden</replace>
+    <normalisedFind>periodes</normalisedFind>
+    <normalisedReplace>perioden</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="false" startOfParagraph="false" wholeWord="true" wildcard="false" wordRule="true">
+    <find>ruimtes</find>
+    <style>All</style>
+    <description>find "ruimtes", replace by "ruimten" </description>
+    <id>nl02-024</id>
+    <replace>ruimten</replace>
+    <normalisedFind>ruimtes</normalisedFind>
+    <normalisedReplace>ruimten</normalisedReplace>
+  </rule>
+  <rule active="true" caseSensitive="false" endOfParagraph="true" startOfParagraph="false" wholeWord="false" wildcard="true" wordRule="false">
+    <find>;(?&lt;OJStyleSuffix&gt;([ ?\u00A0?])(?:of|en))</find>
+    <style>All</style>
+    <description>end of paragraph: find ; AND option. space or non-break.space AND of or en / replace by ,</description>
+    <id>nl02-025</id>
+    <replace>,</replace>
+    <normalisedFind>;</normalisedFind>
+    <suffix>([ ?\u00A0?])(?:of|en)</suffix>
+    <normalisedReplace>,</normalisedReplace>
+  </rule>
+</dictionary>
