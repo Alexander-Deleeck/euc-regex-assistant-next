@@ -3,7 +3,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { XMLParser } from 'fast-xml-parser';
 
-const ROOT = path.join(process.cwd(), 'AllRules');
+const ROOT = path.join(process.cwd(),'public', 'AllRules');
 
 export interface Rule {
   id: string;
